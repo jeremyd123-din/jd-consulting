@@ -26,13 +26,13 @@ const BlockNotFound = ({ _type }) => {
   );
 };
 
-const PageBuilder = ({ data }) => {
+const PageBuilder = ({ data, index }) => {
   const { _type, block_category } = data;
   const Comp =
     categories[stegaClean(block_category)][_type] ?? BlockNotFound(_type);
   return (
     <>
-      <Comp data={data} />
+      <Comp data={data} index={index} />
     </>
   );
 };

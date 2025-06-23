@@ -82,7 +82,7 @@ const MenuLink = ({
                 : null
             }
           >
-            <span className="visually-hidden">Expand submenu</span>
+            <span className="sr-only">Expand submenu</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -172,7 +172,7 @@ const HeaderVariant01 = ({ navigationSchema, siteSettings }) => {
 
   return (
     <>
-      <header className="b__header__variant01 b__header__variant01--sticky">
+      <header className="b__header__variant01 b__header__variant01--glass b__header__variant01--sticky">
         <div className="container">
           <Button
             linkClassName="c__button--skip-to-content"
@@ -223,7 +223,12 @@ const HeaderVariant01 = ({ navigationSchema, siteSettings }) => {
                     );
                   })}
                 </ul>
-                <Button title={`Get Started`} destination={``} />
+                {siteSettings?.header_button_title && (
+                  <Button
+                    title={siteSettings?.header_button_title}
+                    destination={siteSettings?.header_button_destination}
+                  />
+                )}
               </nav>
             </div>
             <div className="b__header__variant01__hamburger-wrapper">
@@ -267,11 +272,13 @@ const HeaderVariant01 = ({ navigationSchema, siteSettings }) => {
                     })}
                   </ul>
                   <div className="mt-4 pt-2">
-                    <Button
-                      className="text-center w-full"
-                      title={`Get Started`}
-                      destination={``}
-                    />
+                    {siteSettings?.header_button_title && (
+                      <Button
+                        className="text-center w-full"
+                        title={siteSettings?.header_button_title}
+                        destination={siteSettings?.header_button_destination}
+                      />
+                    )}
                   </div>
                 </nav>
               </div>

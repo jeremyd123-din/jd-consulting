@@ -12,8 +12,8 @@ export default async function Page() {
   }
   return (
     <>
-      {data?.page_builder?.map((elem) => {
-        return <PageBuilder key={elem._key} data={elem} />;
+      {data?.page_builder?.map((elem, index) => {
+        return <PageBuilder key={elem._key} data={elem} index={index} />;
       })}
     </>
   );

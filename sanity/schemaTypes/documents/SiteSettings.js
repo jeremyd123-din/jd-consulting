@@ -29,6 +29,20 @@ export default defineType({
       type: "image",
       group: "general",
     }),
+    defineField({
+      name: "header_button_title",
+      title: "Header Button Title",
+      type: "string",
+      initialValue: `Get Strted`,
+      group: "general",
+    }),
+    defineField({
+      name: "header_button_destination",
+      title: "Header Button Destination",
+      type: "string",
+      initialValue: `Get Strted`,
+      group: "general",
+    }),
   ],
   preview: {
     prepare: () => ({

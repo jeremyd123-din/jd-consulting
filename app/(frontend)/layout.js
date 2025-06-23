@@ -29,7 +29,6 @@ export default async function RootLayout({ children }) {
   const favicon = siteSettings?.favicon
     ? urlFor(siteSettings.favicon).url()
     : null;
-  console.log(favicon);
   return (
     <html lang="en" className={globalFont.variable}>
       <body
