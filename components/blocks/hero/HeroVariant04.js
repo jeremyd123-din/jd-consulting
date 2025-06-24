@@ -85,12 +85,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const HeroVariant04 = ({ data }) => {
+const HeroVariant04 = ({ data = {}, index }) => {
   return (
     <Bounded
       id={data?._key}
       type={data?._type}
       scopedCss={data?.scoped_css}
+      index={index}
       className="b__hero__variant04 overflow-hidden relative py-0"
     >
       {data?.enable_background_pattern && (

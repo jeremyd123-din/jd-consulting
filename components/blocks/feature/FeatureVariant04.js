@@ -22,12 +22,13 @@ const cardColumns = {
   3: "col-lg-4",
 };
 
-const FeatureVariant04 = ({ data }) => {
+const FeatureVariant04 = ({ data = {}, index }) => {
   return (
     <Bounded
       id={data._key}
       type={data._type}
       scopedCss={data.scoped_css}
+      index={index}
       className="b__feature__variant04 overflow-hidden relative"
     >
       <Wrapper>

@@ -16,6 +16,7 @@ const Bounded = ({
   id,
   scopedCss,
   children,
+  index,
   ...restProps
 }) => {
   return (
@@ -23,7 +24,10 @@ const Bounded = ({
       id={id ? `bounded-section-id-${id}` : null}
       $scopedCss={scopedCss ? scopedCss?.code : null}
       data-block-type={type && parse(type)}
-      className={cn(className)}
+      className={cn(
+        className,
+        index?.toString() && `bounded-section-idx-${index}`
+      )}
       {...restProps}
     >
       {children}

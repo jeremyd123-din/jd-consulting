@@ -9,12 +9,13 @@ import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
 import { cn } from "@/lib/utils";
 import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
 
-const HeroVariant03 = ({ data }) => {
+const HeroVariant03 = ({ data = {}, index }) => {
   return (
     <Bounded
       id={data._key}
       type={data._type}
       scopedCss={data.scoped_css}
+      index={index}
       className={`b__hero__variant03 overflow-hidden relative ${data.background_theme && `u__background-${stegaClean(data.background_theme)}`}`}
     >
       {data?.enable_background_pattern && (

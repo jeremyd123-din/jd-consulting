@@ -47,7 +47,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const HeroVariant05 = ({ data }) => {
+const HeroVariant05 = ({ data = {}, index }) => {
   const {
     register,
     handleSubmit,
@@ -84,6 +84,7 @@ const HeroVariant05 = ({ data }) => {
       id={data?._key}
       type={data?._type}
       scopedCss={data?.scoped_css}
+      index={index}
       className="b__hero__variant05 overflow-hidden relative"
     >
       {data?.enable_background_pattern && (

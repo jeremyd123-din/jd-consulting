@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const StatsVariant01 = ({ data = {} }) => {
+const StatsVariant01 = ({ data = {}, index }) => {
   const invertTextColor = data.invert_text_color ? `u__text-inverted` : ``;
 
   return (
@@ -49,6 +49,7 @@ const StatsVariant01 = ({ data = {} }) => {
       id={data._key}
       type={data._type}
       scopedCss={data.scoped_css}
+      index={index}
       className="b__stats__variant01 overflow-hidden relative"
     >
       {data.enable_background_pattern && (

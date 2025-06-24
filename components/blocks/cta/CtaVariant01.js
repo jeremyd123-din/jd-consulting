@@ -25,12 +25,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const CtaVariant01 = ({ data }) => {
+const CtaVariant01 = ({ data = {}, index }) => {
   return (
     <Bounded
       id={data?._key}
       type={data?._type}
       scopedCss={data?.scoped_css}
+      index={index}
       className="b__cta__variant01"
     >
       <Wrapper>

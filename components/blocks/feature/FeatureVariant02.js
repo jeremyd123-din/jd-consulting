@@ -24,7 +24,7 @@ const cardColumns = {
   4: "col-lg-3",
 };
 
-const FeatureVariant02 = ({ data = {} }) => {
+const FeatureVariant02 = ({ data = {}, index }) => {
   const dataCardColumns = getCleanValue(data.card_columns);
   const columnClassName = `col-md-6 ${dataCardColumns ? cardColumns[dataCardColumns] : `col-lg-4`}`;
 
@@ -33,6 +33,7 @@ const FeatureVariant02 = ({ data = {} }) => {
       id={data._key}
       type={data._type}
       scopedCss={data.scoped_css}
+      index={index}
       className="b__feature__variant02 overflow-hidden relative"
     >
       {data.enable_background_pattern && (

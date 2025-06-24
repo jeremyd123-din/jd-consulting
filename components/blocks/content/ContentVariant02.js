@@ -4,12 +4,13 @@ import { PortableText } from "@portabletext/react";
 import Button from "@/components/ui/Button";
 import PortableTextComponents from "@/components/ui/PortableTextComponents";
 
-const ContentVariant02 = ({ data }) => {
+const ContentVariant02 = ({ data = {}, index }) => {
   return (
     <Bounded
       id={data?._key}
       type={data?._type}
       scopedCss={data?.scoped_css}
+      index={index}
       className="b__content__variant02"
     >
       <div className="container">

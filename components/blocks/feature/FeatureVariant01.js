@@ -44,12 +44,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const FeatureVariant01 = ({ data }) => {
+const FeatureVariant01 = ({ data = {}, index }) => {
   return (
     <Bounded
       id={data._key}
       type={data._type}
       scopedCss={data.scoped_css}
+      index={index}
       className="b__feature__variant01 overflow-hidden relative"
     >
       {data.enable_background_pattern && (

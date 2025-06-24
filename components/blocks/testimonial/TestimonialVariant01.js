@@ -1,13 +1,8 @@
 "use client";
-import parse from "html-react-parser";
 import Bounded from "@/components/wrappers/Bounded";
 import styled from "styled-components";
-import IconCard from "@/components/ui/IconCard";
 import urlFor from "@/lib/imageUrlBuilder";
-import { stegaClean } from "@sanity/client/stega";
 import Heading from "@/components/ui/Heading";
-import Description from "@/components/ui/Description";
-import StatsCard from "@/components/ui/StatsCard";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
@@ -28,12 +23,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const TestimonialVariant01 = ({ data = {} }) => {
+const TestimonialVariant01 = ({ data = {}, index }) => {
   return (
     <Bounded
       id={data._key}
       type={data._type}
       scopedCss={data.scoped_css}
+      index={index}
       className="b__testimonial__variant01 overflow-hidden relative"
     >
       {data.enable_background_pattern && (

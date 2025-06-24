@@ -11,12 +11,13 @@ import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
 
 const Wrapper = styled.div``;
 
-const PartnerVariant01 = ({ data = {} }) => {
+const PartnerVariant01 = ({ data = {}, index }) => {
   return (
     <Bounded
       id={data._key}
       type={data._type}
       scopedCss={data.scoped_css}
+      index={index}
       className="b__partner__variant01 overflow-hidden relative"
     >
       <Wrapper>

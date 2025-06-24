@@ -126,6 +126,13 @@ const Styles = css`
     border: none;
     background: unset;
   }
+
+  .bounded-section-idx-0 {
+    @media (min-width: 992px) {
+      padding-top: 10rem;
+    }
+  }
+
   @keyframes rotate {
     100% {
       transform: rotate(360deg);
