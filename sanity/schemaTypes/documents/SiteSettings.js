@@ -32,13 +32,6 @@ export default defineType({
       group: "general",
     }),
     defineField({
-      name: "fallback_title",
-      title: "Fallback Title",
-      type: "string",
-      initialValue: ``,
-      group: "general",
-    }),
-    defineField({
       name: "header_button_title",
       title: "Header Button Title",
       type: "string",
