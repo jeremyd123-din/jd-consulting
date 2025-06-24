@@ -129,7 +129,7 @@ const Styles = css`
 
   .bounded-section-idx-0 {
     @media (min-width: 992px) {
-      padding-top: 10rem;
+      padding-top: 10rem !important;
     }
   }
 

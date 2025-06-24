@@ -1,12 +1,14 @@
 import { defineField, defineType } from "sanity";
-
+import { generateRichtextField } from "../blocks/defaultFields";
 export default defineType({
   name: "site_settings",
   title: "Site Settings",
   type: "document",
   groups: [
     { name: "general", title: "General", default: true },
-    { name: "navigation", title: "Navigation" },
+    { name: "footer", title: "Footer" },
+    { name: "social", title: "Social" },
+    { name: "legal", title: "Legal" },
   ],
   fields: [
     defineField({
@@ -42,6 +44,74 @@ export default defineType({
       type: "string",
       initialValue: `Get Strted`,
       group: "general",
+    }),
+    defineField({
+      name: "footer_description",
+      title: "Footer Description",
+      type: "string",
+      group: "footer",
+    }),
+    defineField({
+      name: "footer_quick_menu_title",
+      title: "Footer Quick Menu Title",
+      type: "string",
+      group: "footer",
+      initialValue: `Quick Menu`,
+    }),
+    defineField({
+      name: "footer_contact_title",
+      title: "Footer Contact Title",
+      type: "string",
+      group: "footer",
+      initialValue: `Get in Touch`,
+    }),
+    generateRichtextField({
+      name: "footer_contact_richtext",
+      title: "Footer Contact Richtext",
+      group: "footer",
+      initialValue: [],
+    }),
+    defineField({
+      name: "instagram_url",
+      title: "Instagram URL",
+      type: "string",
+      group: "social",
+    }),
+    defineField({
+      name: "facebook_url",
+      title: "Facebook URL",
+      type: "string",
+      group: "social",
+    }),
+    defineField({
+      name: "x_url",
+      title: "X URL",
+      type: "string",
+      group: "social",
+    }),
+    defineField({
+      name: "linkedin_url",
+      title: "LinkedIn URL",
+      type: "string",
+      group: "social",
+    }),
+    defineField({
+      name: "youtube_url",
+      title: "Youtube URL",
+      type: "string",
+      group: "social",
+    }),
+    defineField({
+      name: "privacy_policy_url",
+      title: "Privacy Policy URL",
+      type: "string",
+      group: "legal",
+    }),
+    defineField({
+      name: "terms_url",
+      title: "Terms URL",
+      type: "string",
+      group: "legal",
     }),
   ],
   preview: {

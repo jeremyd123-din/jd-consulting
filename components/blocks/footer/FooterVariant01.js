@@ -1,7 +1,7 @@
 import { organization } from "@/lib/constants";
 import React from "react";
 
-const Footer = () => {
+const FooterVariant01 = () => {
   return (
     <>
       <footer>
@@ -21,4 +21,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterVariant01;

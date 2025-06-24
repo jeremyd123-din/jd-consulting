@@ -271,7 +271,12 @@ export const generateButtonField = ({
 };
 
 export const generateRichtextField = (options = {}) => {
-  const { name = "content", title = "Content", initialValue = null } = options;
+  const {
+    name = "content",
+    title = "Content",
+    initialValue = null,
+    group = "content",
+  } = options;
 
   const defaultLoremIpsum = [
     {
@@ -333,7 +338,7 @@ export const generateRichtextField = (options = {}) => {
         },
       },
     ],
-    group: "content",
+    group,
   };
 
   if (initialValue !== null) {
