@@ -5,7 +5,7 @@ Marketing site for mosibello.com (sanity).
 ```bash
 # From Source
 git clone https://github.com/mosibello/jd-consulting
-cd mosibello-marketing-sanity
+cd jd-consulting
 ```
 
 then install dependencies
