@@ -32,6 +32,13 @@ export default defineType({
       group: "general",
     }),
     defineField({
+      name: "fallback_title",
+      title: "Fallback Title",
+      type: "string",
+      initialValue: ``,
+      group: "general",
+    }),
+    defineField({
       name: "header_button_title",
       title: "Header Button Title",
       type: "string",
@@ -48,8 +55,9 @@ export default defineType({
     defineField({
       name: "footer_description",
       title: "Footer Description",
-      type: "string",
+      type: "text",
       group: "footer",
+      rows: 3,
     }),
     defineField({
       name: "footer_quick_menu_title",
