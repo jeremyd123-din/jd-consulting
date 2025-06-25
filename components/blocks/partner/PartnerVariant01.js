@@ -50,10 +50,15 @@ const PartnerVariant01 = ({ data = {}, index }) => {
           <div className="container relative u__z-index-1 mt-[2.5rem]">
             <Marquee className="[--duration:30s] md:[--duration:60s]">
               {data.repeater.map((elem, index) => {
-                const imageObj = {
-                  src: elem.image ? urlFor(elem.image).url() : null,
-                  alt: elem.image ? elem.image.alt : null,
-                };
+                if (!elem) return null;
+                const image = elem?.image;
+                console.log(image);
+                const imageObj = image
+                  ? {
+                      src: urlFor(image).url(),
+                      alt: image.alt || null,
+                    }
+                  : null;
                 return (
                   <ConditionalBlurFade
                     key={index}

@@ -13,34 +13,40 @@ export async function getPageBySlug(slug) {
         image {
           asset->,
           hotspot,
-          crop
+          crop,
+          alt
         },
         logo {
           asset->,
           hotspot,
-          crop
+          crop,
+          alt
         },
         avatar {
           asset->,
           hotspot,
-          crop
+          crop,
+          alt
         },
         // ... other image fields
       },
       image {
         asset->,
         hotspot,
-        crop
+        crop,
+        alt
       },
       logo {
         asset->,
         hotspot,
-        crop
+        crop,
+        alt
       },
       avatar {
         asset->,
         hotspot,
-        crop
+        crop,
+        alt
       },
       "form": form->
     }
@@ -60,13 +66,15 @@ export async function getPostBySlug(slug) {
           ...,
           asset->,
           hotspot,
-          crop
+          crop,
+          alt
         }
       },
       featured_image {
         asset->,
         hotspot,
-        crop
+        crop,
+        alt
       },
       "primary_category": categories[0]->
     }`,
@@ -82,7 +90,8 @@ export async function getPosts(start, end) {
       featured_image {
         asset->,
         hotspot,
-        crop
+        crop,
+        alt
       },
       "excerpt": array::join(string::split((pt::text(content)), "")[0..100], "") + "..."
     }`,
@@ -98,7 +107,8 @@ export async function getPostsByCategory(start, end, categorySlug) {
       featured_image {
         asset->,
         hotspot,
-        crop
+        crop,
+        alt
       },
       "excerpt": array::join(string::split((pt::text(content)), "")[0..100], "") + "..."
     }`,
@@ -116,7 +126,8 @@ export async function getCategoryBySlug(categorySlug) {
       featured_image {
         asset->,
         hotspot,
-        crop
+        crop,
+        alt
       }
     }`,
     { categorySlug },
@@ -172,12 +183,18 @@ export async function getSiteSettings() {
       ...,
       favicon {
         ... {
-          asset->
+          asset->,
+          hotspot,
+          crop,
+          alt
         }
       },
       logo {
         ... {
-          asset->
+          asset->,
+          hotspot,
+          crop,
+          alt
         }
       }
     }`,

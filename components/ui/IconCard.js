@@ -71,7 +71,10 @@ const IconCard = ({
     >
       <div className="c__icon-card__wrapper">
         {icon && (icon.src || iconSvg) && (
-          <div className={`c__icon-card__icon-wrapper text-[${iconColor}]`}>
+          <div
+            className={`c__icon-card__icon-wrapper`}
+            style={{ color: iconColor }}
+          >
             <figure className="m-0 inline">
               {iconType === `image` && icon?.src && (
                 <Image

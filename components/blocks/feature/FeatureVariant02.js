@@ -104,6 +104,7 @@ const FeatureVariant02 = ({ data = {}, index }) => {
                 return (
                   <div key={index} className={columnClassName}>
                     <ConditionalBlurFade
+                      className={`h-full`}
                       enabled={data.enable_animations}
                       delay={0.3 + index * 0.1}
                     >
