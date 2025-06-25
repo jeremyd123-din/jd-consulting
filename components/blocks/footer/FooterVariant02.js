@@ -66,7 +66,7 @@ const FooterVariant02 = ({
   ];
 
   return (
-    <footer className="pt-[4rem] pb-[1rem] border-t b__footer__variant02">
+    <footer className="pt-[4rem] pb-[1rem] border-t b__footer__variant02 overflow-hidden">
       <Wrapper className="container">
         <div className="row b__footer__variant02__row">
           <div className="col-md-4 col-lg-6">

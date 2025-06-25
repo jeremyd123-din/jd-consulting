@@ -80,7 +80,7 @@ const FeatureVariant02 = ({ data = {}, index }) => {
           </div>
         </div>
         {data.repeater && (
-          <div className="container relative u__z-index-1 mt-[3rem]">
+          <div className="container relative u__z-index-1 mt-[2.5rem]">
             <div
               className={`row b__feature__variant02__row justify-${getCleanValue(data.justify_content)}`}
             >

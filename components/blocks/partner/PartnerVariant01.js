@@ -52,7 +52,6 @@ const PartnerVariant01 = ({ data = {}, index }) => {
               {data.repeater.map((elem, index) => {
                 if (!elem) return null;
                 const image = elem?.image;
-                console.log(image);
                 const imageObj = image
                   ? {
                       src: urlFor(image).url(),
