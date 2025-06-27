@@ -77,7 +77,7 @@ const HeroVariant05 = ({ data = {}, index }) => {
   const beamColorList =
     Array.isArray(data?.beam_color_list) && data.beam_color_list.length > 0
       ? data.beam_color_list
-      : ["#A07CFE", "#FE8FB5", "#FFBE7B"];
+      : ["var(--t-primary-branding-color)", "#FE8FB5", "#FFBE7B"];
 
   return (
     <Bounded
