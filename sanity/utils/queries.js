@@ -28,6 +28,12 @@ export async function getPageBySlug(slug) {
           crop,
           alt
         },
+        background_image {
+          asset->,
+          hotspot,
+          crop,
+          alt
+        },        
         // ... other image fields
       },
       image {
@@ -48,6 +54,12 @@ export async function getPageBySlug(slug) {
         crop,
         alt
       },
+      background_image {
+        asset->,
+        hotspot,
+        crop,
+        alt
+      }, 
       "form": form->
     }
 }`,

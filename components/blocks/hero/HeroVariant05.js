@@ -165,29 +165,31 @@ const HeroVariant05 = ({ data = {}, index }) => {
           </div>
           <div className="col-lg-6">
             <div className="lg:pl-[3rem]">
-              {form_fields && (
-                <ConditionalBlurFade
-                  enabled={data?.enable_animations}
-                  delay={0.3}
-                >
-                  <div className="b__hero__variant05__form-wrapper">
-                    {data?.enable_form_beam && (
-                      <ShineBorder shineColor={beamColorList} />
-                    )}
-                    <Form
-                      isValid={isValid}
-                      formFields={form_fields.code}
-                      register={register}
-                      errors={errors}
-                      control={control}
-                      onSubmit={handleSubmit(onSubmit)}
-                      payloadPosting={payloadPosting}
-                      formMessage={formMessage}
-                      buttonTitle={formButtonTitle ?? `Get Started`}
-                    />
-                  </div>
-                </ConditionalBlurFade>
-              )}
+              <div className="relative">
+                {form_fields && (
+                  <ConditionalBlurFade
+                    enabled={data?.enable_animations}
+                    delay={0.3}
+                  >
+                    <div className="b__hero__variant05__form-wrapper">
+                      {data?.enable_form_beam && (
+                        <ShineBorder shineColor={beamColorList} />
+                      )}
+                      <Form
+                        isValid={isValid}
+                        formFields={form_fields.code}
+                        register={register}
+                        errors={errors}
+                        control={control}
+                        onSubmit={handleSubmit(onSubmit)}
+                        payloadPosting={payloadPosting}
+                        formMessage={formMessage}
+                        buttonTitle={formButtonTitle ?? `Get Started`}
+                      />
+                    </div>
+                  </ConditionalBlurFade>
+                )}
+              </div>
             </div>
           </div>
         </div>

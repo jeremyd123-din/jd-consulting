@@ -84,10 +84,22 @@ const Component = styled.div`
         &--large {
           font-size: 18px;
           padding: var(--t-button-padding-large);
+          .c__button__arrow-icon {
+            svg {
+              width: 18px;
+              height: 18px;
+            }
+          }
         }
         &--xlarge {
           font-size: 20px;
           padding: var(--t-button-padding-xlarge);
+          .c__button__arrow-icon {
+            svg {
+              width: 20px;
+              height: 20px;
+            }
+          }
         }
       }
       &__anchor-element {

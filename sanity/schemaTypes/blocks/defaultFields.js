@@ -152,6 +152,38 @@ export const generateBackgroundPatternField = ({
     },
   }),
 ];
+
+export const generateBackgroundImageField = ({
+  imageFieldName = "background_image",
+  tintFieldName = "enable_background_tint",
+  imageFieldTitle = "Background Image",
+  tintFieldTitle = "Enable Background Tint",
+  imageGroup = "content",
+  tintGroup = "style",
+} = {}) => [
+  defineField({
+    name: imageFieldName,
+    title: imageFieldTitle,
+    type: "image",
+    group: imageGroup,
+    options: { hotspot: true },
+    fields: [
+      {
+        name: "alt",
+        title: "Alt",
+        type: "string",
+      },
+    ],
+  }),
+  defineField({
+    name: tintFieldName,
+    title: tintFieldTitle,
+    type: "boolean",
+    initialValue: () => false,
+    group: tintGroup,
+  }),
+];
+
 export const generateIconCardStyleField = ({
   name,
   title,

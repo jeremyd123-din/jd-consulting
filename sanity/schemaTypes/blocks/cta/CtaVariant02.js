@@ -1,16 +1,20 @@
 import { defineField, defineType } from "sanity";
 import {
-  generateHeadingTagField,
-  generateHeadingSizeField,
   scopedCss,
-  generateBackgroundPatternField,
-  generateBackgroundImageField,
   generateButtonField,
+  generateIconCardStyleField,
+  generateCardColumnsField,
+  generateHeadingTagField,
+  generateBackgroundPatternField,
+  generateRichtextField,
+  generateBackgroundImageField,
 } from "../defaultFields";
-const blockCategory = "hero";
-const HeroVariant03 = defineType({
-  name: "HeroVariant03",
-  title: "Hero Variant 03",
+
+const blockLabel = `CTA Variant 02`;
+const blockCategory = "cta";
+const CtaVariant02 = defineType({
+  name: "CtaVariant02",
+  title: blockLabel,
   type: "object",
   _menuCategory: blockCategory,
   groups: [
@@ -33,75 +37,35 @@ const HeroVariant03 = defineType({
       readOnly: true,
       hidden: true,
     }),
-    defineField({
-      name: "background_theme",
-      title: "Background Theme",
-      type: "string",
-      initialValue: "primary",
-      group: "content",
-      options: {
-        list: [
-          { title: "Primary", value: "primary" },
-          { title: "Secondary", value: "secondary" },
-        ],
-      },
-    }),
     ...generateBackgroundImageField,
-    defineField({
-      name: "align_left",
-      title: "Align Left",
-      type: "boolean",
-      initialValue: () => false,
-      group: "style",
-    }),
     defineField({
       name: "heading",
       title: "Heading",
       type: "string",
-      initialValue: "Page Heading",
+      initialValue: "Data to Enrich Your Online Business",
       group: "content",
     }),
-
     generateHeadingTagField({
       name: `heading_tag`,
       title: `Heading Tag`,
     }),
-
-    generateHeadingSizeField({
-      name: `heading_size`,
-      title: `Heading Size`,
-    }),
-
-    generateHeadingTagField({
-      name: `description_tag`,
-      title: `Description Tag`,
-    }),
-
-    generateHeadingSizeField({
-      name: `description_size`,
-      title: `Description Size`,
-    }),
-
     defineField({
       name: "description",
       title: "Description",
       type: "text",
-      initialValue:
-        "Gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet",
+      initialValue: `Gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br class="u__show-after-992" />Lorem ipsum dolor sit amet`,
       rows: 4,
       group: "content",
+    }),
+    generateHeadingTagField({
+      name: `description_tag`,
+      title: `Description Tag`,
     }),
     ...generateButtonField({
       name: "button",
       titleLabel: "Button Title",
       destinationLabel: "Button Destination",
       themeLabel: `Button Theme`,
-    }),
-    ...generateButtonField({
-      name: "button_two",
-      titleLabel: "Button Two Title",
-      destinationLabel: "Button Two Destination",
-      themeLabel: `Button Two Theme`,
     }),
     defineField({
       name: "invert_text_color",
@@ -127,10 +91,10 @@ const HeroVariant03 = defineType({
       const { heading } = selection;
       return {
         title: heading || "Heading needs to be set",
-        subtitle: "Hero Variant 03",
+        subtitle: blockLabel,
       };
     },
   },
 });
 
-export default HeroVariant03;
+export default CtaVariant02;

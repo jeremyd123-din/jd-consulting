@@ -11,6 +11,7 @@ import { getSiteSettings } from "@/sanity/utils/queries";
 import urlFor from "@/lib/imageUrlBuilder";
 import { Outfit } from "next/font/google";
 import HeadingTagsDisplay from "@/components/wrappers/HeadingTagsDisplay";
+import SmoothScrollHandler from "@/components/wrappers/SmoothScrollHandler";
 
 const globalFont = Outfit({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default async function RootLayout({ children }) {
         </StyledComponentsRegistry>
         <VisualEditingControls />
         <HeadingTagsDisplay />
+        <SmoothScrollHandler />
       </body>
     </html>
   );

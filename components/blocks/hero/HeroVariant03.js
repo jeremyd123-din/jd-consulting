@@ -2,14 +2,14 @@ import Button from "@/components/ui/Button";
 import Bounded from "@/components/wrappers/Bounded";
 import { stegaClean } from "@sanity/client/stega";
 import Heading from "@/components/ui/Heading";
-import Image from "next/image";
 import urlFor from "@/lib/imageUrlBuilder";
-import BackgroundTint from "@/components/ui/BackgroundTint";
+import BackgroundImageWithTint from "@/components/ui/BackgroundImageWithTint";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
 import { cn } from "@/lib/utils";
 import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
 
 const HeroVariant03 = ({ data = {}, index }) => {
+  const invertTextClassName = data?.invert_text_color ? `u__text-inverted` : ``;
   return (
     <Bounded
       id={data._key}
@@ -26,23 +26,24 @@ const HeroVariant03 = ({ data = {}, index }) => {
           )}
         />
       )}
-      {data.image && (
-        <div className="c__absolute-image">
-          <Image
-            fill={true}
-            placeholder="blur"
-            blurDataURL={data.image.asset?.metadata?.lqip}
-            src={urlFor(data.image).url()}
-            alt={data.image.alt ?? ""}
-            sizes="100%"
-          />
-        </div>
+      {data.background_image && (
+        <BackgroundImageWithTint
+          src={urlFor(data.background_image).url()}
+          alt={data.background_image.alt}
+          blurDataURL={data.background_image?.asset?.metadata?.lqip}
+          enableBackgroundTint={data.enable_background_tint}
+        />
       )}
       {data.enable_background_tint && <BackgroundTint />}
       <div
         className={`container relative u__z-index-1 ${data.background_theme && `u__text-inverted`}`}
       >
-        <div className={`${data.align_left ? `text-left` : `text-center`}`}>
+        <div
+          className={cn(
+            `${data.align_left ? `text-left` : `text-center`}`,
+            invertTextClassName
+          )}
+        >
           {data.heading && (
             <ConditionalBlurFade enabled={data?.enable_animations}>
               <div
