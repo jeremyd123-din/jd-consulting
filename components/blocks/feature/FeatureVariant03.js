@@ -89,11 +89,17 @@ const FeatureVariant03 = ({ data = {}, index }) => {
                       heading,
                       description,
                     } = elem;
-                    const imageObj = {
-                      src: image ? urlFor(image).url() : null,
-                      alt: image ? image.alt : null,
-                      blurDataURL: image ? image.asset?.metadata?.lqip : null,
-                    };
+
+                    const imageObj = image
+                      ? {
+                          src: urlFor(image).url(),
+                          alt: image.alt || null,
+                          blurDataURL: image
+                            ? image.asset?.metadata?.lqip
+                            : null,
+                        }
+                      : null;
+
                     return (
                       <ConditionalBlurFade
                         enabled={data.enable_animations}

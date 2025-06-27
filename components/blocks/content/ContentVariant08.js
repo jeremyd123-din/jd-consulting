@@ -26,7 +26,7 @@ const cardColumns = {
   4: "col-lg-3",
 };
 const ContentVariant08 = ({ data = {} }) => {
-  const dataCardColumns = stegaClean(data.cardColumns);
+  const dataCardColumns = stegaClean(data.card_columns);
   const columnClassName = `col-md-6 ${dataCardColumns ? cardColumns[dataCardColumns] : `col-lg-4`}`;
   return (
     <Bounded
@@ -93,10 +93,12 @@ const ContentVariant08 = ({ data = {} }) => {
                   button_open_in_new_tab,
                 } = elem;
 
-                const imageObj = {
-                  src: image ? urlFor(image).url() : null,
-                  alt: image ? image.alt : null,
-                };
+                const imageObj = image
+                  ? {
+                      src: urlFor(image).url(),
+                      alt: image.alt || null,
+                    }
+                  : null;
                 return (
                   <div key={index} className={columnClassName}>
                     <ConditionalBlurFade
@@ -104,7 +106,7 @@ const ContentVariant08 = ({ data = {} }) => {
                       delay={0.3 + index * 0.1}
                     >
                       <ResourceCard
-                        // image={imageObj}
+                        image={imageObj}
                         heading={heading}
                         description={description}
                         cardTag="div"

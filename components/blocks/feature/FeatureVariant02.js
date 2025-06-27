@@ -97,10 +97,12 @@ const FeatureVariant02 = ({ data = {}, index }) => {
                   button_open_in_new_tab,
                 } = elem;
 
-                const imageObj = {
-                  src: image ? urlFor(image).url() : null,
-                  alt: image ? image.alt : null,
-                };
+                const imageObj = image
+                  ? {
+                      src: urlFor(image).url(),
+                      alt: image.alt || null,
+                    }
+                  : null;
                 return (
                   <div key={index} className={columnClassName}>
                     <ConditionalBlurFade
