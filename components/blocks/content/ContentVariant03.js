@@ -22,6 +22,12 @@ const Wrapper = styled.div`
   }
 `;
 
+const cardColumns = {
+  2: "col-lg-6",
+  3: "col-lg-4",
+  4: "col-lg-3",
+};
+
 const ContentVariant03 = ({ data = {}, index }) => {
   const dataCardColumns = getCleanValue(data.card_columns);
   const columnClassName = `col-md-6 ${dataCardColumns ? cardColumns[dataCardColumns] : `col-lg-4`}`;
