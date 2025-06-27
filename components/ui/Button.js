@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import { stegaClean } from "@sanity/client/stega";
+import { getCleanValue } from "@/lib/helpers";
 import styled from "styled-components";
 import { ArrowRight } from "lucide-react";
 
@@ -293,7 +293,7 @@ const Button = ({
               <button
                 onClick={onClick}
                 type={type}
-                className={`c__button c__button--${stegaClean(theme)} ${
+                className={`c__button c__button--${getCleanValue(theme)} ${
                   className ? className : ``
                 } c__button__size--${size} ${isLoading ? `c__button--loading` : ``} ${isDisabled ? `c__button--disabled` : ``}`}
               >
@@ -308,12 +308,12 @@ const Button = ({
             <Component>
               <Link
                 className={`c__button__anchor-element ${linkClassName ? linkClassName : ``}`}
-                href={destination || "#"}
+                href={getCleanValue(destination) || "#"}
                 target={target ? "_blank" : "_self"}
                 rel={target ? "noopener noreferrer" : undefined}
               >
                 <span
-                  className={`c__button c__button--${stegaClean(theme)} ${
+                  className={`c__button c__button--${getCleanValue(theme)} ${
                     className ? className : ``
                   } c__button__size--${size}`}
                 >

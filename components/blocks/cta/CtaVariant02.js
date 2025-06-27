@@ -3,7 +3,6 @@ import styled from "styled-components";
 import Bounded from "@/components/wrappers/Bounded";
 import Heading from "@/components/ui/Heading";
 import Button from "@/components/ui/Button";
-import { stegaClean } from "@sanity/client/stega";
 import { cn } from "@/lib/utils";
 import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
