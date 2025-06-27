@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-const SmoothScrollHandler = () => {
+const SmoothScrollLogic = () => {
   const searchParams = useSearchParams();
 
   const scrollToSection = (sectionId) => {
@@ -61,7 +61,15 @@ const SmoothScrollHandler = () => {
     };
   }, []);
 
-  return null; // This component doesn't render anything
+  return null;
+};
+
+const SmoothScrollHandler = () => {
+  return (
+    <Suspense fallback={null}>
+      <SmoothScrollLogic />
+    </Suspense>
+  );
 };
 
 export default SmoothScrollHandler;
