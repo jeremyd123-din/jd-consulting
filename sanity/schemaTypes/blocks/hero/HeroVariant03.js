@@ -71,17 +71,6 @@ const HeroVariant03 = defineType({
       name: `heading_size`,
       title: `Heading Size`,
     }),
-
-    generateHeadingTagField({
-      name: `description_tag`,
-      title: `Description Tag`,
-    }),
-
-    generateHeadingSizeField({
-      name: `description_size`,
-      title: `Description Size`,
-    }),
-
     defineField({
       name: "description",
       title: "Description",
@@ -90,6 +79,15 @@ const HeroVariant03 = defineType({
         "Gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet",
       rows: 4,
       group: "content",
+    }),
+    generateHeadingTagField({
+      name: `description_tag`,
+      title: `Description Tag`,
+    }),
+
+    generateHeadingSizeField({
+      name: `description_size`,
+      title: `Description Size`,
     }),
     ...generateButtonField({
       name: "button",
@@ -102,6 +100,7 @@ const HeroVariant03 = defineType({
       titleLabel: "Button Two Title",
       destinationLabel: "Button Two Destination",
       themeLabel: `Button Two Theme`,
+      initialTitle: null,
     }),
     defineField({
       name: "invert_text_color",
