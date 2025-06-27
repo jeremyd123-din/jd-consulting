@@ -37,7 +37,7 @@ const CtaVariant02 = defineType({
       readOnly: true,
       hidden: true,
     }),
-    ...generateBackgroundImageField,
+    ...generateBackgroundImageField(),
     defineField({
       name: "heading",
       title: "Heading",

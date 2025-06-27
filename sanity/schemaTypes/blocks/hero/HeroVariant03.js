@@ -46,7 +46,7 @@ const HeroVariant03 = defineType({
         ],
       },
     }),
-    ...generateBackgroundImageField,
+    ...generateBackgroundImageField(),
     defineField({
       name: "align_left",
       title: "Align Left",
