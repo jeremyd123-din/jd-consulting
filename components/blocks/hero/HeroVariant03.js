@@ -34,7 +34,6 @@ const HeroVariant03 = ({ data = {}, index }) => {
           enableBackgroundTint={data.enable_background_tint}
         />
       )}
-      {data.enable_background_tint && <BackgroundTint />}
       <div
         className={`container relative u__z-index-1 ${data.background_theme && `u__text-inverted`}`}
       >
