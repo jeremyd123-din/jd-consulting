@@ -1,5 +1,13 @@
 import { defineField, defineType } from "sanity";
-import { scopedCss, generateHeadingTagField } from "../defaultFields";
+import {
+  scopedCss,
+  generateButtonField,
+  generateIconCardStyleField,
+  generateCardColumnsField,
+  generateHeadingTagField,
+  generateBackgroundPatternField,
+  generateRichtextField,
+} from "../defaultFields";
 
 const blockLabel = `CTA Variant 01`;
 const blockCategory = "cta";
@@ -52,32 +60,18 @@ const CtaVariant01 = defineType({
       name: `description_tag`,
       title: `Description Tag`,
     }),
-    defineField({
-      name: "button_title",
-      title: "Button Title",
-      type: "string",
-      initialValue: "Learn More",
-      group: "content",
+    ...generateButtonField({
+      name: "button",
+      titleLabel: "Button Title",
+      destinationLabel: "Button Destination",
+      themeLabel: `Button Theme`,
     }),
-    defineField({
-      name: "button_destination",
-      title: "Button Destination",
-      type: "string",
-      group: "content",
-    }),
-    defineField({
-      name: "button_theme",
-      title: "Button Theme",
-      type: "string",
-      initialValue: "inverted",
-      group: "content",
-      options: {
-        list: [
-          { title: "Primary", value: "primary" },
-          { title: "Secondary", value: "secondary" },
-          { title: "Inverted", value: "inverted" },
-        ],
-      },
+    ...generateButtonField({
+      name: "button_two",
+      titleLabel: "Button Two Title",
+      destinationLabel: "Button Two Destination",
+      themeLabel: `Button Two Theme`,
+      initialTitle: null,
     }),
     defineField({
       name: "theme",
@@ -92,6 +86,14 @@ const CtaVariant01 = defineType({
         ],
       },
     }),
+    defineField({
+      name: "enable_animations",
+      title: "Enable Animations",
+      type: "boolean",
+      initialValue: () => false,
+      group: "style",
+    }),
+    ...generateBackgroundPatternField(),
   ],
   preview: {
     select: {

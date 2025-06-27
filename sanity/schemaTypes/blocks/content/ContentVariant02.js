@@ -1,5 +1,13 @@
 import { defineField, defineType } from "sanity";
-import { scopedCss } from "../defaultFields";
+import {
+  scopedCss,
+  generateButtonField,
+  generateIconCardStyleField,
+  generateCardColumnsField,
+  generateHeadingTagField,
+  generateBackgroundPatternField,
+  generateRichtextField,
+} from "../defaultFields";
 const blockCategory = "content";
 const ContentVariant02 = defineType({
   name: "ContentVariant02",
@@ -33,12 +41,20 @@ const ContentVariant02 = defineType({
       initialValue: "Section Label",
       group: "content",
     }),
+    generateHeadingTagField({
+      name: `label_heading_tag`,
+      title: `Label Heading Tag`,
+    }),
     defineField({
       name: "heading",
       title: "Heading",
       type: "string",
       initialValue: "Powerful Section Heading",
       group: "content",
+    }),
+    generateHeadingTagField({
+      name: `heading_tag`,
+      title: `Heading Tag`,
     }),
     defineField({
       name: "description",
@@ -49,37 +65,34 @@ const ContentVariant02 = defineType({
       rows: 4,
       group: "content",
     }),
-    defineField({
-      name: "button_title",
-      title: "Button Title",
-      type: "string",
-      initialValue: "Learn More",
-      group: "content",
+    ...generateButtonField({
+      name: "button",
+      titleLabel: "Button Title",
+      destinationLabel: "Button Destination",
+      themeLabel: `Button Theme`,
+      group: null,
+      includeTheme: false,
+      initialTitle: null,
     }),
-    defineField({
-      name: "button_destination",
-      title: "Button Destination",
-      type: "string",
-      group: "content",
+    ...generateButtonField({
+      name: "button_two",
+      titleLabel: "Button Two Title",
+      destinationLabel: "Button Two Destination",
+      themeLabel: `Button Two Theme`,
+      initialTitle: null,
     }),
-    defineField({
+    generateRichtextField({
       name: "content",
       title: "Content",
-      type: "array",
-      of: [
-        {
-          type: "block",
-        },
-        {
-          type: "code",
-          options: {
-            language: "html",
-            languageAlternatives: [{ title: "HTML", value: "html" }],
-          },
-        },
-      ],
-      group: "content",
     }),
+    defineField({
+      name: "enable_animations",
+      title: "Enable Animations",
+      type: "boolean",
+      initialValue: () => false,
+      group: "style",
+    }),
+    ...generateBackgroundPatternField(),
   ],
   preview: {
     select: {

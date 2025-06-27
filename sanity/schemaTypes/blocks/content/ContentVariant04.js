@@ -1,5 +1,13 @@
 import { defineField, defineType } from "sanity";
-import { scopedCss, generateHeadingTagField } from "../defaultFields";
+import {
+  scopedCss,
+  generateButtonField,
+  generateIconCardStyleField,
+  generateCardColumnsField,
+  generateHeadingTagField,
+  generateBackgroundPatternField,
+  generateRichtextField,
+} from "../defaultFields";
 
 const blockLabel = `Content Variant 04`;
 const blockCategory = "content";
@@ -40,6 +48,11 @@ const ContentVariant04 = defineType({
       name: `heading_tag`,
       title: `Heading Tag`,
     }),
+
+    generateRichtextField({
+      name: "content",
+      title: "Content",
+    }),
     defineField({
       name: "content_type",
       title: "Content Type",
@@ -54,36 +67,19 @@ const ContentVariant04 = defineType({
       },
     }),
     defineField({
-      name: "content",
-      title: "Content",
-      type: "array",
-      of: [
-        {
-          type: "block",
-        },
-        {
-          type: "image",
-          fields: [
-            {
-              type: "text",
-              name: "alt",
-              title: "Alternative text",
-              options: {
-                isHighlighted: true,
-              },
-            },
-          ],
-        },
-        {
-          type: "code",
-          options: {
-            language: "html",
-            languageAlternatives: [{ title: "HTML", value: "html" }],
-          },
-        },
-      ],
-      group: "content",
+      name: "content_max_width",
+      title: "Content Max Width",
+      type: "string",
+      group: "style",
     }),
+    defineField({
+      name: "enable_animations",
+      title: "Enable Animations",
+      type: "boolean",
+      initialValue: () => false,
+      group: "style",
+    }),
+    ...generateBackgroundPatternField(),
   ],
   preview: {
     select: {

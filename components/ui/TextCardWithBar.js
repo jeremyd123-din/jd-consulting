@@ -1,7 +1,9 @@
 "use client";
 import styled from "styled-components";
 import parse from "html-react-parser";
-import { stegaClean } from "@sanity/client/stega";
+import { getCleanValue } from "@/lib/helpers";
+import Heading from "@/components/ui/Heading";
+import Description from "@/components/ui/Description";
 
 const Component = styled.div`
   .c__text-card {
@@ -34,10 +36,15 @@ const Component = styled.div`
   }
 `;
 
-const TextCardWithBar = ({ heading, description, theme }) => {
+const TextCardWithBar = ({
+  heading,
+  description,
+  theme = `primary`,
+  headingTag = "h3",
+}) => {
   return (
     <Component
-      className={`c__text-card ${theme && `c__text-card--${stegaClean(theme)}`}`}
+      className={`c__text-card ${theme && `c__text-card--${getCleanValue(theme)}`}`}
     >
       <div className="c__text-card__wrapper">
         <div className="c__text-card__bar-wrapper">
@@ -45,12 +52,19 @@ const TextCardWithBar = ({ heading, description, theme }) => {
         </div>
         {heading && (
           <div className="c__text-card__heading-wrapper">
-            <h3 className="c__text-card__heading  u__h5">{parse(heading)}</h3>
+            <Heading
+              tag={headingTag || `h3`}
+              className="c__text-card__heading u__h5"
+            >
+              {heading}
+            </Heading>
           </div>
         )}
         {description && (
           <div className="c__text-card__description-wrapper">
-            <p className="c__text-card__description">{parse(description)}</p>
+            <Description className="c__text-card__description mb-0">
+              {description}
+            </Description>
           </div>
         )}
       </div>

@@ -20,7 +20,7 @@ export function fetchSanity(query, params, nextOptions = {}) {
         stega: true,
         perspective: "previewDrafts",
         useCdn: false,
-        token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
+        token: process.env.SANITY_TOKEN,
         next: {
           revalidate: 0,
           ...nextOptions,

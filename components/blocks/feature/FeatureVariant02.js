@@ -27,6 +27,7 @@ const cardColumns = {
 const FeatureVariant02 = ({ data = {}, index }) => {
   const dataCardColumns = getCleanValue(data.card_columns);
   const columnClassName = `col-md-6 ${dataCardColumns ? cardColumns[dataCardColumns] : `col-lg-4`}`;
+  const rowAlignment = `justify-${getCleanValue(data.justify_content) || `start`}`;
 
   return (
     <Bounded
@@ -45,7 +46,7 @@ const FeatureVariant02 = ({ data = {}, index }) => {
         />
       )}
       <Wrapper>
-        <div className="container relative u__z-index-1">
+        <div className="container relative u__z-index-1 c__entry-title">
           <div className="text-center mx-auto">
             {data.label && (
               <ConditionalBlurFade enabled={data.enable_animations} delay={0}>
@@ -81,9 +82,7 @@ const FeatureVariant02 = ({ data = {}, index }) => {
         </div>
         {data.repeater && (
           <div className="container relative u__z-index-1 mt-[2.5rem]">
-            <div
-              className={`row b__feature__variant02__row justify-${getCleanValue(data.justify_content)}`}
-            >
+            <div className={`row b__feature__variant02__row ${rowAlignment}`}>
               {data.repeater.map((elem, index) => {
                 const {
                   icon_svg,

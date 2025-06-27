@@ -9,7 +9,7 @@ import RichtextField from "@/components/ui/RichtextField";
 
 const Wrapper = styled.div`
   .b__content__variant01 {
-    &__grid-row {
+    &__row {
       --bs-gutter-x: 2rem;
       --bs-gutter-y: 1.5rem;
       @media (min-width: 1200px) {
@@ -42,7 +42,7 @@ const ContentVariant01 = ({ data = {}, index }) => {
 
       <Wrapper>
         <div className="container relative">
-          <div className="row b__content__variant01__grid-row">
+          <div className="row b__content__variant01__row">
             <div className="col-lg-4">
               <ConditionalBlurFade enabled={data.enable_animations} delay={0}>
                 <div className="c__heading-wrapper mb-[1rem]">

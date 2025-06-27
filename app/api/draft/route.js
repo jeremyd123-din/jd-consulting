@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "next-sanity";
 
 const clientWithToken = createClient(clientConfig).withConfig({
-  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
+  token: process.env.SANITY_TOKEN,
 });
 
 export async function GET(request) {

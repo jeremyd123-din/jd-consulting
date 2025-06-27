@@ -97,6 +97,7 @@ const ContentVariant08 = ({ data = {} }) => {
                   ? {
                       src: urlFor(image).url(),
                       alt: image.alt || null,
+                      blurDataURL: image ? image.asset?.metadata?.lqip : null,
                     }
                   : null;
                 return (
