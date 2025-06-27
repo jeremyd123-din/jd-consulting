@@ -70,7 +70,7 @@ const IconCard = ({
       )}
     >
       <div className="c__icon-card__wrapper">
-        {icon && (icon.src || iconSvg) && (
+        {(icon?.src || iconSvg) && (
           <div
             className={`c__icon-card__icon-wrapper`}
             style={{ color: iconColor }}
