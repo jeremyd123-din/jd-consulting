@@ -106,7 +106,7 @@ const HeroVariant03 = defineType({
       name: "invert_text_color",
       title: "Invert Text Color",
       type: "boolean",
-      initialValue: () => false,
+      initialValue: () => true,
       group: "style",
     }),
     defineField({

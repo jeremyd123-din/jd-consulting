@@ -34,9 +34,7 @@ const HeroVariant03 = ({ data = {}, index }) => {
           enableBackgroundTint={data.enable_background_tint}
         />
       )}
-      <div
-        className={`container relative u__z-index-1 ${data.background_theme && `u__text-inverted`}`}
-      >
+      <div className={`container relative u__z-index-1`}>
         <div
           className={cn(
             `${data.align_left ? `text-left` : `text-center`}`,

@@ -8,7 +8,7 @@ import BlurryBlob from "@/components/ui/BlurryBlob";
 import Pill from "@/components/ui/Pill";
 import Heading from "@/components/ui/Heading";
 import Form from "@/components/ui/Form";
-import parse from "html-react-parser";
+import Description from "@/components/ui/Description";
 import { cn } from "@/lib/utils";
 import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
@@ -48,6 +48,7 @@ const Wrapper = styled.div`
 `;
 
 const HeroVariant05 = ({ data = {}, index }) => {
+  const invertTextClassName = data?.invert_text_color ? `u__text-inverted` : ``;
   const {
     register,
     handleSubmit,
@@ -110,58 +111,76 @@ const HeroVariant05 = ({ data = {}, index }) => {
           className={`row b__hero__variant05__row ${data?.align_items_center ? "items-center" : ``}`}
         >
           <div className="col-lg-6">
-            {data.label && (
-              <ConditionalBlurFade enabled={data?.enable_animations} delay={0}>
-                <Pill title={data.label} />
-              </ConditionalBlurFade>
-            )}
-            {data.heading && (
-              <ConditionalBlurFade
-                enabled={data?.enable_animations}
-                delay={0.1}
-              >
-                <div className="c__heading-wrapper mb-[1rem]">
-                  <Heading
-                    tag={data.heading_tag || "h1"}
-                    className={`u__${data.heading_size || "d2"}`}
-                  >
-                    {data.heading}
-                  </Heading>
-                </div>
-              </ConditionalBlurFade>
-            )}
-            {data.content && (
-              <ConditionalBlurFade
-                enabled={data?.enable_animations}
-                delay={0.2}
-              >
-                <div className="c__description-wrapper">
-                  <p className="c__description u__h6">{parse(data.content)}</p>
-                </div>
-              </ConditionalBlurFade>
-            )}
+            <div className={cn(invertTextClassName)}>
+              {data.label && (
+                <ConditionalBlurFade
+                  enabled={data?.enable_animations}
+                  delay={0}
+                >
+                  <Pill title={data.label} />
+                </ConditionalBlurFade>
+              )}
+              {data.heading && (
+                <ConditionalBlurFade
+                  enabled={data?.enable_animations}
+                  delay={0.1}
+                >
+                  <div className="c__heading-wrapper mb-[1rem]">
+                    <Heading
+                      tag={data.heading_tag || "h1"}
+                      className={`u__${data.heading_size || "d2"}`}
+                    >
+                      {data.heading}
+                    </Heading>
+                  </div>
+                </ConditionalBlurFade>
+              )}
+              {data.content && (
+                <ConditionalBlurFade
+                  enabled={data?.enable_animations}
+                  delay={0.2}
+                >
+                  <div className="c__description-wrapper">
+                    <Description
+                      className={cn(
+                        `u__h6`,
+                        !data.additional_content?.length > 0 &&
+                          !data.button_title
+                          ? `mb-0`
+                          : ``
+                      )}
+                    >
+                      {data.content}
+                    </Description>
+                  </div>
+                </ConditionalBlurFade>
+              )}
 
-            {data.additional_content && (
-              <ConditionalBlurFade enabled={data.enable_animations} delay={0.2}>
-                <RichtextField content={data.additional_content} />
-              </ConditionalBlurFade>
-            )}
+              {data.additional_content?.length > 0 && (
+                <ConditionalBlurFade
+                  enabled={data.enable_animations}
+                  delay={0.2}
+                >
+                  <RichtextField content={data.additional_content} />
+                </ConditionalBlurFade>
+              )}
 
-            {data.button_title && (
-              <ConditionalBlurFade
-                enabled={data?.enable_animations}
-                delay={0.3}
-              >
-                <div className="c__button-wrapper mt-[2.5rem]">
-                  <Button
-                    destination={data.button_destination}
-                    title={data.button_title}
-                    target={data.button_open_in_new_tab}
-                    theme={data.button_theme}
-                  />
-                </div>
-              </ConditionalBlurFade>
-            )}
+              {data.button_title && (
+                <ConditionalBlurFade
+                  enabled={data?.enable_animations}
+                  delay={0.3}
+                >
+                  <div className="c__button-wrapper mt-[2.5rem]">
+                    <Button
+                      destination={data.button_destination}
+                      title={data.button_title}
+                      target={data.button_open_in_new_tab}
+                      theme={data.button_theme}
+                    />
+                  </div>
+                </ConditionalBlurFade>
+              )}
+            </div>
           </div>
           <div className="col-lg-6">
             <div className="lg:pl-[3rem]">

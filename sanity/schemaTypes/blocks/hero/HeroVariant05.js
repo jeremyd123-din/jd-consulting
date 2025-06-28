@@ -106,6 +106,13 @@ const HeroVariant05 = defineType({
       group: "style",
     }),
     defineField({
+      name: "invert_text_color",
+      title: "Invert Text Color",
+      type: "boolean",
+      initialValue: () => false,
+      group: "style",
+    }),
+    defineField({
       name: "enable_form_beam",
       title: "Enable Form Beam",
       type: "boolean",
