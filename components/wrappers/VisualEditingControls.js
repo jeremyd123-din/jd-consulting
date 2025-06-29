@@ -20,10 +20,12 @@ const anchorStyle = {
   ":hover": { backgroundColor: `#999`, textDecoration: `none` },
 };
 
-export default function VisualEditingControls() {
+export default async function VisualEditingControls() {
+  const { isEnabled } = await draftMode();
+
   return (
     <>
-      {draftMode().isEnabled && (
+      {isEnabled && (
         <>
           <VisualEditing />
 
