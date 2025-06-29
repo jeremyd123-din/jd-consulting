@@ -71,6 +71,11 @@ const HeroVariant05 = defineType({
       initialValue: [],
     }),
 
+    generateHeadingSizeField({
+      name: `content_size`,
+      title: `Content Size`,
+    }),
+
     ...generateButtonField({
       name: "button",
       titleLabel: "Button Title",

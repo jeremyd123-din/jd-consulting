@@ -161,7 +161,10 @@ const HeroVariant05 = ({ data = {}, index }) => {
                   enabled={data.enable_animations}
                   delay={0.2}
                 >
-                  <RichtextField content={data.additional_content} />
+                  <RichtextField
+                    content={data.additional_content}
+                    className={`u__${data.heading_size} || p`}
+                  />
                 </ConditionalBlurFade>
               )}
 

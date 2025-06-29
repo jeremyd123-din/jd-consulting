@@ -1099,9 +1099,6 @@
 .d-inline-block {
   display: inline-block !important;
 }
-.d-block {
-  display: block !important;
-}
 .d-grid {
   display: grid !important;
 }
@@ -1116,9 +1113,6 @@
 }
 .d-table-cell {
   display: table-cell !important;
-}
-.d-flex {
-  display: flex !important;
 }
 .d-inline-flex {
   display: inline-flex !important;
@@ -3908,4 +3902,12 @@
 // Custom below
 .position-relative {
   position: relative;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.d-flex {
+  display: flex !important;
 }

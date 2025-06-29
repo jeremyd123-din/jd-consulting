@@ -256,9 +256,13 @@
                     z-index: -1;
                   }
                   li {
+                    &:first-child {
+                      border-top-right-radius: 16px;
+                    }
+                    &:last-child {
+                      border-bottom-right-radius: 16px;
+                    }
                     border-left: 3px solid transparent;
-                    border-top-right-radius: 16px;
-                    border-bottom-right-radius: 16px;
                     transition: 0.2s ease;
                     .b__header__variant01__menu-item {
                       &__text {
@@ -289,7 +293,7 @@
                       margin-right: 0;
                     }
                     &:last-child {
-                      > a {
+                      a {
                         border-bottom: none;
                       }
                     }

@@ -4,8 +4,9 @@ import { getPageBySlug } from "@/sanity/utils/queries";
 import { notFound } from "next/navigation";
 
 export default async function Page({ params }) {
-  const slug = params.slug.join("/");
-  const data = await getPageBySlug(slug);
+  const { slug } = await params;
+  const slugPath = slug.join("/");
+  const data = await getPageBySlug(slugPath);
   if (!data) {
     return notFound();
   }
@@ -20,8 +21,9 @@ export default async function Page({ params }) {
 }
 
 export const generateMetadata = async ({ params }) => {
-  const slug = params.slug.join("/");
-  const data = await getPageBySlug(slug);
+  const { slug } = await params;
+  const slugPath = slug.join("/");
+  const data = await getPageBySlug(slugPath);
   if (!data) return {};
   return getMetaData(data);
 };
