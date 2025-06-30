@@ -165,7 +165,7 @@ const ContentVariant06 = ({ data }) => {
                   <figure className="m-0 d-inline">
                     <Image
                       placeholder="blur"
-                      blurDataURL={data.image.asset.metadata.lqip}
+                      blurDataURL={data?.image?.asset?.metadata?.lqip}
                       src={urlFor(data.image).url()}
                       alt={data.image.alt ?? ""}
                       sizes="100vw"

@@ -127,9 +127,9 @@ const Styles = css`
     background: unset;
   }
 
-  .bounded-section-idx-0 {
+  #main-content .bounded-section-idx-0 {
     @media (min-width: 992px) {
-      padding-top: 10rem !important;
+      padding-top: 10rem;
     }
   }
 

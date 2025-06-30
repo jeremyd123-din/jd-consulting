@@ -150,7 +150,7 @@ const HeroVariant02 = ({ data = {}, index }) => {
                       className="b__hero__variant02__image"
                       fill={true}
                       placeholder="blur"
-                      blurDataURL={data.image.asset.metadata.lqip}
+                      blurDataURL={data?.image?.asset?.metadata?.lqip}
                       src={urlFor(data.image).url()}
                       alt={data.image.alt ?? ""}
                       sizes="100%"

@@ -15,6 +15,8 @@ import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
 import { useFormSubmission } from "@/hooks/useFormSubmission";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import RichtextField from "@/components/ui/RichtextField";
+import { parseArrayString } from "@/lib/helpers";
+import { getCleanValue } from "@/lib/helpers";
 
 const Wrapper = styled.div`
   .b__hero__variant05 {
@@ -75,10 +77,14 @@ const HeroVariant05 = ({ data = {}, index }) => {
     reset,
   });
 
-  const beamColorList =
-    Array.isArray(data?.beam_color_list) && data.beam_color_list.length > 0
-      ? data.beam_color_list
+  const beamColorList = (() => {
+    const parsedArray = parseArrayString(getCleanValue(data?.beam_color_list));
+    return parsedArray && parsedArray.length > 0
+      ? parsedArray
       : ["var(--t-primary-branding-color)", "#FE8FB5", "#FFBE7B"];
+  })();
+
+  console.log(data?.beam_color_list);
 
   return (
     <Bounded
