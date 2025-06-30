@@ -1,14 +1,15 @@
 import { fetchSanity, groq } from "@/sanity/utils/fetch";
 import { QUERY_omitDrafts } from "@/sanity/utils/constants";
 
-export const revalidate = 3600;
+// Force dynamic rendering - sitemap will always be fresh
+export const dynamic = "force-dynamic";
 
 export default async function sitemap() {
   const includeBlogIndex = true;
 
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, "") ||
-    "https://yoursite.com";
+    "https://example.com";
 
   const allPages = await fetchSanity(
     groq`{
@@ -28,7 +29,13 @@ export default async function sitemap() {
             'lastModified': _updatedAt,
         },
         'latest_post_date': *[_type == "post" && ${QUERY_omitDrafts} && seo_no_index != true] | order(_updatedAt desc)[0]._updatedAt
-    }`
+    }`,
+    {},
+    {
+      // Override any caching for sitemap data
+      revalidate: 0,
+      tags: ["sitemap"],
+    }
   );
 
   const sitemap = [];
