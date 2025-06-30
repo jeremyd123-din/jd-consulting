@@ -1,6 +1,8 @@
 import { fetchSanity, groq } from "@/sanity/utils/fetch";
 import { QUERY_omitDrafts } from "@/sanity/utils/constants";
 
+export const revalidate = 3600;
+
 export default async function sitemap() {
   const includeBlogIndex = true;
 
