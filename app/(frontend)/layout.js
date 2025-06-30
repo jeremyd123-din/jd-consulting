@@ -27,16 +27,12 @@ const globalFont = Outfit({
 
 export default async function RootLayout({ children }) {
   const siteSettings = await getSiteSettings();
-  const favicon = siteSettings?.favicon
-    ? urlFor(siteSettings.favicon).url()
-    : null;
   return (
     <html lang="en" className={globalFont.variable}>
       <body
         data-url={process.env.NEXT_PUBLIC_VERCEL_URL}
         data-prod-url={process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}
       >
-        <link rel="icon" href={favicon || ``} sizes="any" />
         <NextTopLoader
           color="var(--t-primary-branding-color)"
           showSpinner={false}

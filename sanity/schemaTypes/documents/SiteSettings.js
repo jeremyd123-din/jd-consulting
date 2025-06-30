@@ -18,12 +18,6 @@ export default defineType({
       group: "general",
     }),
     defineField({
-      name: "favicon",
-      title: "Favicon",
-      type: "image",
-      group: "general",
-    }),
-    defineField({
       name: "ogimage",
       title: "Open Graph Image (Site-wide)",
       description:
