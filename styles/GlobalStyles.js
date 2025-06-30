@@ -133,6 +133,18 @@ const Styles = css`
     }
   }
 
+  .u__disable-header-submenu {
+    .b__header__variant01__nav-wrapper-large {
+      ul {
+        li {
+          ul {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
+
   @keyframes rotate {
     100% {
       transform: rotate(360deg);

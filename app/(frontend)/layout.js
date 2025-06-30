@@ -12,6 +12,7 @@ import urlFor from "@/lib/imageUrlBuilder";
 import { Outfit } from "next/font/google";
 import HeadingTagsDisplay from "@/components/wrappers/HeadingTagsDisplay";
 import SmoothScrollHandler from "@/components/wrappers/SmoothScrollHandler";
+import RouteSubmenuReset from "@/components/wrappers/RouteSubmenuReset";
 
 const globalFont = Outfit({
   subsets: ["latin"],
@@ -46,6 +47,7 @@ export default async function RootLayout({ children }) {
         <VisualEditingControls />
         <HeadingTagsDisplay />
         <SmoothScrollHandler />
+        <RouteSubmenuReset />
       </body>
     </html>
   );

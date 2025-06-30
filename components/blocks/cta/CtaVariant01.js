@@ -47,68 +47,76 @@ const CtaVariant01 = ({ data = {}, index }) => {
       )}
       <Wrapper>
         <div className="container">
-          <div
-            className={`mx-auto b__cta__variant01__wrapper b__cta__variant01__wrapper--theme-${stegaClean(data.theme) || `primary`}`}
-          >
-            <div className="b__cta__variant01__content-wrapper text-center u__text-inverted">
-              {data.heading && (
-                <ConditionalBlurFade enabled={data.enable_animations} delay={0}>
-                  <div className="c__heading-wrapper mb-[1rem]">
-                    <Heading tag={data.heading_tag || "h2"} className={`u__h2`}>
-                      {data.heading}
-                    </Heading>
-                  </div>
-                </ConditionalBlurFade>
-              )}
-              {data.description && (
-                <ConditionalBlurFade
-                  enabled={data.enable_animations}
-                  delay={0.1}
-                >
-                  <div className={`c__description-wrapper`}>
-                    <Heading
-                      tag={data.description_tag || "p"}
-                      className="u__h5 u__f-400"
-                    >
-                      {data.description}
-                    </Heading>
-                  </div>
-                </ConditionalBlurFade>
-              )}
-              {data.button_title && (
-                <ConditionalBlurFade
-                  enabled={data?.enable_animations}
-                  delay={0.2}
-                >
-                  <div className="c__button-wrapper mt-[2rem]">
-                    <div
-                      className={`flex flex-col justify-center gap-[12px] min-[500px]:flex-row`}
-                    >
-                      {data.button_title && (
-                        <Button
-                          destination={data.button_destination}
-                          title={data.button_title}
-                          target={data.button_open_in_new_tab}
-                          theme={data.button_theme}
-                          className={`${data.button_two_title ? "w-full min-[500px]:w-auto" : "w-auto"}`}
-                        />
-                      )}
-                      {data.button_two_title && (
-                        <Button
-                          destination={data.button_two_destination}
-                          title={data.button_two_title}
-                          target={data.button_two_open_in_new_tab}
-                          theme={data.button_two_theme}
-                          className="w-full min-[500px]:w-auto"
-                          renderArrow
-                        />
-                      )}
+          <ConditionalBlurFade enabled={data.enable_animations} delay={0}>
+            <div
+              className={`mx-auto b__cta__variant01__wrapper b__cta__variant01__wrapper--theme-${stegaClean(data.theme) || `primary`}`}
+            >
+              <div className="b__cta__variant01__content-wrapper text-center u__text-inverted">
+                {data.heading && (
+                  <ConditionalBlurFade
+                    enabled={data.enable_animations}
+                    delay={0.1}
+                  >
+                    <div className="c__heading-wrapper mb-[1rem]">
+                      <Heading
+                        tag={data.heading_tag || "h2"}
+                        className={`u__h2`}
+                      >
+                        {data.heading}
+                      </Heading>
                     </div>
-                  </div>
-                </ConditionalBlurFade>
-              )}
+                  </ConditionalBlurFade>
+                )}
+                {data.description && (
+                  <ConditionalBlurFade
+                    enabled={data.enable_animations}
+                    delay={0.2}
+                  >
+                    <div className={`c__description-wrapper`}>
+                      <Heading
+                        tag={data.description_tag || "p"}
+                        className="u__h5 u__f-400"
+                      >
+                        {data.description}
+                      </Heading>
+                    </div>
+                  </ConditionalBlurFade>
+                )}
+                {data.button_title && (
+                  <ConditionalBlurFade
+                    enabled={data?.enable_animations}
+                    delay={0.3}
+                  >
+                    <div className="c__button-wrapper mt-[2rem]">
+                      <div
+                        className={`flex flex-col justify-center gap-[12px] min-[500px]:flex-row`}
+                      >
+                        {data.button_title && (
+                          <Button
+                            destination={data.button_destination}
+                            title={data.button_title}
+                            target={data.button_open_in_new_tab}
+                            theme={data.button_theme}
+                            className={`${data.button_two_title ? "w-full min-[500px]:w-auto" : "w-auto"}`}
+                          />
+                        )}
+                        {data.button_two_title && (
+                          <Button
+                            destination={data.button_two_destination}
+                            title={data.button_two_title}
+                            target={data.button_two_open_in_new_tab}
+                            theme={data.button_two_theme}
+                            className="w-full min-[500px]:w-auto"
+                            renderArrow
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </ConditionalBlurFade>
+                )}
+              </div>
             </div>
-          </div>
+          </ConditionalBlurFade>
         </div>
       </Wrapper>
     </Bounded>

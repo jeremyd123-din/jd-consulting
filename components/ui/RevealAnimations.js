@@ -6,9 +6,17 @@ export const ConditionalBlurFade = ({
   children,
   inView,
   className,
+  offset,
+  inViewMargin,
 }) =>
   enabled ? (
-    <BlurFade className={className} inView={inView || true} delay={delay}>
+    <BlurFade
+      inViewMargin={inViewMargin}
+      offset={offset}
+      className={className}
+      inView={inView || true}
+      delay={delay}
+    >
       {children}
     </BlurFade>
   ) : (
