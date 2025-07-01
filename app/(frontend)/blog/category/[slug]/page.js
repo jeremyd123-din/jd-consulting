@@ -35,5 +35,5 @@ export const generateMetadata = async ({ params }) => {
     category.featured_image || null
   );
 
-  return getMetaData(staticMetaData, `blog/category/${slug}`, null, null);
+  return await getMetaData(staticMetaData, `blog/category/${slug}`, null, null);
 };

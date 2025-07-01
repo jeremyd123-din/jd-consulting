@@ -36,7 +36,7 @@ export const generateMetadata = async () => {
     1
   );
 
-  return getMetaData(
+  return await getMetaData(
     staticMetaData,
     `blog`,
     null,

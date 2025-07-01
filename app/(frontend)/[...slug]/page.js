@@ -25,5 +25,5 @@ export const generateMetadata = async ({ params }) => {
   const slugPath = slug.join("/");
   const data = await getPageBySlug(slugPath);
   if (!data) return {};
-  return getMetaData(data);
+  return await getMetaData(data);
 };

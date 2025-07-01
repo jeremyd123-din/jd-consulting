@@ -60,7 +60,7 @@ export const generateMetadata = async ({ params }) => {
   const staticMetaData = generateBlogMetaData(
     `Latest Posts | Page ${slug} | ${organization}`
   );
-  return getMetaData(
+  return await getMetaData(
     staticMetaData,
     `blog/page/${slug}`,
     `${slug == "2" ? `blog` : `blog/page/${parseFloat(slug) - 1}`}`,

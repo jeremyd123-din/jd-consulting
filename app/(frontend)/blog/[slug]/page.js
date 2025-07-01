@@ -16,5 +16,5 @@ export const generateMetadata = async ({ params }) => {
   const { slug } = params;
   const data = await getPostBySlug(slug);
   if (!data) return {};
-  return getMetaData(data, `blog`);
+  return await getMetaData(data, `blog`);
 };

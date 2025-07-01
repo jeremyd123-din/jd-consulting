@@ -22,5 +22,5 @@ export default async function Page() {
 export const generateMetadata = async () => {
   const data = await getPageBySlug(homepagePath);
   if (!data) return {};
-  return getMetaData(data);
+  return await getMetaData(data);
 };

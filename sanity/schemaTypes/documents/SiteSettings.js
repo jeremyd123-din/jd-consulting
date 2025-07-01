@@ -18,7 +18,7 @@ export default defineType({
       group: "general",
     }),
     defineField({
-      name: "ogimage",
+      name: "og_image",
       title: "Open Graph Image (Site-wide)",
       description:
         "Used for social sharing previews. Set page-specific images in Page documents.",
