@@ -3,7 +3,7 @@ import Bounded from "@/components/wrappers/Bounded";
 import styled from "styled-components";
 import IconCard from "@/components/ui/IconCard";
 import urlFor from "@/lib/imageUrlBuilder";
-import { stegaClean } from "@sanity/client/stega";
+import { getCleanValue } from "@/lib/helpers";
 import Heading from "@/components/ui/Heading";
 import Description from "@/components/ui/Description";
 import ResourceCard from "@/components/ui/ResourceCard";
@@ -26,7 +26,7 @@ const cardColumns = {
   4: "col-lg-3",
 };
 const ContentVariant08 = ({ data = {} }) => {
-  const dataCardColumns = stegaClean(data.card_columns);
+  const dataCardColumns = getCleanValue(data.card_columns);
   const columnClassName = `col-md-6 ${dataCardColumns ? cardColumns[dataCardColumns] : `col-lg-4`}`;
   return (
     <Bounded
@@ -81,7 +81,7 @@ const ContentVariant08 = ({ data = {} }) => {
         {data.repeater && (
           <div className="container relative u__z-index-1 mt-[2.5rem]">
             <div
-              className={`row b__content__variant08__row justify-${stegaClean(data.justify_content)}`}
+              className={`row b__content__variant08__row justify-${getCleanValue(data.justify_content)}`}
             >
               {data.repeater.map((elem, index) => {
                 const {
@@ -95,7 +95,7 @@ const ContentVariant08 = ({ data = {} }) => {
 
                 const imageObj = image
                   ? {
-                      src: urlFor(image).url(),
+                      src: urlFor(image)?.url(),
                       alt: image.alt || null,
                       blurDataURL: image ? image.asset?.metadata?.lqip : null,
                     }

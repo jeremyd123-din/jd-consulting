@@ -84,8 +84,6 @@ const HeroVariant05 = ({ data = {}, index }) => {
       : ["var(--t-primary-branding-color)", "#FE8FB5", "#FFBE7B"];
   })();
 
-  console.log(data?.beam_color_list);
-
   return (
     <Bounded
       id={data?._key}

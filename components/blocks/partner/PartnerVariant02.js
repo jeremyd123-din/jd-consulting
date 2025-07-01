@@ -26,6 +26,14 @@ const PartnerVariant02 = ({ data = {}, index }) => {
       index={index}
       className="b__partner__variant02 overflow-hidden relative"
     >
+      {data.enable_background_pattern && (
+        <BackgroundPattern
+          patternType={data.background_pattern_type ?? `dots`}
+          className={cn(
+            "[mask-image:linear-gradient(to_top_left,white,transparent,transparent)]"
+          )}
+        />
+      )}
       <Wrapper>
         <div className="container relative u__z-index-1">
           <div className="text-center">
@@ -67,8 +75,8 @@ const PartnerVariant02 = ({ data = {}, index }) => {
                     return (
                       <img
                         key={index}
-                        src={imageObj.src}
-                        alt={imageObj.alt}
+                        src={imageObj?.src}
+                        alt={imageObj?.alt}
                         loading="lazy"
                       />
                     );
@@ -86,8 +94,8 @@ const PartnerVariant02 = ({ data = {}, index }) => {
                     return (
                       <img
                         key={index}
-                        src={imageObj.src}
-                        alt={imageObj.alt}
+                        src={imageObj?.src}
+                        alt={imageObj?.alt}
                         loading="lazy"
                       />
                     );
