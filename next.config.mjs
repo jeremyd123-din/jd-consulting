@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
+
+import redirects from "./redirects.mjs";
+
 const nextConfig = {
+  async redirects() {
+    return redirects;
+  },
   compiler: {
     styledComponents: true,
   },
