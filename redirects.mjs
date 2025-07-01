@@ -60,8 +60,8 @@ const redirects = [
     permanent: true,
   },
   {
-    source: "/ai-consulting-services/",
-    destination: "/services/ai-consulting-services/",
+    source: "/ai-consulting-services",
+    destination: "/services/ai-consulting-services",
     permanent: true,
   },
 ];
