@@ -23,7 +23,7 @@
     "html-react-parser": "^5.1.10",
     "lucide-react": "^0.513.0",
     "motion": "^12.18.1",
-    "next": "^14.2.18",
+    "next": "^14.2.30",
     "next-sanity": "^9.4.3",
     "nextjs-toploader": "^1.6.12",
     "postcss": "^8.5.4",
