@@ -4,6 +4,7 @@ import styled from "styled-components";
 import urlFor from "@/lib/imageUrlBuilder";
 import Heading from "@/components/ui/Heading";
 import Description from "@/components/ui/Description";
+import { cn } from "@/lib/utils";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
 import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
 import { getCleanValue } from "@/lib/helpers";
