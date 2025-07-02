@@ -97,9 +97,9 @@ const CtaVariant02 = ({ data = {}, index }) => {
                   enabled={data?.enable_animations}
                   delay={0.2}
                 >
-                  <div className="c__button-wrapper">
+                  <div className="c__button-wrapper mt-[2rem] lg:mt-0">
                     <div
-                      className={`flex flex-col justify-end gap-[12px] min-[500px]:flex-row`}
+                      className={`flex flex-col justify-start lg:justify-end gap-[12px] min-[500px]:flex-row`}
                     >
                       {data.button_title && (
                         <Button
