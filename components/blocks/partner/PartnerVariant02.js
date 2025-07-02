@@ -71,7 +71,7 @@ const PartnerVariant02 = ({ data = {}, index }) => {
                     if (!elem) return null;
                     const image = elem?.image;
                     const imageObj = image
-                      ? { src: urlFor(image).url(), alt: image.alt || null }
+                      ? { src: urlFor(image).url(), alt: image.alt || `` }
                       : null;
                     return (
                       <img
