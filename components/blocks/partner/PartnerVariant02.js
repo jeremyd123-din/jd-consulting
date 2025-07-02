@@ -62,7 +62,7 @@ const PartnerVariant02 = ({ data = {}, index }) => {
           </div>
         </div>
 
-        <div className="relative u__z-index-1 mt-[2.5rem]">
+        <div className="relative u__z-index-1 mt-[1.25rem]">
           <ConditionalBlurFade enabled={data.enable_animations} delay={0.2}>
             <div className="w-full h-[700px] max-w-[1200px] mx-auto relative flex size-full items-center justify-center overflow-hidden">
               {data?.repeater_outer && data?.repeater_outer?.length > 0 && (
