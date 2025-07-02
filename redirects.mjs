@@ -64,6 +64,11 @@ const redirects = [
     destination: "/services/ai-consulting-services",
     permanent: true,
   },
+  {
+    source: "/services/ai-consulting-services",
+    destination: "/services/ai-consulting",
+    permanent: true,
+  },
 ];
 
 export default redirects;
