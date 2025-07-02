@@ -9,7 +9,16 @@ import PartnerLogo from "@/components/ui/PartnerLogo";
 import { stegaClean } from "@sanity/client/stega";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  .b__partner__variant01 {
+    &__marquee-wrapper {
+      @media (max-width: 576px) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+`;
 
 const PartnerVariant01 = ({ data = {}, index }) => {
   return (
@@ -47,7 +56,7 @@ const PartnerVariant01 = ({ data = {}, index }) => {
           </div>
         </div>
         {data?.repeater && data?.repeater?.length > 0 && (
-          <div className="container relative u__z-index-1 mt-[2.5rem]">
+          <div className="container relative u__z-index-1 mt-[2.5rem] b__partner__variant01__marquee-wrapper">
             <Marquee className="[--duration:30s] md:[--duration:60s]">
               {data.repeater.map((elem, index) => {
                 if (!elem) return null;
