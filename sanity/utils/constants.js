@@ -7,9 +7,13 @@ export const Groups = [
     name: "content",
     title: "Content",
   },
+  {
+    name: "style",
+    title: "Style",
+  },
 ];
 
 export const QUERY_omitDrafts =
   process.env.NODE_ENV === "development"
-    ? "!(_originalId in path('drafts.**'))"
-    : "!(_id in path('drafts.**'))";
+    ? "!(_originalId match 'drafts.**')"
+    : "!(_id match 'drafts.**')";

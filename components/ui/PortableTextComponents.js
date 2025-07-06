@@ -23,12 +23,10 @@ const PortableTextComponents = {
                   }
                   src={urlFor(value.asset).url()}
                   alt={value.alt ?? ""}
-                  sizes="100vw"
-                  width={500}
-                  height={400}
-                  data-has-blur-data-url={
-                    value.asset.metadata ? `true` : `false`
-                  }
+                  sizes="100%"
+                  width={1200}
+                  height={800}
+                  unoptimized
                 />
               </div>
             </>

@@ -11,7 +11,23 @@ export default async function BlogArchive() {
   if (!data || !data.length) {
     return notFound();
   }
-  const heroData = generateBlogHeroData();
+  // const heroData = generateBlogHeroData({
+  //   heading: `Blog`,
+  //   background_theme: `primary`,
+  //   invert_text_color: true,
+  //   heading_size: `d2`,
+  // });
+
+  const heroData = {
+    heading: `Blog`,
+    description: `Your single source for expert insights within the digital space.`,
+    background_theme: `secondary`,
+    invert_text_color: true,
+    heading_size: `d2`,
+    enable_background_pattern: true,
+    background_pattern_type: `grid`,
+  };
+
   const { lastPaginatedPage } = await getPaginationContext(
     getPostsCount(),
     paginatedItemsPerPage,

@@ -9,7 +9,7 @@ const TemplateArchiveVariant01 = ({
 }) => {
   return (
     <>
-      <HeroVariant03 data={heroData} />
+      <HeroVariant03 index={0} data={heroData} />
       <ArchiveVariant01
         data={bodyData}
         prevPageDestination={prevPageDestination}

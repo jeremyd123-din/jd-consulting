@@ -26,7 +26,7 @@ export default async function BlogArchivePaginated({ params }) {
     paginatedItemsPerPage,
     parseFloat(slug)
   );
-  const heroData = generateBlogHeroData(`Resource Library - Page ${slug}`);
+  const heroData = generateBlogHeroData(`Blog - Page ${slug}`);
   return (
     <TemplateArchiveVariant01
       heroData={heroData}

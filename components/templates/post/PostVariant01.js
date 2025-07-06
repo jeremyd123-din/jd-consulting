@@ -39,6 +39,7 @@ const PostVariant01 = ({ data }) => {
     <Bounded
       id={data?._key}
       type={data?._type}
+      index={0}
       scopedCss={data?.scoped_css}
       className="b__post__variant01 overflow-hidden relative"
     >

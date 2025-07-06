@@ -353,7 +353,7 @@ export const generateRichtextField = (options = {}) => {
         type: "image",
         fields: [
           {
-            type: "text",
+            type: "string",
             name: "alt",
             title: "Alternative text",
             options: {

@@ -20,7 +20,7 @@ const Component = styled.div`
     img,
     iframe {
       max-width: 100%;
-      margin: 1rem 0 2rem 0;
+      margin: 2rem 0 2rem 0;
     }
     blockquote {
       padding: 1rem;

@@ -45,13 +45,15 @@ const ArchiveVariant01 = ({
 
               const destination = `${baseUrl}/blog/${slug.current}`;
 
-              const imageObj = {
-                src: featured_image ? urlFor(featured_image).url() : null,
-                alt: featured_image ? featured_image.alt : null,
-                blurDataURL: featured_image
-                  ? featured_image.asset?.metadata?.lqip
-                  : null,
-              };
+              const imageObj = featured_image
+                ? {
+                    src: urlFor(featured_image).url(),
+                    alt: featured_image.alt || null,
+                    blurDataURL: featured_image
+                      ? featured_image.asset?.metadata?.lqip
+                      : null,
+                  }
+                : null;
 
               return (
                 <div key={_id} className="col-md-6 col-lg-4">
