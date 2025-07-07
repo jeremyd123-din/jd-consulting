@@ -65,7 +65,9 @@ const Component = styled.div`
 
 const ArticleContent = ({ content, className }) => {
   return (
-    <Component className={`c__article-content ${className ? className : ``}`}>
+    <Component
+      className={`c__article-content prose max-w-none ${className ? className : ``}`}
+    >
       <PortableText value={content} components={PortableTextComponents} />
     </Component>
   );

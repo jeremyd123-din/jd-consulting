@@ -46,7 +46,7 @@ const PostVariant01 = ({ data }) => {
       <Wrapper>
         <div className="container">
           <div className="b__post__variant01__header">
-            <div className="b__post__variant01__heading-wrapper u__mw-700 mx-auto mb-4 pb-2 text-center">
+            <div className="b__post__variant01__heading-wrapper max-w-[900px] mx-auto mb-[2.5rem] text-center">
               {data.primary_category && (
                 <div className="mb-2">
                   <Link
@@ -62,7 +62,7 @@ const PostVariant01 = ({ data }) => {
                 </div>
               )}
               {data.title || data.heading ? (
-                <Heading tag="h1">
+                <Heading tag="h1" className="u__d2">
                   {stegaClean(data.heading) ? data.heading : data.title}
                 </Heading>
               ) : (
