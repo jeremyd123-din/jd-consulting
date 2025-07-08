@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFormspark } from "@formspark/use-formspark";
-import { stegaClean } from "@sanity/client/stega";
+import { getCleanValue } from "@/lib/helpers";
 
 export const useFormSubmission = ({
   formspark_id,
@@ -8,7 +8,7 @@ export const useFormSubmission = ({
   redirect_url,
   reset,
 }) => {
-  const FORMSPARK_FORM_ID = stegaClean(formspark_id);
+  const FORMSPARK_FORM_ID = getCleanValue(formspark_id);
   const [formMessage, setFormMessage] = useState(null);
   const [payloadPosting, setPayloadPosting] = useState(false);
   const [submit] = useFormspark({

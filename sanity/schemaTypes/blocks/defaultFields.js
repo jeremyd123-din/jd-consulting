@@ -348,6 +348,31 @@ export const generateRichtextField = (options = {}) => {
     of: [
       {
         type: "block",
+        // Custom marks including enhanced link annotation
+        marks: {
+          annotations: [
+            {
+              name: "link",
+              type: "object",
+              title: "Link",
+              fields: [
+                {
+                  name: "href",
+                  type: "url",
+                  title: "URL",
+                  validation: (Rule) => Rule.required(),
+                },
+                {
+                  name: "open_in_new_tab",
+                  type: "boolean",
+                  title: "Open in new tab",
+                  description: "Check this to open the link in a new tab",
+                  initialValue: false,
+                },
+              ],
+            },
+          ],
+        },
       },
       {
         type: "image",
@@ -359,6 +384,26 @@ export const generateRichtextField = (options = {}) => {
             options: {
               isHighlighted: true,
             },
+          },
+          {
+            type: "string",
+            name: "className",
+            title: "Custom CSS Class",
+            description: "Add a custom CSS class name to this image",
+          },
+          {
+            type: "string",
+            name: "alignment",
+            title: "Image Alignment",
+            options: {
+              list: [
+                { title: "Start", value: "start" },
+                { title: "Center", value: "center" },
+                { title: "End", value: "end" },
+              ],
+              layout: "radio",
+            },
+            initialValue: "start",
           },
         ],
       },

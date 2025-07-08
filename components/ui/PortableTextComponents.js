@@ -1,22 +1,28 @@
 import parse from "html-react-parser";
-import { stegaClean } from "@sanity/client/stega";
+import { getCleanValue } from "@/lib/helpers";
 import Image from "next/image";
 import urlFor from "@/lib/imageUrlBuilder";
 import { fallbackImageBlurDataUrl } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 const PortableTextComponents = {
   types: {
     code: ({ value }) => {
-      return <>{value && value.code && parse(stegaClean(value.code))}</>;
+      return <>{value && value.code && parse(getCleanValue(value.code))}</>;
     },
     image: ({ value }) => {
       return (
         <>
           {value && value.asset && (
             <>
-              <div className="c__richtext-field__image-wrapper">
+              <div
+                style={{
+                  textAlign: value.alignment,
+                }}
+                className="c__richtext-field__image-wrapper"
+              >
                 <Image
-                  className="c__richtext-field__image"
+                  className={cn(`c__richtext-field__image`, value.className)}
                   placeholder="blur"
                   blurDataURL={
                     value.asset.metadata?.lqip ?? fallbackImageBlurDataUrl
@@ -32,6 +38,21 @@ const PortableTextComponents = {
             </>
           )}
         </>
+      );
+    },
+  },
+  marks: {
+    link: ({ value, children }) => {
+      const { href, open_in_new_tab } = value;
+      return (
+        <a
+          href={href}
+          target={open_in_new_tab ? "_blank" : "_self"}
+          rel={open_in_new_tab ? "noopener noreferrer" : undefined}
+          className="c__richtext-field__link"
+        >
+          {children}
+        </a>
       );
     },
   },
