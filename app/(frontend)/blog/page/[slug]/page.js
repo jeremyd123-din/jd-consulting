@@ -26,7 +26,18 @@ export default async function BlogArchivePaginated({ params }) {
     paginatedItemsPerPage,
     parseFloat(slug)
   );
-  const heroData = generateBlogHeroData(`Blog - Page ${slug}`);
+  // const heroData = generateBlogHeroData(`Blog - Page ${slug}`);
+
+  const heroData = {
+    heading: `Blog - Page ${slug}`,
+    description: `Your single source for expert insights within the digital space.`,
+    background_theme: `secondary`,
+    invert_text_color: true,
+    heading_size: `d2`,
+    enable_background_pattern: true,
+    background_pattern_type: `grid`,
+  };
+
   return (
     <TemplateArchiveVariant01
       heroData={heroData}

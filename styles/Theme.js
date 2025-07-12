@@ -111,7 +111,7 @@ const Theme = css`
     --t-global-card-border-radius: 16px;
     --t-global-image-border-radius: 16px;
     --t-pagination-button-color: var(--t-light-background-color);
-    --t-pagination-button-hover-color: #f5f1f9;
+    --t-pagination-button-hover-color: #faf5f2;
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
     // Blobs
