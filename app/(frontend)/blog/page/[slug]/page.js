@@ -5,7 +5,7 @@ import { getMetaData } from "@/lib/seo";
 import { getPosts, getPostsCount } from "@/sanity/utils/queries";
 import { notFound } from "next/navigation";
 import { redirect } from "next/navigation";
-import { generateBlogHeroData, generateBlogMetaData } from "@/lib/constants";
+import { generateBlogMetaData } from "@/lib/constants";
 
 export default async function BlogArchivePaginated({ params }) {
   const { slug } = params;
@@ -26,7 +26,6 @@ export default async function BlogArchivePaginated({ params }) {
     paginatedItemsPerPage,
     parseFloat(slug)
   );
-  // const heroData = generateBlogHeroData(`Blog - Page ${slug}`);
 
   const heroData = {
     heading: `Blog - Page ${slug}`,

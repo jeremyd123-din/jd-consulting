@@ -69,6 +69,31 @@ const redirects = [
     destination: "/services/ai-consulting",
     permanent: true,
   },
+  {
+    source: "/uncategorized/next-big-trend",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/uncategorized/why-use-experiential-marketing",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/uncategorized",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/category/uncategorized",
+    destination: "/blog",
+    permanent: true,
+  },
+  {
+    source: "/category/blog",
+    destination: "/blog",
+    permanent: true,
+  },
 ];
 
 export default redirects;

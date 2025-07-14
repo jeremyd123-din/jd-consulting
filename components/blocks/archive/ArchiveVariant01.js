@@ -3,7 +3,7 @@ import Bounded from "@/components/wrappers/Bounded";
 import styled from "styled-components";
 import ResourceCard from "@/components/ui/ResourceCard";
 import { baseUrl } from "@/lib/constants";
-import { stegaClean } from "@sanity/client/stega";
+import { getCleanValue } from "@/lib/helpers";
 import urlFor from "@/lib/imageUrlBuilder";
 import Button from "@/components/ui/Button";
 import Pagination from "@/components/ui/Pagination";
@@ -60,7 +60,7 @@ const ArchiveVariant01 = ({
                   <ResourceCard
                     image={imageObj}
                     description={excerpt}
-                    heading={stegaClean(heading) ? heading : title}
+                    heading={getCleanValue(heading) ? heading : title}
                     publishDate={publish_date}
                     buttonTitle={`Read more`}
                     buttonDestination={destination}
@@ -71,7 +71,7 @@ const ArchiveVariant01 = ({
           </div>
         </div>
         {prevPageDestination || nextPageDestination ? (
-          <div className="container mt-5 pt-4">
+          <div className="container mt-[3rem] pt-[1.5rem]">
             <Pagination
               prevPageDestination={prevPageDestination}
               nextPageDestination={nextPageDestination}

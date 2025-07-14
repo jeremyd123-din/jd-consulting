@@ -3,8 +3,7 @@ import { organization } from "@/lib/constants";
 import { getMetaData } from "@/lib/seo";
 import { getPostsByCategory, getCategoryBySlug } from "@/sanity/utils/queries";
 import { notFound } from "next/navigation";
-import { generateBlogHeroData, generateBlogMetaData } from "@/lib/constants";
-import urlBuilder from "@sanity/image-url";
+import { generateBlogMetaData } from "@/lib/constants";
 
 export default async function BlogCategoryArchive({ params }) {
   const { slug } = params;
@@ -13,7 +12,17 @@ export default async function BlogCategoryArchive({ params }) {
   if (!data || !data.length || !category) {
     return notFound();
   }
-  const heroData = generateBlogHeroData(`Posts in ${category.title}`, null);
+
+  const heroData = {
+    heading: `Posts tagged under ${category.title}`,
+    description: null,
+    background_theme: `secondary`,
+    invert_text_color: true,
+    heading_size: `d2`,
+    enable_background_pattern: true,
+    background_pattern_type: `grid`,
+  };
+
   return (
     <TemplateArchiveVariant01
       heroData={heroData}

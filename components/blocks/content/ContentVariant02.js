@@ -2,7 +2,6 @@
 import Bounded from "@/components/wrappers/Bounded";
 import Button from "@/components/ui/Button";
 import styled from "styled-components";
-
 import Heading from "@/components/ui/Heading";
 import Description from "@/components/ui/Description";
 import { cn } from "@/lib/utils";

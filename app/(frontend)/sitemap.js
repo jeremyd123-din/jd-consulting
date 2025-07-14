@@ -6,8 +6,6 @@ export const revalidate = 3600; // 1 hour in seconds
 export const dynamic = "force-dynamic";
 
 export default async function sitemap() {
-  const includeBlogIndex = true;
-
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/$/, "") ||
     "https://example.com";
@@ -28,6 +26,7 @@ export default async function sitemap() {
         'post_categories': *[_type == 'post_category' && seo_no_index != true && ${QUERY_omitDrafts}]|order(_updatedAt desc){
             'slug': slug.current,
             'lastModified': _updatedAt,
+            'postCount': count(*[_type == 'post' && references(^._id) && seo_no_index != true && ${QUERY_omitDrafts}])
         },
         'latest_post_date': *[_type == "post" && ${QUERY_omitDrafts} && seo_no_index != true] | order(_updatedAt desc)[0]._updatedAt
     }`,
@@ -65,20 +64,23 @@ export default async function sitemap() {
     });
   }
 
-  // Add post categories
+  // Add post categories (only if they have posts)
   if (allPages.post_categories) {
     allPages.post_categories.forEach((category) => {
-      sitemap.push({
-        url: `${baseUrl}/blog/category/${category.slug}`,
-        lastModified: new Date(category.lastModified),
-        changeFrequency: "weekly",
-        priority: 0.5,
-      });
+      // Only add category to sitemap if it has posts
+      if (category.postCount > 0) {
+        sitemap.push({
+          url: `${baseUrl}/blog/category/${category.slug}`,
+          lastModified: new Date(category.lastModified),
+          changeFrequency: "weekly",
+          priority: 0.5,
+        });
+      }
     });
   }
 
-  // Add blog index page
-  if (includeBlogIndex) {
+  // Add blog index page (only if there are posts)
+  if (allPages.posts && allPages.posts.length > 0) {
     sitemap.push({
       url: `${baseUrl}/blog`,
       lastModified: allPages.latest_post_date

@@ -4,19 +4,13 @@ import { getPaginationContext } from "@/lib/helpers";
 import { getMetaData } from "@/lib/seo";
 import { getPosts, getPostsCount } from "@/sanity/utils/queries";
 import { notFound } from "next/navigation";
-import { generateBlogHeroData, generateBlogMetaData } from "@/lib/constants";
+import { generateBlogMetaData } from "@/lib/constants";
 
 export default async function BlogArchive() {
   const data = await getPosts(0, paginatedItemsPerPage);
   if (!data || !data.length) {
     return notFound();
   }
-  // const heroData = generateBlogHeroData({
-  //   heading: `Blog`,
-  //   background_theme: `primary`,
-  //   invert_text_color: true,
-  //   heading_size: `d2`,
-  // });
 
   const heroData = {
     heading: `Blog`,

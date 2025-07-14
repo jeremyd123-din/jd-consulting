@@ -48,7 +48,7 @@ const PostVariant01 = ({ data }) => {
           <div className="b__post__variant01__header">
             <div className="b__post__variant01__heading-wrapper max-w-[900px] mx-auto mb-[2.5rem] text-center">
               {data.primary_category && (
-                <div className="mb-2">
+                <div className="mb-[0.5rem]">
                   <Link
                     href={
                       data.primary_category.slug.current
@@ -70,7 +70,7 @@ const PostVariant01 = ({ data }) => {
               )}
             </div>
             {data.featured_image && (
-              <div className="b__post__variant01__image-wrapper relative mb-4 pb-2">
+              <div className="b__post__variant01__image-wrapper relative mb-[1.5rem] pb-[0.5rem]">
                 <Image
                   className="b__hero__variant04__image"
                   fill={true}
@@ -84,7 +84,7 @@ const PostVariant01 = ({ data }) => {
             )}
             <div className="b__post__variant01__body u__mw-800 mx-auto">
               {data.publish_date && (
-                <div className="b__post__variant01__date-wrapper mb-4">
+                <div className="b__post__variant01__date-wrapper mb-[1.5rem]">
                   <span className="u__small u__text-light">
                     <time dateTime={`${data.publish_date}T00:00:00Z`}>
                       Published on {formatDate(data.publish_date)}
