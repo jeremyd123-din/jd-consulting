@@ -1,4 +1,3 @@
-// import "bootstrap/dist/css/bootstrap.css";
 import "./globals.css";
 import "@/styles/index.scss";
 import Layout from "@/components/wrappers/Layout";
@@ -6,9 +5,6 @@ import StyledComponentsRegistry from "@/lib/registry";
 import GlobalStyles from "@/styles/GlobalStyles";
 import VisualEditingControls from "@/components/wrappers/VisualEditingControls";
 import NextTopLoader from "nextjs-toploader";
-import localFont from "next/font/local";
-import { getSiteSettings } from "@/sanity/utils/queries";
-import urlFor from "@/lib/imageUrlBuilder";
 import { Outfit } from "next/font/google";
 import HeadingTagsDisplay from "@/components/wrappers/HeadingTagsDisplay";
 import SmoothScrollHandler from "@/components/wrappers/SmoothScrollHandler";
@@ -21,13 +17,7 @@ const globalFont = Outfit({
   variable: "--t-font-family--outfit",
 });
 
-// export const customFont = localFont({
-//   src: "../../public/fonts/Pacaembu.woff2",
-//   variable: "--t-font-family-global",
-// });
-
 export default async function RootLayout({ children }) {
-  const siteSettings = await getSiteSettings();
   return (
     <html lang="en" className={globalFont.variable}>
       <body
