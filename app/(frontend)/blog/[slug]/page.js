@@ -20,6 +20,7 @@ export default async function Post({ params }) {
   const ctaData = {
     background_theme: `primary`,
     heading: `Get Your Custom Website Analysis`,
+    heading_tag: `span`,
     description: `Not sure how to go about growing your website? Book a quick call with Jeremy D, a leading digital <br class="u__show-after-992" />marketing specialist who can help you move your business forward.`,
     button_title: `Quick Website Analysis`,
     button_destination: `/contact-us`,

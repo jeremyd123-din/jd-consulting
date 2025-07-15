@@ -61,7 +61,7 @@ const HeroVariant03 = ({ data = {}, index }) => {
                 className={`c__subtitle-wrapper ${data.button_title ? `mb-[1rem]` : ``}`}
               >
                 <Heading
-                  tag={data?.description_tag}
+                  tag={data?.description_tag ?? `p`}
                   className={`u__${data.description_size ? data.description_size : `h6`}  ${data.button_title ? `mb-[0.5rem]` : `mb-[0]`}`}
                 >
                   {data.description}

@@ -6,8 +6,10 @@ import urlFor from "@/lib/imageUrlBuilder";
 import Heading from "@/components/ui/Heading";
 import Link from "next/link";
 import { formatDate } from "@/lib/helpers";
-import { stegaClean } from "@sanity/client/stega";
+import { getCleanValue } from "@/lib/helpers";
 import ArticleContent from "@/components/ui/ArticleContent";
+import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
+import { cn } from "@/lib/utils";
 
 const Wrapper = styled.article`
   .b__post__variant01 {
@@ -43,6 +45,13 @@ const PostVariant01 = ({ data }) => {
       scopedCss={data?.scoped_css}
       className="b__post__variant01 overflow-hidden relative"
     >
+      {/* <BackgroundPattern
+        patternType={`grid`}
+        className={cn(
+          "[mask-image:linear-gradient(to_bottom_left,white,transparent,transparent)]"
+        )}
+      /> */}
+
       <Wrapper>
         <div className="container">
           <div className="b__post__variant01__header">
@@ -63,7 +72,7 @@ const PostVariant01 = ({ data }) => {
               )}
               {data.title || data.heading ? (
                 <Heading tag="h1" className="u__d2">
-                  {stegaClean(data.heading) ? data.heading : data.title}
+                  {getCleanValue(data.heading) ? data.heading : data.title}
                 </Heading>
               ) : (
                 ``

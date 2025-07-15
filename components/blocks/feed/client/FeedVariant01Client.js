@@ -32,7 +32,7 @@ const FeedVariant01Client = ({ data = {}, feedData = {} }) => {
         <BackgroundPattern
           patternType={data.background_pattern_type ?? `dots`}
           className={cn(
-            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)]"
+            "[mask-image:linear-gradient(to_bottom,white,transparent,transparent)]"
           )}
         />
       )}
