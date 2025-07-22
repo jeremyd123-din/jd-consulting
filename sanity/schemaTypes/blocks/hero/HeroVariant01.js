@@ -93,6 +93,7 @@ const HeroVariant01 = defineType({
       titleLabel: "Button Two Title",
       destinationLabel: "Button Two Destination",
       themeLabel: `Button Two Theme`,
+      initialTitle: null,
     }),
 
     defineField({
