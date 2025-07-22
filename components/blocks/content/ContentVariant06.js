@@ -1,16 +1,27 @@
 "use client";
 import Bounded from "@/components/wrappers/Bounded";
 import styled from "styled-components";
-import Heading from "@/components/ui/Heading";
 import IconCard from "@/components/ui/IconCard";
 import RichtextField from "@/components/ui/RichtextField";
 import Description from "@/components/ui/Description";
 import urlFor from "@/lib/imageUrlBuilder";
-import TwoColumnTitleWithCTA from "@/components/ui/TwoColumnTitleWithCTA";
 import Image from "next/image";
+import Button from "@/components/ui/Button";
+import Heading from "@/components/ui/Heading";
+import { cn } from "@/lib/utils";
+import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
+import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
+import { getCleanValue } from "@/lib/helpers";
 
 const Wrapper = styled.div`
   .b__content__variant06 {
+    &__grid-row {
+      --bs-gutter-x: 2rem;
+      --bs-gutter-y: 3rem;
+      @media (min-width: 768px) {
+        --bs-gutter-x: 4rem;
+      }
+    }
     &__row {
       @media (min-width: 992px) {
         display: flex;
@@ -137,98 +148,171 @@ const Wrapper = styled.div`
   }
 `;
 
-const ContentVariant06 = ({ data }) => {
+const cardColumns = {
+  2: "col-lg-6",
+  3: "col-lg-4",
+  4: "col-lg-3",
+};
+
+const ContentVariant06 = ({ data = {}, index }) => {
+  const dataCardColumns = getCleanValue(data.card_columns);
+  const columnClassName = `col-md-6 ${dataCardColumns ? cardColumns[dataCardColumns] : `col-lg-4`}`;
+
   return (
     <Bounded
       id={data?._key}
       type={data?._type}
       scopedCss={data?.scoped_css}
-      className="b__content__variant06"
+      index={index}
+      className="b__content__variant06 overflow-hidden relative"
     >
+      {data.enable_background_pattern && (
+        <BackgroundPattern
+          patternType={data.background_pattern_type ?? `dots`}
+          className={cn(
+            "[mask-image:linear-gradient(to_bottom_left,white,transparent,transparent)]"
+          )}
+        />
+      )}
       <Wrapper>
         <div className="container">
-          {data && (
-            <TwoColumnTitleWithCTA
-              heading={data.heading}
-              description={data.description}
-              buttonTitle={data.button_title}
-              buttonDestination={data.button_destination}
-              buttonTheme={data.button_theme}
-            />
-          )}
+          <div className={`c__two-column-title-with-cta`}>
+            <div className="c__two-column-title-with-cta__wrapper">
+              <div className="c__two-column-title-with-cta__column">
+                <div className="c__heading-and-description">
+                  {data.heading && (
+                    <ConditionalBlurFade
+                      enabled={data.enable_animations}
+                      delay={0}
+                    >
+                      <div className="c__heading-wrapper mb-[1rem]">
+                        <Heading
+                          tag={data.heading_tag || "h2"}
+                          className={`u__h1`}
+                        >
+                          {data.heading}
+                        </Heading>
+                      </div>
+                    </ConditionalBlurFade>
+                  )}
+                  {data.description && (
+                    <ConditionalBlurFade
+                      enabled={data.enable_animations}
+                      delay={0.1}
+                    >
+                      <div className="c__description-wrapper">
+                        <Description className="u__h6">
+                          {data.description}
+                        </Description>
+                      </div>
+                    </ConditionalBlurFade>
+                  )}
+                </div>
+              </div>
+              {data.button_title && (
+                <div className="c__two-column-title-with-cta__column">
+                  <div className="c__two-column-title-with-cta__button-wrapper mt-[1.5rem] lg:mt-0">
+                    <Button
+                      destination={data.button_destination}
+                      title={data.button_title}
+                      target={data.button_open_in_new_tab}
+                      theme={data.button_theme}
+                      className={`w-auto`}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-        <div className="container mt-4 pt-4 pt-lg-5">
+        <div className="container mt-[3rem] lg:mt-[3.5rem]">
           <div className="b__content__variant06__row">
             {data.image && (
               <div className="b__content__variant06__column b__content__variant06__column--image">
-                <div className="b__content__variant06__image-wrapper relative">
-                  <figure className="m-0 d-inline">
-                    <Image
-                      placeholder="blur"
-                      blurDataURL={data?.image?.asset?.metadata?.lqip}
-                      src={urlFor(data.image).url()}
-                      alt={data.image.alt ?? ""}
-                      sizes="100vw"
-                      width={500}
-                      height={300}
-                    />
-                  </figure>
-                </div>
+                <ConditionalBlurFade
+                  enabled={data?.enable_animations}
+                  delay={0.2}
+                  className="h-full"
+                >
+                  <div className="b__content__variant06__image-wrapper relative">
+                    <figure className="m-0 inline">
+                      <Image
+                        placeholder="blur"
+                        blurDataURL={
+                          data?.image?.asset?.metadata?.lqip ||
+                          fallbackImageBlurDataUrl
+                        }
+                        src={urlFor(data.image).url()}
+                        alt={data.image.alt ?? ""}
+                        sizes="100vw"
+                        width={800}
+                        height={800}
+                      />
+                    </figure>
+                  </div>
+                </ConditionalBlurFade>
               </div>
             )}
             <div className="b__content__variant06__column b__content__variant06__column--content">
               <div className="b__content__variant06__content-wrapper">
                 {data.content && (
-                  <RichtextField
-                    className="u__subtitle"
-                    content={data.content}
-                  />
+                  <ConditionalBlurFade
+                    enabled={data.enable_animations}
+                    delay={0.2}
+                  >
+                    <RichtextField
+                      className="u__subtitle"
+                      content={data.content}
+                    />
+                  </ConditionalBlurFade>
                 )}
                 {data.repeater && (
                   <div className="b__content__variant06__content-grid">
-                    <div className="b__content__variant06__content-grid__row">
+                    <div className="row b__content__variant06__grid-row">
                       {data.repeater.map((elem, index) => {
-                        const { image, heading, description } = elem;
-                        const imageObj = {
-                          src: image ? urlFor(image).url() : null,
-                          alt: image ? image.alt : null,
-                          blurDataURL: image
-                            ? image.asset?.metadata?.lqip
-                            : null,
-                        };
+                        const {
+                          icon_svg,
+                          icon_type,
+                          icon_color,
+                          image,
+                          heading,
+                          description,
+                          button_title,
+                          button_destination,
+                          button_open_in_new_tab,
+                        } = elem;
+
+                        const imageObj = image
+                          ? {
+                              src: urlFor(image).url(),
+                              alt: image.alt || null,
+                            }
+                          : null;
                         return (
-                          <div
-                            key={index}
-                            className="b__content__variant06__content-grid__column"
-                          >
-                            <div className="c__stacked-icon-with-description">
-                              <div className="c__stacked-icon-with-description__icon-wrapper mb-3">
-                                <figure className="m-0">
-                                  <Image
-                                    placeholder="empty"
-                                    src={imageObj.src}
-                                    alt={imageObj.alt ?? ""}
-                                    width={500}
-                                    height={500}
-                                  />
-                                </figure>
-                              </div>
-                              {heading && (
-                                <Heading
-                                  tag={data.card_heading_tag || `h3`}
-                                  className="u__h5 mb-2"
-                                >
-                                  {heading}
-                                </Heading>
-                              )}
-                              {description && (
-                                <div className="c__stacked-icon-with-description__description-wrapper">
-                                  <Description className="c__stacked-icon-with-description__description mb-0">
-                                    {description}
-                                  </Description>
-                                </div>
-                              )}
-                            </div>
+                          <div key={index} className={columnClassName}>
+                            <ConditionalBlurFade
+                              className={`h-full`}
+                              enabled={data.enable_animations}
+                              delay={0.3 + index * 0.1}
+                            >
+                              <IconCard
+                                style={
+                                  getCleanValue(data.card_style) || `block`
+                                }
+                                headingTag={getCleanValue(
+                                  data.card_heading_tag
+                                )}
+                                icon={imageObj}
+                                iconSvg={icon_svg}
+                                iconType={icon_type}
+                                iconColor={icon_color}
+                                heading={heading}
+                                description={description}
+                                buttonTitle={button_title}
+                                buttonDestination={button_destination}
+                                buttonTarget={button_open_in_new_tab}
+                              />
+                            </ConditionalBlurFade>
                           </div>
                         );
                       })}

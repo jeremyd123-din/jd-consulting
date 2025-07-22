@@ -49,7 +49,7 @@ const Pagination = ({ prevPageDestination, nextPageDestination }) => {
           <div className="c__pagination__col">
             <Link href={prevPageDestination || `#`}>
               <div className="c__pagination__link c__pagination__link--prev">
-                <figure className="d-inline m-0">
+                <figure className="inline m-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -75,7 +75,7 @@ const Pagination = ({ prevPageDestination, nextPageDestination }) => {
             <Link href={nextPageDestination || `#`}>
               <div className="c__pagination__link c__pagination__link--next">
                 <span className="c__pagination__text">Next</span>
-                <figure className="d-inline m-0">
+                <figure className="inline m-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

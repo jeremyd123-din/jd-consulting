@@ -227,5 +227,48 @@
       }
     }
   }
+  &__two-column-title-with-cta {
+    &__wrapper {
+      @media (min-width: 992px) {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-left: -12px;
+        margin-right: -12px;
+      }
+    }
+    &__column {
+      width: 100%;
+      @media (min-width: 992px) {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+      &:last-child {
+        @media (min-width: 992px) {
+          max-width: 25%;
+          flex: 0 0 25%;
+        }
+        @media (min-width: 1200px) {
+          max-width: 20%;
+          flex: 0 0 20%;
+        }
+      }
+      &:first-child {
+        @media (min-width: 992px) {
+          max-width: 75%;
+          flex: 0 0 75%;
+        }
+        @media (min-width: 1200px) {
+          max-width: 80%;
+          flex: 0 0 80%;
+        }
+      }
+    }
+    &__button-wrapper {
+      @media (min-width: 992px) {
+        text-align: right;
+        margin-top: 0.65rem;
+      }
+    }
+  }
   // New component styles here
 }

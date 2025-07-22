@@ -1,8 +1,13 @@
 import { defineField, defineType } from "sanity";
 import {
   scopedCss,
-  generateHeadingTagField,
   generateHeadingSizeField,
+  generateButtonField,
+  generateIconCardStyleField,
+  generateCardColumnsField,
+  generateHeadingTagField,
+  generateBackgroundPatternField,
+  generateRichtextField,
 } from "../defaultFields";
 
 const blockLabel = `Content Variant 07`;
@@ -44,67 +49,13 @@ const ContentVariant07 = defineType({
       name: `heading_tag`,
       title: `Heading Tag`,
     }),
-    defineField({
+    generateRichtextField({
       name: "content_left",
       title: "Content Left",
-      type: "array",
-      of: [
-        {
-          type: "block",
-        },
-        {
-          type: "image",
-          fields: [
-            {
-              type: "text",
-              name: "alt",
-              title: "Alternative text",
-              options: {
-                isHighlighted: true,
-              },
-            },
-          ],
-        },
-        {
-          type: "code",
-          options: {
-            language: "html",
-            languageAlternatives: [{ title: "HTML", value: "html" }],
-          },
-        },
-      ],
-      group: "content",
     }),
-    defineField({
+    generateRichtextField({
       name: "content_right",
       title: "Content Right",
-      type: "array",
-      of: [
-        {
-          type: "block",
-        },
-        {
-          type: "image",
-          fields: [
-            {
-              type: "text",
-              name: "alt",
-              title: "Alternative text",
-              options: {
-                isHighlighted: true,
-              },
-            },
-          ],
-        },
-        {
-          type: "code",
-          options: {
-            language: "html",
-            languageAlternatives: [{ title: "HTML", value: "html" }],
-          },
-        },
-      ],
-      group: "content",
     }),
     generateHeadingSizeField({
       name: `content_size`,
@@ -137,6 +88,14 @@ const ContentVariant07 = defineType({
       initialValue: () => false,
       group: "style",
     }),
+    defineField({
+      name: "enable_animations",
+      title: "Enable Animations",
+      type: "boolean",
+      initialValue: () => false,
+      group: "style",
+    }),
+    ...generateBackgroundPatternField(),
   ],
   preview: {
     select: {

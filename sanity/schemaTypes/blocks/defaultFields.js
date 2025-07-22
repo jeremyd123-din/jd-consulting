@@ -200,6 +200,7 @@ export const generateIconCardStyleField = ({
         { title: "Solid", value: "solid" },
         { title: "Outlined", value: "outlined" },
         { title: "Shadow", value: "shadow" },
+        { title: "Block", value: "block" },
       ],
     },
   });

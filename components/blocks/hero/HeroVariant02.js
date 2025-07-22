@@ -11,6 +11,7 @@ import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
 import Heading from "@/components/ui/Heading";
 import Description from "@/components/ui/Description";
+import { fallbackImageBlurDataUrl } from "@/lib/constants";
 
 const Wrapper = styled.div`
   .b__hero__variant02 {
@@ -150,7 +151,10 @@ const HeroVariant02 = ({ data = {}, index }) => {
                       className="b__hero__variant02__image"
                       fill={true}
                       placeholder="blur"
-                      blurDataURL={data?.image?.asset?.metadata?.lqip}
+                      blurDataURL={
+                        data?.image?.asset?.metadata?.lqip ||
+                        fallbackImageBlurDataUrl
+                      }
                       src={urlFor(data.image).url()}
                       alt={data.image.alt ?? ""}
                       sizes="100%"

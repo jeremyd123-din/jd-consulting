@@ -16,10 +16,10 @@ const Component = styled.div`
       justify-content: space-between;
       align-items: center;
       cursor: pointer;
-      padding-bottom: 1rem;
     }
     &__body-wrapper {
       padding-bottom: 1rem;
+      padding-top: 1rem;
     }
     &__heading-wrapper {
       padding-right: 1.5rem;

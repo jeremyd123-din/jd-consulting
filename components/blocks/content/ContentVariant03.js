@@ -1,5 +1,4 @@
 "use client";
-import parse from "html-react-parser";
 import Bounded from "@/components/wrappers/Bounded";
 import styled from "styled-components";
 import TextCardWithBar from "@/components/ui/TextCardWithBar";

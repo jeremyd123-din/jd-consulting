@@ -1,5 +1,13 @@
 import { defineField, defineType } from "sanity";
-import { scopedCss } from "../defaultFields";
+import {
+  scopedCss,
+  generateButtonField,
+  generateIconCardStyleField,
+  generateCardColumnsField,
+  generateHeadingTagField,
+  generateBackgroundPatternField,
+  generateRichtextField,
+} from "../defaultFields";
 const blockCategory = "faq";
 const FaqVariant01 = defineType({
   name: "FaqVariant01",
@@ -34,6 +42,10 @@ const FaqVariant01 = defineType({
       initialValue: "Powerful Section Heading",
       group: "content",
     }),
+    generateHeadingTagField({
+      name: `heading_tag`,
+      title: `Heading Tag`,
+    }),
     defineField({
       name: "description",
       title: "Description",
@@ -43,10 +55,19 @@ const FaqVariant01 = defineType({
       rows: 4,
       group: "content",
     }),
+
     defineField({
       name: "repeater",
       title: "Repeater",
       type: "array",
+      group: "content",
+      initialValue: () =>
+        Array(4)
+          .fill(0)
+          .map((_, i) => ({
+            _type: "repeater_item",
+            heading: `Powerful Section Heading to Insure Readability​​​​`,
+          })),
       of: [
         {
           type: "object",
@@ -58,22 +79,23 @@ const FaqVariant01 = defineType({
               initialValue:
                 "Powerful Section Heading to Insure Readability​​​​‌",
             }),
-            defineField({
+            generateRichtextField({
               name: "content",
               title: "Content",
-              type: "array",
-              initialValue:
-                "Gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet",
-              of: [
-                {
-                  type: "block",
-                },
-              ],
+              group: null,
             }),
           ],
         },
       ],
     }),
+    defineField({
+      name: "enable_animations",
+      title: "Enable Animations",
+      type: "boolean",
+      initialValue: () => false,
+      group: "style",
+    }),
+    ...generateBackgroundPatternField(),
   ],
   preview: {
     select: {

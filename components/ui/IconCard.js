@@ -44,6 +44,9 @@ const Component = styled.div`
       box-shadow: var(--t-box-shadow-lg);
       border: 1px solid var(--t-border-color);
     }
+    &--block {
+      padding: 0;
+    }
   }
 `;
 
@@ -84,7 +87,9 @@ const IconCard = ({
                   height={500}
                 />
               )}
-              {iconType === `svg` && iconSvg && <>{parse(iconSvg)}</>}
+              {iconType === `svg` && iconSvg && (
+                <>{parse(getCleanValue(iconSvg))}</>
+              )}
             </figure>
           </div>
         )}

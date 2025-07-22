@@ -7,7 +7,6 @@ import RichtextField from "@/components/ui/RichtextField";
 import { cn } from "@/lib/utils";
 import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
-import { getCleanValue } from "@/lib/helpers";
 
 const Wrapper = styled.div`
   .b__content__variant04 {

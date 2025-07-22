@@ -4,6 +4,10 @@ import styled from "styled-components";
 import Heading from "@/components/ui/Heading";
 import RichtextField from "@/components/ui/RichtextField";
 import { stegaClean } from "@sanity/client/stega";
+import { cn } from "@/lib/utils";
+import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
+import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
+import { getCleanValue } from "@/lib/helpers";
 
 const Wrapper = styled.div`
   .b__content__variant07 {
@@ -41,48 +45,68 @@ const Wrapper = styled.div`
   }
 `;
 
-const ContentVariant07 = ({ data }) => {
+const ContentVariant07 = ({ data = {}, index }) => {
   return (
     <Bounded
       id={data?._key}
       type={data?._type}
       scopedCss={data?.scoped_css}
-      className="b__content__variant07"
+      index={index}
+      className="b__content__variant07 overflow-hidden relative"
     >
+      {data.enable_background_pattern && (
+        <BackgroundPattern
+          patternType={data.background_pattern_type ?? `dots`}
+          className={cn(
+            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)]"
+          )}
+        />
+      )}
       <Wrapper>
         <div className="container">
           <div
-            class={`b__content__variant07__wrapper b__content__variant07__wrapper--theme-${stegaClean(data.theme) || `primary`}`}
+            class={`b__content__variant07__wrapper b__content__variant07__wrapper--theme-${getCleanValue(data.theme) || `primary`}`}
           >
             <div
-              class={`b__content__variant07__content-wrapper ${stegaClean(data.disable_inverted_text) || `u__text-inverted`}`}
+              class={`b__content__variant07__content-wrapper ${getCleanValue(data.disable_inverted_text) || `u__text-inverted`}`}
             >
               {data.heading && (
-                <div class="c__heading-wrapper mb-4 pb-1">
-                  <Heading tag={data.heading_tag || `h2`} className="u__h2">
-                    {data.heading}
-                  </Heading>
-                </div>
+                <ConditionalBlurFade enabled={data.enable_animations} delay={0}>
+                  <div className="c__heading-wrapper mb-[1.5rem]">
+                    <Heading tag={data.heading_tag || "h2"} className={`u__h1`}>
+                      {data.heading}
+                    </Heading>
+                  </div>
+                </ConditionalBlurFade>
               )}
-
               <div class="row b__content__variant07__grid-row">
                 <div
-                  class={`${stegaClean(data.disable_second_column) ? `col-lg-12` : `col-lg-6`}`}
+                  class={`${getCleanValue(data.disable_second_column) ? `col-lg-12` : `col-lg-6`}`}
                 >
                   {data.content_left && (
-                    <RichtextField
-                      className={`u__${stegaClean(data.content_size) || "h6"}`}
-                      content={data.content_left}
-                    />
+                    <ConditionalBlurFade
+                      enabled={data.enable_animations}
+                      delay={0.2}
+                    >
+                      <RichtextField
+                        className={`u__${getCleanValue(data.content_size) || "h6"}`}
+                        content={data.content_left}
+                      />
+                    </ConditionalBlurFade>
                   )}
                 </div>
                 {!data.disable_second_column && (
                   <div class="col-lg-6">
                     {data.content_right && (
-                      <RichtextField
-                        className={`u__${stegaClean(data.content_size) || "h6"}`}
-                        content={data.content_right}
-                      />
+                      <ConditionalBlurFade
+                        enabled={data.enable_animations}
+                        delay={0.3}
+                      >
+                        <RichtextField
+                          className={`u__${getCleanValue(data.content_size) || "h6"}`}
+                          content={data.content_right}
+                        />
+                      </ConditionalBlurFade>
                     )}
                   </div>
                 )}

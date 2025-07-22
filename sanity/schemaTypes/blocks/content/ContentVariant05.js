@@ -1,5 +1,13 @@
 import { defineField, defineType } from "sanity";
-import { scopedCss, generateHeadingTagField } from "../defaultFields";
+import {
+  scopedCss,
+  generateButtonField,
+  generateIconCardStyleField,
+  generateCardColumnsField,
+  generateHeadingTagField,
+  generateBackgroundPatternField,
+  generateRichtextField,
+} from "../defaultFields";
 
 const blockLabel = `Content Variant 05`;
 const blockCategory = "content";
@@ -28,7 +36,6 @@ const ContentVariant05 = defineType({
       readOnly: true,
       hidden: true,
     }),
-
     defineField({
       name: "heading",
       title: "Heading",
@@ -49,49 +56,74 @@ const ContentVariant05 = defineType({
       rows: 4,
       group: "content",
     }),
-    defineField({
+    generateRichtextField({
       name: "content",
       title: "Content",
-      type: "array",
-      of: [
-        {
-          type: "block",
-        },
-        {
-          type: "image",
-          fields: [
-            {
-              type: "text",
-              name: "alt",
-              title: "Alternative text",
-              options: {
-                isHighlighted: true,
-              },
-            },
-          ],
-        },
-        {
-          type: "code",
-          options: {
-            language: "html",
-            languageAlternatives: [{ title: "HTML", value: "html" }],
-          },
-        },
-      ],
-      group: "content",
+    }),
+    ...generateButtonField({
+      name: "button",
+      titleLabel: "Button Title",
+      destinationLabel: "Button Destination",
+      themeLabel: `Button Theme`,
+    }),
+    ...generateButtonField({
+      name: "button_two",
+      titleLabel: "Button Two Title",
+      destinationLabel: "Button Two Destination",
+      themeLabel: `Button Two Theme`,
+      initialTitle: null,
     }),
     defineField({
       name: "repeater",
       title: "Repeater",
       type: "array",
+      group: "content",
+      initialValue: () =>
+        Array(4)
+          .fill(0)
+          .map((_, i) => ({
+            _type: "repeater_item",
+            heading: `Card Heading`,
+            description: `Gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet`,
+            button_title: null,
+          })),
       of: [
         {
           type: "object",
+          name: "repeater_item",
+          title: "Repeater Item",
           fields: [
+            defineField({
+              name: "icon_type",
+              title: "Icon Type",
+              type: "string",
+              initialValue: "svg",
+              options: {
+                list: [
+                  { title: "SVG", value: "svg" },
+                  { title: "Image", value: "image" },
+                ],
+              },
+            }),
+            defineField({
+              name: "icon_svg",
+              title: "Icon SVG",
+              type: "text",
+              rows: 3,
+              hidden: ({ parent }) => parent?.[`icon_type`] !== "svg",
+              initialValue: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-notepad-text-icon lucide-notepad-text"><path d="M8 2v4"/><path d="M12 2v4"/><path d="M16 2v4"/><rect width="16" height="18" x="4" y="4" rx="2"/><path d="M8 10h6"/><path d="M8 14h8"/><path d="M8 18h5"/></svg>`,
+            }),
+            defineField({
+              name: "icon_color",
+              title: "Icon Color",
+              type: "string",
+              hidden: ({ parent }) => parent?.[`icon_type`] !== "svg",
+            }),
             defineField({
               name: "image",
               title: "Icon",
               type: "image",
+              hidden: ({ parent }) => parent?.[`icon_type`] !== "image",
               options: { hotspot: true },
               fields: [
                 {
@@ -115,16 +147,13 @@ const ContentVariant05 = defineType({
                 "Gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet",
               rows: 2,
             }),
-            defineField({
-              name: "button_title",
-              title: "Button Title",
-              type: "string",
-              initialValue: "",
-            }),
-            defineField({
-              name: "button_destination",
-              title: "Button Destination",
-              type: "string",
+            ...generateButtonField({
+              name: "button",
+              titleLabel: "Button Title",
+              destinationLabel: "Button Destination",
+              themeLabel: `Button Theme`,
+              group: null,
+              includeTheme: false,
             }),
           ],
         },
@@ -134,19 +163,9 @@ const ContentVariant05 = defineType({
       name: `card_heading_tag`,
       title: `Card Heading Tag`,
     }),
-    defineField({
-      name: "card_style",
-      title: "Card Style",
-      type: "string",
-      initialValue: "shadow",
-      group: "style",
-      options: {
-        list: [
-          { title: "Solid", value: "solid" },
-          { title: "Outlined", value: "outlined" },
-          { title: "Shadow", value: "shadow" },
-        ],
-      },
+    generateIconCardStyleField({
+      name: `card_style`,
+      title: `Card Style`,
     }),
     defineField({
       name: "align_items_center",
@@ -155,6 +174,14 @@ const ContentVariant05 = defineType({
       initialValue: () => false,
       group: "style",
     }),
+    defineField({
+      name: "enable_animations",
+      title: "Enable Animations",
+      type: "boolean",
+      initialValue: () => false,
+      group: "style",
+    }),
+    ...generateBackgroundPatternField(),
   ],
   preview: {
     select: {

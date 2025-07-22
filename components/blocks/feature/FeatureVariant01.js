@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
 import RichtextField from "@/components/ui/RichtextField";
+import { fallbackImageBlurDataUrl } from "@/lib/constants";
 
 const Wrapper = styled.div`
   .b__feature__variant01 {
@@ -142,7 +143,10 @@ const FeatureVariant01 = ({ data = {}, index }) => {
                       className="b__feature__variant01__image"
                       fill={true}
                       placeholder="blur"
-                      blurDataURL={data?.image?.asset?.metadata?.lqip}
+                      blurDataURL={
+                        data?.image?.asset?.metadata?.lqip ||
+                        fallbackImageBlurDataUrl
+                      }
                       src={urlFor(data.image).url()}
                       alt={data.image.alt ?? ""}
                       sizes="100%"
