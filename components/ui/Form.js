@@ -1,5 +1,5 @@
 "use client";
-import React, { useMemo, useCallback } from "react";
+import React, { useMemo } from "react";
 import { Controller } from "react-hook-form";
 import parse from "html-react-parser";
 import styled from "styled-components";
@@ -180,77 +180,68 @@ const Component = styled.div`
   }
 `;
 
-// Separate field components for better performance - wrapped with forwardRef
-const TextAreaField = React.memo(
-  React.forwardRef(({ field, register, error }, ref) => (
-    <textarea
-      ref={ref}
-      className={`c__form__input ${error ? "c__form__input--error" : ""}`}
+// Field components without React.memo to allow proper re-registration
+const TextAreaField = ({ field, register, error }) => (
+  <textarea
+    className={`c__form__input ${error ? "c__form__input--error" : ""}`}
+    name={field.name}
+    placeholder={field.placeholder}
+    defaultValue={field.defaultValue || ""}
+    {...register(field.name, {
+      required: field.required?.message || field.required,
+      pattern: field.pattern || null,
+    })}
+  />
+);
+
+const SelectField = ({ field, control, error }) => {
+  const generatedId = useId();
+
+  return (
+    <Controller
       name={field.name}
-      placeholder={field.placeholder}
-      defaultValue={field.defaultValue || ""}
-      {...register(field.name, {
+      control={control}
+      rules={{
         required: field.required?.message || field.required,
         pattern: field.pattern || null,
-      })}
+      }}
+      defaultValue={field.defaultValue || null}
+      render={({ field: controllerField }) => (
+        <Select
+          {...controllerField}
+          instanceId={generatedId}
+          name={field.name}
+          className={`basic-multi-select c__form__select ${error ? "c__form__input--error" : ""}`}
+          classNamePrefix="select"
+          options={field.options}
+          placeholder={field.placeholder}
+          isMulti={field.isMulti}
+          closeMenuOnSelect={!field.isMulti}
+          onChange={controllerField.onChange}
+          onBlur={controllerField.onBlur}
+          value={controllerField.value ?? (field.isMulti ? [] : null)}
+        />
+      )}
     />
-  ))
+  );
+};
+
+const InputField = ({ field, register, error }) => (
+  <input
+    className={`c__form__input ${error ? "c__form__input--error" : ""}`}
+    name={field.name}
+    type={field.type}
+    placeholder={field.placeholder}
+    defaultValue={field.defaultValue || ""}
+    {...register(field.name, {
+      required: field.required?.message || field.required,
+      pattern: field.pattern || null,
+    })}
+  />
 );
 
-const SelectField = React.memo(
-  React.forwardRef(({ field, control, error }, ref) => {
-    const generatedId = useId();
-
-    return (
-      <Controller
-        name={field.name}
-        control={control}
-        rules={{
-          required: field.required?.message || field.required,
-          pattern: field.pattern || null,
-        }}
-        defaultValue={field.defaultValue || null}
-        render={({ field: controllerField }) => (
-          <Select
-            {...controllerField}
-            ref={ref}
-            instanceId={generatedId}
-            name={field.name}
-            className={`basic-multi-select c__form__select ${error ? "c__form__input--error" : ""}`}
-            classNamePrefix="select"
-            options={field.options}
-            placeholder={field.placeholder}
-            isMulti={field.isMulti}
-            closeMenuOnSelect={!field.isMulti}
-            onChange={controllerField.onChange}
-            onBlur={controllerField.onBlur}
-            value={controllerField.value ?? (field.isMulti ? [] : null)}
-          />
-        )}
-      />
-    );
-  })
-);
-
-const InputField = React.memo(
-  React.forwardRef(({ field, register, error }, ref) => (
-    <input
-      ref={ref}
-      className={`c__form__input ${error ? "c__form__input--error" : ""}`}
-      name={field.name}
-      type={field.type}
-      placeholder={field.placeholder}
-      defaultValue={field.defaultValue || ""}
-      {...register(field.name, {
-        required: field.required?.message || field.required,
-        pattern: field.pattern || null,
-      })}
-    />
-  ))
-);
-
-const FormField = React.memo(({ field, register, control, error }) => {
-  const renderInput = useCallback(() => {
+const FormField = ({ field, register, control, error }) => {
+  const renderInput = () => {
     switch (field.type) {
       case "textarea":
         return (
@@ -261,7 +252,7 @@ const FormField = React.memo(({ field, register, control, error }) => {
       default:
         return <InputField field={field} register={register} error={error} />;
     }
-  }, [field, register, control, error]);
+  };
 
   return (
     <div
@@ -284,7 +275,7 @@ const FormField = React.memo(({ field, register, control, error }) => {
       )}
     </div>
   );
-});
+};
 
 const Form = ({
   formFields,
@@ -315,9 +306,6 @@ const Form = ({
     }
   }, [formFields]);
 
-  // Memoize the hidden input registration
-  const hiddenInputProps = useMemo(() => register("page_url"), [register]);
-
   // Early return if no valid form fields
   if (!parsedFormFields || !Array.isArray(parsedFormFields)) {
     return (
@@ -336,7 +324,7 @@ const Form = ({
         <input
           type="hidden"
           value={`${baseUrl}${pathname}`}
-          {...hiddenInputProps}
+          {...register("page_url")}
         />
 
         <div className="c__form__fields-wrapper">
