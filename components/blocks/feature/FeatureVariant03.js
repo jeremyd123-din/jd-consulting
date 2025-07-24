@@ -60,7 +60,7 @@ const FeatureVariant03 = ({ data = {}, index }) => {
                     <div className="c__heading-wrapper mb-[1rem]">
                       <Heading
                         tag={data.heading_tag || "h2"}
-                        className={`u__h2`}
+                        className={`u__h1`}
                       >
                         {data.heading}
                       </Heading>

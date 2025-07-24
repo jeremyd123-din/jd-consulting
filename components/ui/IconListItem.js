@@ -50,7 +50,7 @@ const IconListItem = ({
     <Component className={cn(`c__icon-list-item`, className)}>
       <div className="c__icon-list-item__wrapper">
         <div className="c__icon-list-item__column">
-          {icon && (icon.src || iconSvg) && (
+          {(icon?.src || iconSvg) && (
             <div
               className={`c__icon-list-item__figure-wrapper !text-[${getCleanValue(iconColor)}]`}
             >
