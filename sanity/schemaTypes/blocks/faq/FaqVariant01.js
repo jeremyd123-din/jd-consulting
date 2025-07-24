@@ -71,6 +71,8 @@ const FaqVariant01 = defineType({
       of: [
         {
           type: "object",
+          name: "repeater_item",
+          title: "Repeater Item",
           fields: [
             defineField({
               name: "heading",

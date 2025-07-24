@@ -25,13 +25,14 @@ const cardColumns = {
   3: "col-lg-4",
   4: "col-lg-3",
 };
-const ContentVariant08 = ({ data = {} }) => {
+const ContentVariant08 = ({ data = {}, index }) => {
   const dataCardColumns = getCleanValue(data.card_columns);
   const columnClassName = `col-md-6 ${dataCardColumns ? cardColumns[dataCardColumns] : `col-lg-4`}`;
   return (
     <Bounded
       id={data._key}
       type={data._type}
+      index={index}
       scopedCss={data.scoped_css}
       className="b__content__variant08 overflow-hidden relative"
     >
