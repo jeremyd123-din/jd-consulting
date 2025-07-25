@@ -287,6 +287,7 @@ const Form = ({
   payloadPosting,
   formMessage,
   buttonTitle = "Get Started",
+  includeHoneypot,
 }) => {
   const pathname = usePathname();
 
@@ -326,6 +327,16 @@ const Form = ({
           value={`${baseUrl}${pathname}`}
           {...register("page_url")}
         />
+        {includeHoneypot && (
+          <input
+            type="checkbox"
+            name="_honeypot"
+            style={{ display: `none` }}
+            tabIndex="-1"
+            autoComplete="off"
+            {...register("_honeypot")}
+          />
+        )}
 
         <div className="c__form__fields-wrapper">
           {parsedFormFields.map((field) => (

@@ -20,12 +20,13 @@ const Wrapper = styled.div`
   }
 `;
 
-const FeedVariant01Client = ({ data = {}, feedData = {} }) => {
+const FeedVariant01Client = ({ data = {}, feedData = {}, index }) => {
   return (
     <Bounded
       id={data?._key}
       type={data?._type}
       scopedCss={data?.scoped_css}
+      index={index}
       className="b__feed__variant01 overflow-hidden relative"
     >
       {data.enable_background_pattern && (
@@ -65,7 +66,7 @@ const FeedVariant01Client = ({ data = {}, feedData = {} }) => {
 
         <div className="container mt-[3rem]">
           <div className="row b__feed__variant01__row">
-            {feedData.map((elem) => {
+            {feedData.map((elem, index) => {
               const {
                 featured_image,
                 slug,
@@ -90,14 +91,19 @@ const FeedVariant01Client = ({ data = {}, feedData = {} }) => {
 
               return (
                 <div key={_id} className="col-md-6 col-lg-4">
-                  <ResourceCard
-                    image={imageObj}
-                    description={excerpt}
-                    heading={getCleanValue(heading) ? heading : title}
-                    publishDate={publish_date}
-                    buttonTitle={`Read more`}
-                    buttonDestination={destination}
-                  />
+                  <ConditionalBlurFade
+                    enabled={data.enable_animations}
+                    delay={0.2 + index * 0.1}
+                  >
+                    <ResourceCard
+                      image={imageObj}
+                      description={excerpt}
+                      heading={getCleanValue(heading) ? heading : title}
+                      publishDate={publish_date}
+                      buttonTitle={`Read more`}
+                      buttonDestination={destination}
+                    />
+                  </ConditionalBlurFade>
                 </div>
               );
             })}

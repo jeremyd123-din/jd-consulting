@@ -6,6 +6,7 @@ import * as AllCtas from "./cta";
 import * as AllPartners from "./partner";
 import * as AllStats from "./stats";
 import * as AllTestimonials from "./testimonial";
+import * as AllFeeds from "./feed";
 
 const heroBlocks = [...Object.values(AllHeroes)];
 const featureBlocks = [...Object.values(AllFeatures)];
@@ -15,6 +16,7 @@ const ctaBlocks = [...Object.values(AllCtas)];
 const partnerBlocks = [...Object.values(AllPartners)];
 const statsBlocks = [...Object.values(AllStats)];
 const testimonialBlocks = [...Object.values(AllTestimonials)];
+const feedBlocks = [...Object.values(AllFeeds)];
 const pageBuilderBlocks = [
   ...heroBlocks,
   ...featureBlocks,
@@ -24,6 +26,7 @@ const pageBuilderBlocks = [
   ...partnerBlocks,
   ...statsBlocks,
   ...testimonialBlocks,
+  ...feedBlocks,
 ];
 
 export default pageBuilderBlocks;

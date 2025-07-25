@@ -7,6 +7,7 @@ import * as AllCtas from "../blocks/cta";
 import * as AllPartners from "../blocks/partner";
 import * as AllStats from "../blocks/stats";
 import * as AllTestimonials from "../blocks/testimonial";
+import * as AllFeeds from "../blocks/feed";
 import { getCleanValue } from "@/lib/helpers";
 
 const categories = {
@@ -18,6 +19,7 @@ const categories = {
   partner: AllPartners,
   stats: AllStats,
   testimonial: AllTestimonials,
+  feed: AllFeeds,
 };
 
 const BlockNotFound = ({ _type, block_category }) => {

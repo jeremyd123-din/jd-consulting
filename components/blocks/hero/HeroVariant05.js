@@ -211,6 +211,7 @@ const HeroVariant05 = ({ data = {}, index }) => {
                         payloadPosting={payloadPosting}
                         formMessage={formMessage}
                         buttonTitle={formButtonTitle ?? `Get Started`}
+                        includeHoneypot
                       />
                     </div>
                   </ConditionalBlurFade>

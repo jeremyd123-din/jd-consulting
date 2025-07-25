@@ -129,6 +129,13 @@ const Page = {
                 .filter((elem) => elem._menuCategory === "testimonial")
                 ?.map((elem) => elem.name),
             },
+            {
+              name: "feed",
+              title: "Feeds",
+              of: pageBuilderBlocks
+                .filter((elem) => elem._menuCategory === "feed")
+                ?.map((elem) => elem.name),
+            },
           ],
           views: [
             {
