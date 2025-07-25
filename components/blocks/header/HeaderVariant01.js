@@ -186,7 +186,7 @@ const HeaderVariant01 = ({ navigationSchema, siteSettings }) => {
               href="/"
             >
               <div className="b__header__variant01__logo-wrapper u__cursor-pointer">
-                {siteSettings?.logo ? (
+                {siteSettings?.logo?.asset ? (
                   <div className="relative">
                     <Image
                       className="b__header__variant01__logo w-[auto] mw-w-[200px] h-[50px] u__object-fit-contain"

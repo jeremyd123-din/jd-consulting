@@ -119,7 +119,7 @@ const HeroVariant06 = ({ data = {}, index }) => {
             )}
           </div>
           <div className="col-lg-6">
-            {data.image && (
+            {data?.image?.asset && (
               <ConditionalBlurFade enabled={data.enable_animations} delay={0.3}>
                 <div className="b__hero__variant06__image-wrapper">
                   <Image

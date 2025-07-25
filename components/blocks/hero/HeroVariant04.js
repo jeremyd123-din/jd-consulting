@@ -182,7 +182,7 @@ const HeroVariant04 = ({ data = {}, index }) => {
               </div>
             </div>
             <div className="col-lg-6 b__hero__variant04__col--image">
-              {data.image && (
+              {data?.image?.asset && (
                 <div className="b__hero__variant04__image-wrapper">
                   {data.enable_image_shape && (
                     <div className="b__hero__variant04__image-shape"></div>

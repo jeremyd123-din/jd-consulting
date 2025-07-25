@@ -70,7 +70,7 @@ const FooterVariant02 = ({
       <Wrapper className="container">
         <div className="row b__footer__variant02__row">
           <div className="col-md-4 col-lg-6">
-            {siteSettings?.logo && (
+            {siteSettings?.logo?.asset && (
               <div className="">
                 <div className="mb-[1.25rem]">
                   <a href={`/`}>

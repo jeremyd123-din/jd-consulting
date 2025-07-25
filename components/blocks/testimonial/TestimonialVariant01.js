@@ -43,7 +43,7 @@ const TestimonialVariant01 = ({ data = {}, index }) => {
       <Wrapper>
         <div className="container relative u__z-index-1">
           <blockquote className="text-center">
-            {data.logo && (
+            {data?.logo?.asset && (
               <ConditionalBlurFade enabled={data.enable_animations} delay={0}>
                 <div className="b__testimonial__variant01__logo-wrapper mb-[2rem]">
                   <Image
@@ -69,7 +69,7 @@ const TestimonialVariant01 = ({ data = {}, index }) => {
                 </div>
               </ConditionalBlurFade>
             )}
-            {data.avatar && (
+            {data?.avatar?.asset && (
               <ConditionalBlurFade enabled={data.enable_animations} delay={0.2}>
                 <div className="b__testimonial__variant01__avatar-wrapper mb-[1rem]">
                   <Image

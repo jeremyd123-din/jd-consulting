@@ -132,7 +132,7 @@ const FeatureVariant01 = ({ data = {}, index }) => {
           <div
             className={`col-lg-6 ${data.invert_order ? `lg:order-1` : `lg:order-2`}`}
           >
-            {data.image && (
+            {data?.image?.asset && (
               <>
                 <ConditionalBlurFade
                   enabled={data.enable_animations}

@@ -227,7 +227,7 @@ const ContentVariant06 = ({ data = {}, index }) => {
         </div>
         <div className="container mt-[3rem] lg:mt-[3.5rem]">
           <div className="b__content__variant06__row">
-            {data.image && (
+            {data?.image?.asset && (
               <div className="b__content__variant06__column b__content__variant06__column--image">
                 <ConditionalBlurFade
                   enabled={data?.enable_animations}

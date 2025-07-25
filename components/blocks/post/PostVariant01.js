@@ -78,7 +78,7 @@ const PostVariant01 = ({ data }) => {
                 ``
               )}
             </div>
-            {data.featured_image && (
+            {data?.featured_image?.asset && (
               <div className="b__post__variant01__image-wrapper relative mb-[1.5rem] pb-[0.5rem]">
                 <Image
                   className="b__hero__variant04__image"
