@@ -133,6 +133,12 @@ const Styles = css`
     }
   }
 
+  .draft-mode {
+    #nprogress {
+      display: none !important;
+    }
+  }
+
   .u__disable-header-submenu {
     .b__header__variant01__nav-wrapper-large {
       ul {
