@@ -21,12 +21,15 @@ const PostCategory = {
       validation: (Rule) =>
         Rule.required().custom((slug) => {
           if (!slug || !slug.current) {
-            return true;
+            return true; // Let the required() rule handle empty values
           }
-          const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+          const slugPattern = /^[a-z0-9\/]+(?:[-\/][a-z0-9\/]+)*$/;
+
           if (!slugPattern.test(slug.current)) {
-            return "Slug can only contain lowercase letters, numbers, and hyphens. It cannot start or end with a hyphen, and cannot have consecutive hyphens.";
+            return "Slug can only contain lowercase letters, numbers, hyphens, and forward slashes. It cannot start or end with a hyphen, and cannot have consecutive hyphens.";
           }
+
           return true;
         }),
       options: {
