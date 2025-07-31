@@ -9,6 +9,7 @@ import { Outfit } from "next/font/google";
 import HeadingTagsDisplay from "@/components/wrappers/HeadingTagsDisplay";
 import SmoothScrollHandler from "@/components/wrappers/SmoothScrollHandler";
 import RouteSubmenuReset from "@/components/wrappers/RouteSubmenuReset";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const globalFont = Outfit({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ const globalFont = Outfit({
 export default async function RootLayout({ children }) {
   return (
     <html lang="en" className={globalFont.variable}>
+      <GoogleTagManager gtmId="GTM-MF983CW" />
       <body
         data-url={process.env.NEXT_PUBLIC_VERCEL_URL}
         data-prod-url={process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}
