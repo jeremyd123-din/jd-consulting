@@ -24,10 +24,10 @@ const PostCategory = {
             return true; // Let the required() rule handle empty values
           }
 
-          const slugPattern = /^[a-z0-9\/]+(?:[-\/][a-z0-9\/]+)*$/;
+          const slugPattern = /^[a-z0-9_\/-]+$/;
 
           if (!slugPattern.test(slug.current)) {
-            return "Slug can only contain lowercase letters, numbers, hyphens, and forward slashes. It cannot start or end with a hyphen, and cannot have consecutive hyphens.";
+            return "Slug can only contain lowercase letters, numbers, underscores, hyphens, and forward slashes.";
           }
 
           return true;
