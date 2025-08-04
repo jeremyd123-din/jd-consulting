@@ -4,7 +4,7 @@ Marketing site for mosibello.com (sanity).
 
 ```bash
 # From Source
-git clone https://github.com/mosibello/jd-consulting
+git clone https://github.com/jeremyd123-din/jd-consulting.git
 cd jd-consulting
 ```
 
