@@ -10,6 +10,7 @@ import HeadingTagsDisplay from "@/components/wrappers/HeadingTagsDisplay";
 import SmoothScrollHandler from "@/components/wrappers/SmoothScrollHandler";
 import RouteSubmenuReset from "@/components/wrappers/RouteSubmenuReset";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 
 const globalFont = Outfit({
   subsets: ["latin"],
@@ -40,6 +41,7 @@ export default async function RootLayout({ children }) {
         <HeadingTagsDisplay />
         <SmoothScrollHandler />
         <RouteSubmenuReset />
+        <Analytics />
       </body>
     </html>
   );
