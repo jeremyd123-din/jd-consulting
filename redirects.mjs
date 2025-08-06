@@ -94,6 +94,11 @@ const redirects = [
     destination: "/blog",
     permanent: true,
   },
+  {
+    source: "/sitemap_index.xml",
+    destination: "/sitemap.xml",
+    permanent: true,
+  },
 ];
 
 export default redirects;
