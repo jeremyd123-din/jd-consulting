@@ -152,20 +152,6 @@ const TestimonialVariant02 = defineType({
 
     // Slider Settings Group
     defineField({
-      name: "autoplay_duration",
-      title: "Autoplay Duration (seconds)",
-      type: "number",
-      initialValue: 5,
-      group: "slider_settings",
-      description:
-        "How long each slide is displayed before auto-advancing (in seconds)",
-      validation: (Rule) =>
-        Rule.min(1)
-          .max(30)
-          .warning("Duration should be between 1 and 30 seconds"),
-    }),
-
-    defineField({
       name: "show_indicators",
       title: "Show Slide Indicators",
       type: "boolean",
@@ -178,11 +164,25 @@ const TestimonialVariant02 = defineType({
       name: "enable_autoplay",
       title: "Enable Autoplay",
       type: "boolean",
-      initialValue: true,
+      initialValue: false,
       group: "slider_settings",
       description: "Automatically advance slides",
     }),
 
+    defineField({
+      name: "autoplay_duration",
+      title: "Autoplay Duration (seconds)",
+      type: "number",
+      initialValue: 5,
+      group: "slider_settings",
+      description:
+        "How long each slide is displayed before auto-advancing (in seconds)",
+      hidden: ({ parent }) => !parent?.enable_autoplay,
+      validation: (Rule) =>
+        Rule.min(1)
+          .max(30)
+          .warning("Duration should be between 1 and 30 seconds"),
+    }),
     defineField({
       name: "enable_animations",
       title: "Enable Animations",

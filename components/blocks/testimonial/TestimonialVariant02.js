@@ -11,7 +11,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
-import { Linkedin } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
 import { getCleanValue } from "@/lib/helpers";
 
 const Wrapper = styled.div`
@@ -83,6 +83,9 @@ const Wrapper = styled.div`
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      @media (max-width: 576px) {
+        flex-direction: column;
+      }
     }
   }
 `;
@@ -243,7 +246,7 @@ const TestimonialVariant02 = ({ data = {}, index }) => {
                                 className="b__testimonial__variant02__linkedin-link"
                                 aria-label={`View ${getCleanValue(testimonial.person_name) || "person"}'s LinkedIn profile`}
                               >
-                                <Linkedin size={16} />
+                                <FaLinkedin size={20} color="#0470ae" />
                               </a>
                             )}
                           </div>
