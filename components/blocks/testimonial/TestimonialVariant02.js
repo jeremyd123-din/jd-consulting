@@ -233,7 +233,7 @@ const TestimonialVariant02 = ({ data = {}, index }) => {
                             >
                               {testimonial.person_title}
                             </Heading>
-                            {testimonial.person_linkedin_url && (
+                            {getCleanValue(testimonial.person_linkedin_url) && (
                               <a
                                 href={getCleanValue(
                                   testimonial.person_linkedin_url
