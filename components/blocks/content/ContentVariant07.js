@@ -65,10 +65,10 @@ const ContentVariant07 = ({ data = {}, index }) => {
       <Wrapper>
         <div className="container">
           <div
-            class={`b__content__variant07__wrapper b__content__variant07__wrapper--theme-${getCleanValue(data.theme) || `primary`}`}
+            className={`b__content__variant07__wrapper b__content__variant07__wrapper--theme-${getCleanValue(data.theme) || `primary`}`}
           >
             <div
-              class={`b__content__variant07__content-wrapper ${getCleanValue(data.disable_inverted_text) || `u__text-inverted`}`}
+              className={`b__content__variant07__content-wrapper ${getCleanValue(data.disable_inverted_text) || `u__text-inverted`}`}
             >
               {data.heading && (
                 <ConditionalBlurFade enabled={data.enable_animations} delay={0}>
@@ -79,9 +79,9 @@ const ContentVariant07 = ({ data = {}, index }) => {
                   </div>
                 </ConditionalBlurFade>
               )}
-              <div class="row b__content__variant07__grid-row">
+              <div className="row b__content__variant07__grid-row">
                 <div
-                  class={`${getCleanValue(data.disable_second_column) ? `col-lg-12` : `col-lg-6`}`}
+                  className={`${getCleanValue(data.disable_second_column) ? `col-lg-12` : `col-lg-6`}`}
                 >
                   {data.content_left && (
                     <ConditionalBlurFade
@@ -96,7 +96,7 @@ const ContentVariant07 = ({ data = {}, index }) => {
                   )}
                 </div>
                 {!data.disable_second_column && (
-                  <div class="col-lg-6">
+                  <div className="col-lg-6">
                     {data.content_right && (
                       <ConditionalBlurFade
                         enabled={data.enable_animations}
