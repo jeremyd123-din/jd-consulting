@@ -13,16 +13,16 @@ const PortableTextComponents = {
     image: ({ value }) => {
       const alignment = getCleanValue(value.alignment);
 
-      // Map alignment values to Tailwind classes
+      // Map alignment values to margin auto classes
       const getAlignmentClasses = (align) => {
         if (!align) return ""; // Return empty string if no alignment is defined
 
         switch (align) {
           case "center":
-            return "flex justify-center";
+            return "mx-auto";
           case "right":
           case "end":
-            return "flex justify-end";
+            return "ms-auto";
           case "left":
           case "start":
           default:
@@ -34,16 +34,12 @@ const PortableTextComponents = {
         <>
           {value && value.asset && (
             <>
-              <div
-                className={cn(
-                  "c__richtext-field__image-wrapper",
-                  getAlignmentClasses(alignment)
-                )}
-              >
+              <div className="c__richtext-field__image-wrapper">
                 <Image
                   className={cn(
                     `c__richtext-field__image`,
-                    getCleanValue(value.className)
+                    getCleanValue(value.className),
+                    getAlignmentClasses(alignment)
                   )}
                   placeholder="blur"
                   blurDataURL={
