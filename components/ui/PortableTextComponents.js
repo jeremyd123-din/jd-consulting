@@ -11,18 +11,40 @@ const PortableTextComponents = {
       return <>{value && value.code && parse(getCleanValue(value.code))}</>;
     },
     image: ({ value }) => {
+      const alignment = getCleanValue(value.alignment);
+
+      // Map alignment values to Tailwind classes
+      const getAlignmentClasses = (align) => {
+        if (!align) return ""; // Return empty string if no alignment is defined
+
+        switch (align) {
+          case "center":
+            return "flex justify-center";
+          case "right":
+          case "end":
+            return "flex justify-end";
+          case "left":
+          case "start":
+          default:
+            return ""; // No classes for left alignment or unknown values
+        }
+      };
+
       return (
         <>
           {value && value.asset && (
             <>
               <div
-                style={{
-                  textAlign: value.alignment,
-                }}
-                className="c__richtext-field__image-wrapper"
+                className={cn(
+                  "c__richtext-field__image-wrapper",
+                  getAlignmentClasses(alignment)
+                )}
               >
                 <Image
-                  className={cn(`c__richtext-field__image`, value.className)}
+                  className={cn(
+                    `c__richtext-field__image`,
+                    getCleanValue(value.className)
+                  )}
                   placeholder="blur"
                   blurDataURL={
                     value.asset.metadata?.lqip ?? fallbackImageBlurDataUrl
