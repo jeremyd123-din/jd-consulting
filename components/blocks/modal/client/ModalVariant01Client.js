@@ -61,20 +61,22 @@ const ModelVariant01Client = ({ data = {}, index, siteSettings }) => {
     >
       <Wrapper>
         <Modal siteSettings={siteSettings} modalId={data?.modal_id}>
-          <div className="b__modal__variant01__form-wrapper">
-            <Form
-              isValid={isValid}
-              formFields={form_fields.code}
-              register={register}
-              errors={errors}
-              control={control}
-              onSubmit={handleSubmit(onSubmit)}
-              payloadPosting={payloadPosting}
-              formMessage={formMessage}
-              buttonTitle={formButtonTitle ?? `Get Started`}
-              includeHoneypot
-            />
-          </div>
+          {form_fields && (
+            <div className="b__modal__variant01__form-wrapper">
+              <Form
+                isValid={isValid}
+                formFields={form_fields.code}
+                register={register}
+                errors={errors}
+                control={control}
+                onSubmit={handleSubmit(onSubmit)}
+                payloadPosting={payloadPosting}
+                formMessage={formMessage}
+                buttonTitle={formButtonTitle ?? `Get Started`}
+                includeHoneypot
+              />
+            </div>
+          )}
         </Modal>
       </Wrapper>
     </Bounded>
