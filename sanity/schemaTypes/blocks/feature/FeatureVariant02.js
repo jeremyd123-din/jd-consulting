@@ -185,6 +185,13 @@ const FeatureVariant02 = defineType({
       initialValue: () => false,
       group: "style",
     }),
+    defineField({
+      name: "enable_background_matrix",
+      title: "Enable Background Matrix",
+      type: "boolean",
+      initialValue: () => false,
+      group: "style",
+    }),
     ...generateBackgroundPatternField(),
   ],
   preview: {

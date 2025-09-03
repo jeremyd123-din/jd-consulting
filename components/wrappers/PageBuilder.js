@@ -8,6 +8,7 @@ import * as AllPartners from "../blocks/partner";
 import * as AllStats from "../blocks/stats";
 import * as AllTestimonials from "../blocks/testimonial";
 import * as AllFeeds from "../blocks/feed";
+import * as AllModals from "../blocks/modal";
 import { getCleanValue } from "@/lib/helpers";
 
 const categories = {
@@ -20,6 +21,7 @@ const categories = {
   stats: AllStats,
   testimonial: AllTestimonials,
   feed: AllFeeds,
+  modal: AllModals,
 };
 
 const BlockNotFound = ({ _type, block_category }) => {

@@ -152,6 +152,20 @@ const TestimonialVariant02 = defineType({
 
     // Slider Settings Group
     defineField({
+      name: "items_per_slide",
+      title: "Items Per Slide",
+      type: "number",
+      initialValue: 1,
+      group: "slider_settings",
+      description: "Number of testimonials to display per slide",
+      validation: (Rule) =>
+        Rule.min(1)
+          .max(3)
+          .integer()
+          .warning("Should be between 1 and 3 items per slide"),
+    }),
+
+    defineField({
       name: "show_indicators",
       title: "Show Slide Indicators",
       type: "boolean",

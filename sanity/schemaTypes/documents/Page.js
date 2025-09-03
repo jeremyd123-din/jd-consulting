@@ -149,6 +149,13 @@ const Page = {
                 .filter((elem) => elem._menuCategory === "feed")
                 ?.map((elem) => elem.name),
             },
+            {
+              name: "modal",
+              title: "Modals",
+              of: pageBuilderBlocks
+                .filter((elem) => elem._menuCategory === "modal")
+                ?.map((elem) => elem.name),
+            },
           ],
           views: [
             {

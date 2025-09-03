@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
 import { getCleanValue } from "@/lib/helpers";
+import { RetroGrid } from "@/components/magicui/retro-grid";
 
 const Wrapper = styled.div`
   .b__feature__variant02 {
@@ -37,6 +38,15 @@ const FeatureVariant02 = ({ data = {}, index }) => {
       index={index}
       className="b__feature__variant02 overflow-hidden relative"
     >
+      {data?.enable_background_matrix && (
+        <RetroGrid
+          opacity={0.3}
+          cellSize={20}
+          lightLineColor={`#d17034`}
+          angle={65}
+        />
+      )}
+
       {data.enable_background_pattern && (
         <BackgroundPattern
           patternType={data.background_pattern_type ?? `dots`}

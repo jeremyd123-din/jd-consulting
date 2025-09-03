@@ -82,7 +82,13 @@
         rotate(calc((var(--angle) * -1deg) - 360deg));
     }
   }
-}
+  --animate-grid: grid 15s linear infinite
+;
+  @keyframes grid {
+  0% {
+    transform: translateY(-50%);}
+  100% {
+    transform: translateY(0);}}}
 
 :root {
   --radius: 0.625rem;
@@ -187,4 +193,23 @@
   --tw-prose-th-borders: inherit;
   --tw-prose-td-borders: inherit;
   /* line-height: inherit; */
+}
+
+[data-slot="dialog-overlay"] {
+  z-index: 99999 !important;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+[data-slot="dialog-close"] {
+  --tw-ring-offset-width: 0;
+  --tw-ring-offset-shadow: none;
+}
+[data-slot="dialog-close"]:focus-visible {
+  outline: 1px solid;
+}
+
+[data-slot="dialog-content"] {
+  padding: 0;
+  gap: 0;
 }

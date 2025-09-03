@@ -1,0 +1,60 @@
+import { defineField, defineType } from "sanity";
+import { scopedCss, generateBackgroundPatternField } from "../defaultFields";
+const blockCategory = "modal";
+const ModalVariant01 = defineType({
+  name: "ModalVariant01",
+  title: "Modal Variant 01",
+  type: "object",
+  _menuCategory: blockCategory,
+  groups: [
+    {
+      name: "content",
+      title: "Content",
+    },
+    {
+      name: "style",
+      title: "Style",
+    },
+  ],
+  fields: [
+    defineField({
+      name: "block_category",
+      title: "Block Category",
+      type: "string",
+      initialValue: blockCategory,
+      readOnly: true,
+      hidden: true,
+    }),
+    defineField(scopedCss),
+    defineField({
+      name: "modal_id",
+      title: "Modal ID",
+      type: "string",
+      initialValue: "",
+      group: "content",
+    }),
+    defineField({
+      name: "form",
+      title: "Form",
+      type: "reference",
+      to: [{ type: "form" }],
+      group: "content",
+    }),
+  ],
+  preview: {
+    select: {
+      formId: "form.form_id",
+      formRef: "form",
+    },
+    prepare(selection) {
+      const { formId, formRef } = selection;
+      return {
+        title:
+          formId || (formRef ? "Form ID not available" : "No form selected"),
+        subtitle: "Modal Variant 01",
+      };
+    },
+  },
+});
+
+export default ModalVariant01;

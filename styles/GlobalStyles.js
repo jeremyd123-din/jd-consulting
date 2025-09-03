@@ -109,6 +109,11 @@ const Styles = css`
     cursor: pointer;
   }
 
+  button[type="submit"]:focus-visible {
+    outline: 2px solid;
+    outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
+  }
+
   a {
     color: var(--t-anchor-color);
     text-decoration: underline;

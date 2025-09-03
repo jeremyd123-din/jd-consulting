@@ -7,6 +7,7 @@ import * as AllPartners from "./partner";
 import * as AllStats from "./stats";
 import * as AllTestimonials from "./testimonial";
 import * as AllFeeds from "./feed";
+import * as AllModals from "./modal";
 
 const heroBlocks = [...Object.values(AllHeroes)];
 const featureBlocks = [...Object.values(AllFeatures)];
@@ -17,6 +18,7 @@ const partnerBlocks = [...Object.values(AllPartners)];
 const statsBlocks = [...Object.values(AllStats)];
 const testimonialBlocks = [...Object.values(AllTestimonials)];
 const feedBlocks = [...Object.values(AllFeeds)];
+const modalBlocks = [...Object.values(AllModals)];
 const pageBuilderBlocks = [
   ...heroBlocks,
   ...featureBlocks,
@@ -27,6 +29,7 @@ const pageBuilderBlocks = [
   ...statsBlocks,
   ...testimonialBlocks,
   ...feedBlocks,
+  ...modalBlocks,
 ];
 
 export default pageBuilderBlocks;
