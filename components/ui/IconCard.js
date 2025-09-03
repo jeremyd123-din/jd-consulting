@@ -67,11 +67,12 @@ const IconCard = ({
   buttonTheme = "link",
   enableBorderBeam,
   beamColorList = ["via-orange-500", "via-teal-500"],
+  borderBeamDelay = [0, 3],
 }) => {
   return (
     <Component
       className={cn(
-        `c__icon-card c__icon-card--${getCleanValue(style)}`,
+        `c__icon-card relative c__icon-card--${getCleanValue(style)}`,
         className
       )}
     >
@@ -80,11 +81,12 @@ const IconCard = ({
           <BorderBeam
             duration={6}
             size={350}
+            delay={borderBeamDelay[0]}
             className={`from-transparent ${beamColorList[0]} to-transparent`}
           />
           <BorderBeam
             duration={6}
-            delay={3}
+            delay={borderBeamDelay[1]}
             size={350}
             className={`from-transparent ${beamColorList[1]} to-transparent`}
           />
