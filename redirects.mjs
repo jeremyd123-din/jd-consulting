@@ -99,6 +99,16 @@ const redirects = [
     destination: "/sitemap.xml",
     permanent: true,
   },
+  {
+    source: "/ai-consulting",
+    destination: "/services/ai-consulting",
+    permanent: true,
+  },
+  {
+    source: "/ai-search-optimization",
+    destination: "/services/ai-search-optimization",
+    permanent: true,
+  },
 ];
 
 export default redirects;
