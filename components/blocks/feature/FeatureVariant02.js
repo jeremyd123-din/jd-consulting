@@ -144,7 +144,7 @@ const FeatureVariant02 = ({ data = {}, index }) => {
                         buttonTarget={button_open_in_new_tab}
                         enableBorderBeam={data?.enable_card_border_beam}
                         beamColorList={beamColorList}
-                        borderBeamDelay={[0, 2 * (index + 1)]}
+                        borderBeamDelay={[0, 1.5 * (index + 1)]}
                       />
                     </ConditionalBlurFade>
                   </div>
