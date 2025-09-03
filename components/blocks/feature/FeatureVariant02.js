@@ -8,7 +8,7 @@ import Description from "@/components/ui/Description";
 import { cn } from "@/lib/utils";
 import { BackgroundPattern } from "@/components/ui/BackgroundPatterns";
 import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
-import { getCleanValue } from "@/lib/helpers";
+import { getCleanValue, parseArrayString } from "@/lib/helpers";
 import { RetroGrid } from "@/components/magicui/retro-grid";
 
 const Wrapper = styled.div`
@@ -30,6 +30,15 @@ const FeatureVariant02 = ({ data = {}, index }) => {
   const columnClassName = `col-md-6 ${dataCardColumns ? cardColumns[dataCardColumns] : `col-lg-4`}`;
   const rowAlignment = `justify-${getCleanValue(data.justify_content) || `start`}`;
 
+  const beamColorList = (() => {
+    const parsedArray = parseArrayString(
+      getCleanValue(data?.card_beam_color_list)
+    );
+    return parsedArray && parsedArray.length > 0
+      ? parsedArray
+      : ["via-orange-500", "via-teal-500"];
+  })();
+
   return (
     <Bounded
       id={data._key}
@@ -39,12 +48,14 @@ const FeatureVariant02 = ({ data = {}, index }) => {
       className="b__feature__variant02 overflow-hidden relative"
     >
       {data?.enable_background_matrix && (
-        <RetroGrid
-          opacity={0.3}
-          cellSize={20}
-          lightLineColor={`#d17034`}
-          angle={65}
-        />
+        <div className="u__show-after-992">
+          <RetroGrid
+            opacity={0.3}
+            cellSize={20}
+            lightLineColor={`#d17034`}
+            angle={65}
+          />
+        </div>
       )}
 
       {data.enable_background_pattern && (
@@ -131,6 +142,8 @@ const FeatureVariant02 = ({ data = {}, index }) => {
                         buttonTitle={button_title}
                         buttonDestination={button_destination}
                         buttonTarget={button_open_in_new_tab}
+                        enableBorderBeam={data?.enable_card_border_beam}
+                        beamColorList={beamColorList}
                       />
                     </ConditionalBlurFade>
                   </div>

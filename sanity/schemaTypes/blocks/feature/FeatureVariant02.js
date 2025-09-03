@@ -185,6 +185,7 @@ const FeatureVariant02 = defineType({
       initialValue: () => false,
       group: "style",
     }),
+    ...generateBackgroundPatternField(),
     defineField({
       name: "enable_background_matrix",
       title: "Enable Background Matrix",
@@ -192,7 +193,21 @@ const FeatureVariant02 = defineType({
       initialValue: () => false,
       group: "style",
     }),
-    ...generateBackgroundPatternField(),
+    defineField({
+      name: "enable_card_border_beam",
+      title: "Enable Card Border Beam",
+      type: "boolean",
+      initialValue: () => false,
+      group: "style",
+    }),
+    defineField({
+      name: "card_beam_color_list",
+      title: "Card Beam Color List",
+      type: "string",
+      hidden: ({ parent }) => !parent?.[`enable_card_border_beam`],
+      initialValue: "",
+      group: "style",
+    }),
   ],
   preview: {
     select: {

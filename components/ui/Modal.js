@@ -7,7 +7,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@/components/shadcn/dialog";
+} from "@/components/ui/dialog";
 import { getCleanValue } from "@/lib/helpers";
 
 const Modal = ({ children, modalId, siteSettings }) => {

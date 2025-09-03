@@ -7,6 +7,7 @@ import Heading from "./Heading";
 import Description from "./Description";
 import { cn } from "@/lib/utils";
 import { getCleanValue } from "@/lib/helpers";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 const Component = styled.div`
   padding: 2rem 1.5rem;
@@ -64,6 +65,8 @@ const IconCard = ({
   buttonDestination,
   buttonTarget,
   buttonTheme = "link",
+  enableBorderBeam,
+  beamColorList = ["via-orange-500", "via-teal-500"],
 }) => {
   return (
     <Component
@@ -72,6 +75,21 @@ const IconCard = ({
         className
       )}
     >
+      {enableBorderBeam && (
+        <>
+          <BorderBeam
+            duration={6}
+            size={350}
+            className={`from-transparent ${beamColorList[0]} to-transparent`}
+          />
+          <BorderBeam
+            duration={6}
+            delay={3}
+            size={350}
+            className={`from-transparent ${beamColorList[1]} to-transparent`}
+          />
+        </>
+      )}
       <div className="c__icon-card__wrapper">
         {(icon?.src || iconSvg) && (
           <div

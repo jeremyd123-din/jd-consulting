@@ -15,8 +15,7 @@ import { ConditionalBlurFade } from "@/components/ui/RevealAnimations";
 import { useFormSubmission } from "@/hooks/useFormSubmission";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import RichtextField from "@/components/ui/RichtextField";
-import { parseArrayString } from "@/lib/helpers";
-import { getCleanValue } from "@/lib/helpers";
+import { getCleanValue, parseArrayString } from "@/lib/helpers";
 
 const Wrapper = styled.div`
   .b__hero__variant05 {

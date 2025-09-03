@@ -1,5 +1,9 @@
 import { defineField, defineType } from "sanity";
-import { scopedCss, generateBackgroundPatternField } from "../defaultFields";
+import {
+  scopedCss,
+  generateBackgroundPatternField,
+  generateHeadingTagField,
+} from "../defaultFields";
 
 const blockCategory = "testimonial";
 
@@ -32,8 +36,23 @@ const TestimonialVariant02 = defineType({
       readOnly: true,
       hidden: true,
     }),
-
-    // Testimonials Repeater
+    defineField({
+      name: "heading",
+      title: "Heading",
+      type: "string",
+      group: "content",
+    }),
+    generateHeadingTagField({
+      name: `heading_tag`,
+      title: `Heading Tag`,
+    }),
+    defineField({
+      name: "description",
+      title: "Description",
+      type: "text",
+      rows: 4,
+      group: "content",
+    }),
     defineField({
       name: "testimonials",
       title: "Testimonials",
