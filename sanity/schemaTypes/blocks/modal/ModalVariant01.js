@@ -49,8 +49,7 @@ const ModalVariant01 = defineType({
     prepare(selection) {
       const { formId, formRef } = selection;
       return {
-        title:
-          formId || (formRef ? "Form ID not available" : "No form selected"),
+        title: `Modal Form`,
         subtitle: "Modal Variant 01",
       };
     },
