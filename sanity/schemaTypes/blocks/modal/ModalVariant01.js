@@ -34,6 +34,13 @@ const ModalVariant01 = defineType({
       group: "content",
     }),
     defineField({
+      name: "heading",
+      title: "Heading",
+      type: "string",
+      initialValue: null,
+      group: "content",
+    }),
+    defineField({
       name: "form",
       title: "Form",
       type: "reference",
