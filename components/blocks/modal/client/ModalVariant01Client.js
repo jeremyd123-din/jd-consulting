@@ -56,12 +56,15 @@ const ModelVariant01Client = ({ data = {}, index, siteSettings }) => {
     <Bounded
       id={data?._key}
       type={data?._type}
-      scopedCss={data?.scoped_css}
       index={index}
       className="b__modal__variant01 overflow-hidden relative py-0"
     >
       <Wrapper>
-        <Modal siteSettings={siteSettings} modalId={data?.modal_id}>
+        <Modal
+          scopedCss={data?.scoped_css}
+          siteSettings={siteSettings}
+          modalId={data?.modal_id}
+        >
           {data?.heading && (
             <div className="px-[1.5rem] py-[0.5rem] rounded-[100px] bg-[var(--t-light-background-color)] text-center border-[2px] border-[solid] border-[#ff914e8c] w-auto md:w-max mx-auto mb-[1.5rem] [box-shadow:0px_1px_2px_rgba(16,_24,_40,_0.05),_0px_0px_0px_4px_var(--t-cp-error-50)]">
               <Heading tag={`span`} className="u__h6 u__f-700 mb-[0]">

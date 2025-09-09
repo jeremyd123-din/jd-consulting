@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import {
   Dialog,
   DialogContent,
@@ -10,7 +11,12 @@ import {
 } from "@/components/ui/dialog";
 import { getCleanValue } from "@/lib/helpers";
 
-const Modal = ({ children, modalId, siteSettings }) => {
+// Styled wrapper that applies scoped CSS to the modal content
+const StyledDialogContent = styled(DialogContent)`
+  ${(props) => props.$scopedCss || ""}
+`;
+
+const Modal = ({ children, modalId, siteSettings, scopedCss }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -61,7 +67,10 @@ const Modal = ({ children, modalId, siteSettings }) => {
   return (
     <>
       <Dialog className="c__modal" open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-[90vw]  lg:max-w-[800px] max-h-[90vh] overflow-y-auto z-[99999999]">
+        <StyledDialogContent
+          className="sm:max-w-[90vw] lg:max-w-[800px] max-h-[90vh] overflow-y-auto z-[99999999]"
+          $scopedCss={scopedCss?.code || null}
+        >
           <DialogTitle className="sr-only">Modal</DialogTitle>
           <DialogDescription className="sr-only">
             Basic dialog
@@ -81,7 +90,7 @@ const Modal = ({ children, modalId, siteSettings }) => {
               <div>{children}</div>
             </div>
           </div>
-        </DialogContent>
+        </StyledDialogContent>
       </Dialog>
     </>
   );
