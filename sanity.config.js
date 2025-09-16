@@ -10,6 +10,7 @@ import { locations } from "./sanity/utils/presentation";
 import { codeInput } from "@sanity/code-input";
 import { media } from "sanity-plugin-media";
 import { structure } from "./sanity/structure";
+import { copyPastePlugin } from "@superside-oss/sanity-plugin-copy-paste";
 
 const singletonActions = new Set(["publish", "discardChanges", "restore"]);
 const singletonTypes = new Set(["site_settings"]);
@@ -34,6 +35,7 @@ export default defineConfig({
     visionTool(),
     codeInput(),
     media(),
+    copyPastePlugin(),
   ],
   schema: {
     types: schemaTypes,

@@ -1,10 +1,8 @@
 import { defineField, defineType } from "sanity";
+import { copyPaste } from "@superside-oss/sanity-plugin-copy-paste";
 import {
   scopedCss,
   generateHeadingSizeField,
-  generateButtonField,
-  generateIconCardStyleField,
-  generateCardColumnsField,
   generateHeadingTagField,
   generateBackgroundPatternField,
   generateRichtextField,
@@ -28,6 +26,7 @@ const ContentVariant07 = defineType({
     },
   ],
   fields: [
+    defineField(copyPaste),
     defineField(scopedCss),
     defineField({
       name: "block_category",

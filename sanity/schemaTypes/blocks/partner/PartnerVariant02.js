@@ -2,11 +2,9 @@ import { defineField, defineType } from "sanity";
 import {
   scopedCss,
   generateHeadingTagField,
-  generateHeadingSizeField,
   generateBackgroundPatternField,
-  generateButtonField,
-  generateRichtextField,
 } from "../defaultFields";
+import { copyPaste } from "@superside-oss/sanity-plugin-copy-paste";
 const blockCategory = "partner";
 const PartnerVariant02 = defineType({
   name: "PartnerVariant02",
@@ -26,6 +24,7 @@ const PartnerVariant02 = defineType({
       readOnly: true,
       hidden: true,
     }),
+    defineField(copyPaste),
     defineField(scopedCss),
     defineField({
       name: "heading",

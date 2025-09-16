@@ -1,12 +1,6 @@
 import { defineField, defineType } from "sanity";
-import {
-  scopedCss,
-  generateButtonField,
-  generateIconCardStyleField,
-  generateCardColumnsField,
-  generateHeadingTagField,
-  generateBackgroundPatternField,
-} from "../defaultFields";
+import { copyPaste } from "@superside-oss/sanity-plugin-copy-paste";
+import { scopedCss, generateBackgroundPatternField } from "../defaultFields";
 const blockCategory = "testimonial";
 const TestimonialVariant01 = defineType({
   name: "TestimonialVariant01",
@@ -24,6 +18,7 @@ const TestimonialVariant01 = defineType({
     },
   ],
   fields: [
+    defineField(copyPaste),
     defineField(scopedCss),
     defineField({
       name: "block_category",

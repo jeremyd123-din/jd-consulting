@@ -1,12 +1,10 @@
 import { defineField, defineType } from "sanity";
+import { copyPaste } from "@superside-oss/sanity-plugin-copy-paste";
 import {
   scopedCss,
   generateButtonField,
-  generateIconCardStyleField,
-  generateCardColumnsField,
   generateHeadingTagField,
   generateBackgroundPatternField,
-  generateRichtextField,
 } from "../defaultFields";
 
 const blockLabel = `CTA Variant 01`;
@@ -27,6 +25,7 @@ const CtaVariant01 = defineType({
     },
   ],
   fields: [
+    defineField(copyPaste),
     defineField(scopedCss),
     defineField({
       name: "block_category",

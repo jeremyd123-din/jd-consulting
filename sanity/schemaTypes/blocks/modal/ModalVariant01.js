@@ -1,5 +1,6 @@
 import { defineField, defineType } from "sanity";
-import { scopedCss, generateBackgroundPatternField } from "../defaultFields";
+import { scopedCss } from "../defaultFields";
+import { copyPaste } from "@superside-oss/sanity-plugin-copy-paste";
 const blockCategory = "modal";
 const ModalVariant01 = defineType({
   name: "ModalVariant01",
@@ -25,6 +26,7 @@ const ModalVariant01 = defineType({
       readOnly: true,
       hidden: true,
     }),
+    defineField(copyPaste),
     defineField(scopedCss),
     defineField({
       name: "modal_id",

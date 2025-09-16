@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { copyPaste } from "@superside-oss/sanity-plugin-copy-paste";
 import {
   generateHeadingTagField,
   scopedCss,
@@ -22,6 +23,7 @@ const HeroVariant04 = defineType({
     },
   ],
   fields: [
+    defineField(copyPaste),
     defineField(scopedCss),
     defineField({
       name: "block_category",

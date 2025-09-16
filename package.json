@@ -17,6 +17,7 @@
     "@sanity/image-url": "^1.0.2",
     "@sanity/uuid": "^3.0.2",
     "@sanity/vision": "^3.52.4",
+    "@superside-oss/sanity-plugin-copy-paste": "^1.0.3",
     "@tailwindcss/postcss": "^4.1.8",
     "@vercel/analytics": "^1.5.0",
     "axios": "^1.7.5",

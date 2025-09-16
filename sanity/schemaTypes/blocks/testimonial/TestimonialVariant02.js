@@ -4,6 +4,7 @@ import {
   generateBackgroundPatternField,
   generateHeadingTagField,
 } from "../defaultFields";
+import { copyPaste } from "@superside-oss/sanity-plugin-copy-paste";
 
 const blockCategory = "testimonial";
 
@@ -27,6 +28,7 @@ const TestimonialVariant02 = defineType({
     },
   ],
   fields: [
+    defineField(copyPaste),
     defineField(scopedCss),
     defineField({
       name: "block_category",
