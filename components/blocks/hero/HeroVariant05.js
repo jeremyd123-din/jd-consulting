@@ -215,7 +215,7 @@ const HeroVariant05 = ({ data = {}, index }) => {
                         <div className="mb-[2rem]">
                           <div className="c__heading-wrapper mb-[0.5rem]">
                             <Heading
-                              tag={data?.form_heading_tag || "h3"}
+                              tag={data?.form_heading_tag || "span"}
                               className="u__h4 mb-[0]"
                             >
                               {data?.form_heading}
