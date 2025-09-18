@@ -7,6 +7,7 @@ import { organization } from "@/lib/constants";
 import { stegaClean } from "@sanity/client/stega";
 import Image from "next/image";
 import urlFor from "@/lib/imageUrlBuilder";
+import { Phone } from "lucide-react";
 
 const updateActiveStatusByKey = (data, uid) => {
   let itemFoundAtLevel = false;
@@ -229,6 +230,19 @@ const HeaderVariant01 = ({ navigationSchema, siteSettings }) => {
                     destination={siteSettings?.header_button_destination}
                   />
                 )}
+                {siteSettings?.header_click_to_call_title && (
+                  <div className={`ms-[1rem] hidden min-[1040px]:block`}>
+                    <Button
+                      icon={Phone}
+                      iconPosition={`before`}
+                      theme={`secondary`}
+                      title={siteSettings?.header_click_to_call_title}
+                      destination={
+                        siteSettings?.header_click_to_call_destination
+                      }
+                    />
+                  </div>
+                )}
               </nav>
             </div>
             <div className="b__header__variant01__hamburger-wrapper">
@@ -272,6 +286,20 @@ const HeaderVariant01 = ({ navigationSchema, siteSettings }) => {
                     })}
                   </ul>
                   <div className="mt-4 pt-2">
+                    {siteSettings?.header_click_to_call_title && (
+                      <div className={`mb-[1rem]`}>
+                        <Button
+                          icon={Phone}
+                          iconPosition={`before`}
+                          theme={`secondary`}
+                          className="text-center w-full"
+                          title={siteSettings?.header_click_to_call_title}
+                          destination={
+                            siteSettings?.header_click_to_call_destination
+                          }
+                        />
+                      </div>
+                    )}
                     {siteSettings?.header_button_title && (
                       <Button
                         className="text-center w-full"

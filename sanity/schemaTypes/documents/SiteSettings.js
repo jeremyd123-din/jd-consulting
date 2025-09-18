@@ -36,7 +36,18 @@ export default defineType({
       name: "header_button_destination",
       title: "Header Button Destination",
       type: "string",
-      initialValue: `Get Strted`,
+      group: "general",
+    }),
+    defineField({
+      name: "header_click_to_call_title",
+      title: "Header Click To Call Title",
+      type: "string",
+      group: "general",
+    }),
+    defineField({
+      name: "header_click_to_call_destination",
+      title: "Header Click To Call Destination",
+      type: "string",
       group: "general",
     }),
     defineField({
