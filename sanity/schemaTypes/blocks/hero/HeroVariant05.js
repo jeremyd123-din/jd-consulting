@@ -84,6 +84,26 @@ const HeroVariant05 = defineType({
       destinationLabel: "Button Destination",
       themeLabel: `Button Theme`,
     }),
+    //
+    defineField({
+      name: "form_heading",
+      title: "Form Heading",
+      type: "string",
+      group: "content",
+    }),
+
+    generateHeadingTagField({
+      name: `form_heading_tag`,
+      title: `Form Heading Tag`,
+    }),
+    defineField({
+      name: "form_description",
+      title: "Form Description",
+      type: "text",
+      rows: 4,
+      group: "content",
+    }),
+    //
     defineField({
       name: "form",
       title: "Form",

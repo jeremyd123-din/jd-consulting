@@ -44,6 +44,11 @@ const Wrapper = styled.div`
           width: 100%;
         }
       }
+      &--with-heading {
+        @media (min-width: 768px) {
+          padding: 2rem;
+        }
+      }
     }
   }
 `;
@@ -196,9 +201,32 @@ const HeroVariant05 = ({ data = {}, index }) => {
                     enabled={data?.enable_animations}
                     delay={0.3}
                   >
-                    <div className="b__hero__variant05__form-wrapper">
+                    <div
+                      className={cn(
+                        `b__hero__variant05__form-wrapper`,
+                        (data?.form_heading || data?.form_description) &&
+                          `b__hero__variant05__form-wrapper--with-heading`
+                      )}
+                    >
                       {data?.enable_form_beam && (
                         <ShineBorder shineColor={beamColorList} />
+                      )}
+                      {(data?.form_heading || data?.form_description) && (
+                        <div className="mb-[2rem]">
+                          <div className="c__heading-wrapper mb-[0.5rem]">
+                            <Heading
+                              tag={data?.form_heading_tag || "h3"}
+                              className="u__h4 mb-[0]"
+                            >
+                              {data?.form_heading}
+                            </Heading>
+                          </div>
+                          <div className="c__description-wrapper">
+                            <Description className="mb-0">
+                              {data?.form_description}
+                            </Description>
+                          </div>
+                        </div>
                       )}
                       <Form
                         isValid={isValid}
