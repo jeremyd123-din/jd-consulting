@@ -11,7 +11,6 @@ import SmoothScrollHandler from "@/components/wrappers/SmoothScrollHandler";
 import RouteSubmenuReset from "@/components/wrappers/RouteSubmenuReset";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script";
 
 const globalFont = Outfit({
   subsets: ["latin"],
@@ -43,11 +42,6 @@ export default async function RootLayout({ children }) {
         <SmoothScrollHandler />
         <RouteSubmenuReset />
         <Analytics />
-        {/* <Script
-          id="hs-script-loader"
-          strategy="afterInteractive"
-          src={`https://js.hs-scripts.com/23219927.js`}
-        /> */}
       </body>
     </html>
   );
