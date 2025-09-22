@@ -250,7 +250,7 @@ export const generateButtonField = ({
   destinationLabel = "Button Destination",
   openInNewTabLabel = "Open in New Tab",
   themeLabel = "Button Theme",
-  group = "style",
+  group = "content",
   initialTitle = "Learn More",
   includeTheme = true,
 } = {}) => {
