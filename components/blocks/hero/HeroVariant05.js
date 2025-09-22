@@ -212,7 +212,9 @@ const HeroVariant05 = ({ data = {}, index }) => {
                         <ShineBorder shineColor={beamColorList} />
                       )}
                       {(data?.form_heading || data?.form_description) && (
-                        <div className="mb-[1.5rem] text-center">
+                        <div
+                          className={`mb-[1.5rem] text-${getCleanValue(data?.form_header_alignment) || `start`}`}
+                        >
                           <div className="c__heading-wrapper mb-[0.5rem]">
                             <Heading
                               tag={data?.form_heading_tag || "span"}

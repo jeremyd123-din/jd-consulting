@@ -103,7 +103,20 @@ const HeroVariant05 = defineType({
       rows: 4,
       group: "content",
     }),
-    //
+    defineField({
+      name: "form_header_alignment",
+      title: "Form Header Alignment",
+      type: "string",
+      group: "style",
+      options: {
+        list: [
+          { title: "Left", value: "start" },
+          { title: "Center", value: "center" },
+        ],
+        layout: "dropdown",
+      },
+      initialValue: "left",
+    }),
     defineField({
       name: "form",
       title: "Form",
