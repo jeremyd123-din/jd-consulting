@@ -11,6 +11,7 @@ import SmoothScrollHandler from "@/components/wrappers/SmoothScrollHandler";
 import RouteSubmenuReset from "@/components/wrappers/RouteSubmenuReset";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
+import TawkMessenger from "@/components/wrappers/TawkMessenger";
 
 const globalFont = Outfit({
   subsets: ["latin"],
@@ -42,6 +43,10 @@ export default async function RootLayout({ children }) {
         <SmoothScrollHandler />
         <RouteSubmenuReset />
         <Analytics />
+        <TawkMessenger
+          propertyId="68ced175c4e82919233cb870"
+          widgetId="1j5ju4d5k"
+        />
       </body>
     </html>
   );
