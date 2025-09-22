@@ -213,7 +213,7 @@ const HeroVariant05 = ({ data = {}, index }) => {
                       )}
                       {(data?.form_heading || data?.form_description) && (
                         <div
-                          className={`mb-[1.5rem] text-${getCleanValue(data?.form_header_alignment) || `start`}`}
+                          className={`mb-[1.5rem] text-${getCleanValue(data?.form_header_alignment) || `left`}`}
                         >
                           <div className="c__heading-wrapper mb-[0.5rem]">
                             <Heading

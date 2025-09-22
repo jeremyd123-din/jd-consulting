@@ -110,7 +110,7 @@ const HeroVariant05 = defineType({
       group: "style",
       options: {
         list: [
-          { title: "Left", value: "start" },
+          { title: "Left", value: "left" },
           { title: "Center", value: "center" },
         ],
         layout: "dropdown",
