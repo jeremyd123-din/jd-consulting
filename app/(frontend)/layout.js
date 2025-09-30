@@ -12,6 +12,7 @@ import RouteSubmenuReset from "@/components/wrappers/RouteSubmenuReset";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import TawkMessenger from "@/components/wrappers/TawkMessenger";
+import GTMTracker from "@/components/wrappers/GTMTracker";
 
 const globalFont = Outfit({
   subsets: ["latin"],
@@ -24,6 +25,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en" className={globalFont.variable}>
       <GoogleTagManager gtmId="GTM-MF983CW" />
+      <GTMTracker />
       <body
         data-url={process.env.NEXT_PUBLIC_VERCEL_URL}
         data-prod-url={process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}
