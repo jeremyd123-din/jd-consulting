@@ -22,17 +22,17 @@ const globalFont = Outfit({
   variable: "--t-font-family--outfit",
 });
 
-export default async function RootLayout({ children }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" className={globalFont.variable}>
-      <GoogleTagManager gtmId="GTM-MF983CW" />
-      <Suspense fallback={null}>
-        <GTMTracker />
-      </Suspense>
       <body
         data-url={process.env.NEXT_PUBLIC_VERCEL_URL}
         data-prod-url={process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL}
       >
+        <GoogleTagManager gtmId="GTM-MF983CW" />
+        <Suspense fallback={null}>
+          <GTMTracker />
+        </Suspense>
         <NextTopLoader
           color="var(--t-primary-branding-color)"
           showSpinner={false}
