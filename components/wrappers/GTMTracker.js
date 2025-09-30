@@ -16,7 +16,7 @@ export default function GTMTracker() {
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: "virtual_page_view",
+        event: "virtualPageView",
         page: url,
         pageUrl: window.location.href,
         pageTitle: document.title,
