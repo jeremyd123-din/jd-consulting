@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 export default function GTMTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const previousUrlRef = useRef("");
 
   useEffect(() => {
     if (pathname) {
@@ -15,11 +16,15 @@ export default function GTMTracker() {
 
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: "page_view",
+        event: "virtual_page_view",
         page: url,
-        page_location: window.location.href,
-        page_title: document.title,
+        pageUrl: window.location.href,
+        pageTitle: document.title,
+        previousPageUrl: previousUrlRef.current || document.referrer,
       });
+
+      // Update the ref with current URL for next navigation
+      previousUrlRef.current = window.location.href;
     }
   }, [pathname, searchParams]);
 
