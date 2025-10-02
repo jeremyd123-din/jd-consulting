@@ -14,6 +14,7 @@ import { Analytics } from "@vercel/analytics/next";
 import TawkMessenger from "@/components/wrappers/TawkMessenger";
 import GTMTracker from "@/components/wrappers/GTMTracker";
 import { Suspense } from "react";
+import ForceRefreshLinks from "@/components/wrappers/ForceRefreshLinks";
 
 const globalFont = Outfit({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({ children }) {
           propertyId="68ced175c4e82919233cb870"
           widgetId="1j5ju4d5k"
         />
+        {/* <ForceRefreshLinks /> */}
       </body>
     </html>
   );

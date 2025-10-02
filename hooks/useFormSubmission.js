@@ -7,6 +7,7 @@ export const useFormSubmission = ({
   thankyou_message,
   redirect_url,
   reset,
+  gtm_event_name = "form-submission-success",
 }) => {
   const FORMSPARK_FORM_ID = getCleanValue(formspark_id);
   const [formMessage, setFormMessage] = useState(null);
@@ -26,6 +27,17 @@ export const useFormSubmission = ({
         type: `success`,
         message: thankyou_message || `Thanks for submitting the form!`,
       });
+
+      // Push event to dataLayer for GTM
+      if (typeof window !== "undefined" && window.dataLayer) {
+        window.dataLayer.push({
+          event: gtm_event_name,
+          formId: FORMSPARK_FORM_ID,
+          formData: data,
+          response: payloadResponse,
+        });
+      }
+
       if (redirect_url && typeof window !== "undefined") {
         setTimeout(() => {
           window.location.href = redirect_url;
