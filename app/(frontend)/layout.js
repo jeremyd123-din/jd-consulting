@@ -23,6 +23,12 @@ const globalFont = Outfit({
   variable: "--t-font-family--outfit",
 });
 
+export const metadata = {
+  verification: {
+    google: "uye_V3mht9i4rFvdCAqu_K9cviI2TozmtTHVP-aRJK4",
+  },
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={globalFont.variable}>
