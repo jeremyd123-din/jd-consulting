@@ -141,7 +141,6 @@ export const generateBackgroundPatternField = ({
     name: patternFieldName,
     title: patternFieldTitle,
     type: "string",
-    initialValue: "",
     group,
     hidden: ({ parent }) => !parent?.[enableFieldName],
     options: {
@@ -193,7 +192,6 @@ export const generateIconCardStyleField = ({
     name,
     title,
     type: "string",
-    initialValue: "",
     group,
     options: {
       list: [
@@ -214,7 +212,6 @@ export const generateResourceCardStyleField = ({
     name,
     title,
     type: "string",
-    initialValue: "",
     group,
     options: {
       list: [
@@ -233,7 +230,6 @@ export const generateCardColumnsField = ({
     name,
     title,
     type: "string",
-    initialValue: "",
     group,
     options: {
       list: [
