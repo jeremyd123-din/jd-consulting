@@ -145,6 +145,7 @@ export const generateBackgroundPatternField = ({
     hidden: ({ parent }) => !parent?.[enableFieldName],
     options: {
       list: [
+        { title: "Unset", value: "" },
         { title: "Dots", value: "dots" },
         { title: "Grid", value: "grid" },
       ],
@@ -195,6 +196,7 @@ export const generateIconCardStyleField = ({
     group,
     options: {
       list: [
+        { title: "Unset", value: "" },
         { title: "Solid", value: "solid" },
         { title: "Outlined", value: "outlined" },
         { title: "Shadow", value: "shadow" },
@@ -215,6 +217,7 @@ export const generateResourceCardStyleField = ({
     group,
     options: {
       list: [
+        { title: "Unset", value: "" },
         { title: "Default", value: "default" },
         { title: "Bordered", value: "bordered" },
       ],
@@ -233,6 +236,7 @@ export const generateCardColumnsField = ({
     group,
     options: {
       list: [
+        { title: "Unset", value: "" },
         { title: "2", value: "2" },
         { title: "3", value: "3" },
         { title: "4", value: "4" },

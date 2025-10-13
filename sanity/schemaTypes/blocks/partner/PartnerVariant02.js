@@ -5,7 +5,9 @@ import {
   generateBackgroundPatternField,
 } from "../defaultFields";
 import { copyPaste } from "@superside-oss/sanity-plugin-copy-paste";
+
 const blockCategory = "partner";
+
 const PartnerVariant02 = defineType({
   name: "PartnerVariant02",
   title: "Partner Variant 02",
@@ -42,6 +44,8 @@ const PartnerVariant02 = defineType({
       rows: 4,
       group: "content",
     }),
+
+    // Repeater Outer
     defineField({
       name: "repeater_outer",
       title: "Repeater Outer",
@@ -50,6 +54,8 @@ const PartnerVariant02 = defineType({
       of: [
         {
           type: "object",
+          name: "repeater_outer_item",
+          title: "Repeater Outer Item",
           fields: [
             defineField({
               name: "image",
@@ -62,12 +68,14 @@ const PartnerVariant02 = defineType({
           preview: {
             select: { title: "image.alt", media: "image" },
             prepare({ title, media }) {
-              return { title: title || "Image", media: media };
+              return { title: title || "Image", media };
             },
           },
         },
       ],
     }),
+
+    // Repeater Inner
     defineField({
       name: "repeater_inner",
       title: "Repeater Inner",
@@ -76,6 +84,8 @@ const PartnerVariant02 = defineType({
       of: [
         {
           type: "object",
+          name: "repeater_inner_item",
+          title: "Repeater Inner Item",
           fields: [
             defineField({
               name: "image",
@@ -88,12 +98,13 @@ const PartnerVariant02 = defineType({
           preview: {
             select: { title: "image.alt", media: "image" },
             prepare({ title, media }) {
-              return { title: title || "Image", media: media };
+              return { title: title || "Image", media };
             },
           },
         },
       ],
     }),
+
     defineField({
       name: "enable_animations",
       title: "Enable Animations",
