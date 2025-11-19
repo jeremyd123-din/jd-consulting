@@ -14,13 +14,14 @@ import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
 import RichtextField from "@/components/ui/RichtextField";
 import { BorderBeam } from "@/components/magicui/border-beam";
+import { fallbackImageBlurDataUrl } from "@/lib/constants";
 
 const Wrapper = styled.div`
   .b__testimonial__variant03 {
     &__grid-row {
       --bs-gutter-y: 3rem;
       @media (min-width: 768px) {
-        --bs-gutter-x: 2rem;
+        --bs-gutter-x: 2.5rem;
         --bs-gutter-y: 0;
       }
       @media (min-width: 992px) {
@@ -33,9 +34,22 @@ const Wrapper = styled.div`
       object-fit: contain;
     }
     &__avatar {
-      width: 100%;
-      height: auto;
       border-radius: var(--t-global-image-border-radius);
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      &-wrapper {
+        height: 350px;
+        position: relative;
+        @media (min-width: 768px) {
+          height: 275px;
+        }
+        @media (min-width: 992px) {
+          width: 100%;
+          height: 100%;
+          min-height: 385px;
+        }
+      }
     }
     &__content-wrapper {
       border-radius: 32px;
@@ -173,12 +187,16 @@ const TestimonialVariant03 = ({ data = {}, index, siteSettings }) => {
                       >
                         <div className="b__testimonial__variant03__avatar-wrapper mb-[1rem]">
                           <Image
-                            className="b__testimonial__variant03__avatar mx-auto w-auto h-auto u__object-fit-cover"
-                            sizes="100vw"
-                            width={500}
-                            height={500}
+                            className="b__testimonial__variant03__avatar"
+                            fill={true}
+                            placeholder="blur"
+                            blurDataURL={
+                              data?.image?.asset?.metadata?.lqip ||
+                              fallbackImageBlurDataUrl
+                            }
                             src={urlFor(data.avatar).url()}
                             alt={data.avatar.alt ?? ""}
+                            sizes="100%"
                           />
                         </div>
                       </ConditionalBlurFade>
