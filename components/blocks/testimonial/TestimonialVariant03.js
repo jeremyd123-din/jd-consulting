@@ -30,7 +30,7 @@ const Wrapper = styled.div`
     }
     &__logo {
       width: 100%;
-      max-width: 230px;
+      max-width: 140px;
       object-fit: contain;
     }
     &__avatar {
@@ -160,6 +160,25 @@ const TestimonialVariant03 = ({ data = {}, index }) => {
                         </div>
                       </ConditionalBlurFade>
                     )}
+
+                    {/* {data?.logo?.asset && (
+                      <ConditionalBlurFade
+                        enabled={data.enable_animations}
+                        delay={0.15}
+                      >
+                        <div className="b__testimonial__variant03__logo-wrapper mt-[1.75rem] mb-[1.25rem]">
+                          <Image
+                            className="b__testimonial__variant03__logo"
+                            sizes="100vw"
+                            width={500}
+                            height={500}
+                            src={urlFor(data.logo).url()}
+                            alt={data.logo.alt ?? ""}
+                          />
+                        </div>
+                      </ConditionalBlurFade>
+                    )} */}
+
                     {data.heading && (
                       <ConditionalBlurFade
                         enabled={data.enable_animations}
@@ -175,6 +194,25 @@ const TestimonialVariant03 = ({ data = {}, index }) => {
                         </div>
                       </ConditionalBlurFade>
                     )}
+
+                    {data?.logo?.asset && (
+                      <ConditionalBlurFade
+                        enabled={data.enable_animations}
+                        delay={0.25}
+                      >
+                        <div className="b__testimonial__variant03__logo-wrapper mt-[1.5rem]">
+                          <Image
+                            className="b__testimonial__variant03__logo"
+                            sizes="100vw"
+                            width={500}
+                            height={500}
+                            src={urlFor(data.logo).url()}
+                            alt={data.logo.alt ?? ""}
+                          />
+                        </div>
+                      </ConditionalBlurFade>
+                    )}
+
                     {buttonComponent}
                   </blockquote>
                 </div>

@@ -36,6 +36,20 @@ const TestimonialVariant03 = defineType({
       hidden: true,
     }),
     defineField({
+      name: "logo",
+      title: "Logo",
+      type: "image",
+      group: "content",
+      options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string",
+        },
+      ],
+    }),
+    defineField({
       name: "label",
       title: "Label",
       type: "string",
