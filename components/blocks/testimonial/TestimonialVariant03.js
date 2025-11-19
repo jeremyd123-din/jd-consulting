@@ -231,7 +231,7 @@ const TestimonialVariant03 = ({ data = {}, index }) => {
                     {getCleanValue(data.person_linkedin_url) && (
                       <ConditionalBlurFade
                         enabled={data.enable_animations}
-                        delay={0.39}
+                        delay={0.4}
                       >
                         <div className="mt-[0.5rem]">
                           <a
