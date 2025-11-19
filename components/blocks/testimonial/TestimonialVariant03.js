@@ -257,7 +257,7 @@ const TestimonialVariant03 = ({ data = {}, index }) => {
       {/* Modal */}
       {shouldShowModal && (
         <Modal modalId={modalId}>
-          <div className="space-y-6">
+          <div className="space-y-6 pt-[1rem]">
             {/* Person Info */}
             <div className="flex items-start gap-5 pb-[1.85rem] border-b">
               {data?.avatar?.asset && (
