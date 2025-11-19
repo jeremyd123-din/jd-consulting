@@ -249,8 +249,8 @@ const TestimonialVariant03 = ({ data = {}, index, siteSettings }) => {
               {data?.avatar?.asset && (
                 <Image
                   className="flex-shrink-0 rounded-[100%] object-cover w-[100px] h-[100px]"
-                  width={500}
-                  height={500}
+                  width={200}
+                  height={200}
                   src={urlFor(data.avatar).url()}
                   alt={data.avatar.alt ?? ""}
                 />
