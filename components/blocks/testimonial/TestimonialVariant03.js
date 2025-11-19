@@ -79,7 +79,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const TestimonialVariant03 = ({ data = {}, index, siteSettings }) => {
+const TestimonialVariant03 = ({ data = {}, index }) => {
   // Generate a unique modal ID based on the component's _key
   const modalId = data._key ? `testimonial-modal-${data._key}` : null;
   const shouldShowModal = data.enable_modal && modalId;
@@ -256,11 +256,7 @@ const TestimonialVariant03 = ({ data = {}, index, siteSettings }) => {
 
       {/* Modal */}
       {shouldShowModal && (
-        <Modal
-          scopedCss={data.scoped_css}
-          siteSettings={siteSettings}
-          modalId={modalId}
-        >
+        <Modal modalId={modalId}>
           <div className="space-y-6">
             {/* Person Info */}
             <div className="flex items-start gap-5 pb-[1.85rem] border-b">
