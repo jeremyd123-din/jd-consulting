@@ -213,37 +213,35 @@ const TestimonialVariant03 = ({ data = {}, index }) => {
                         </div>
                       </ConditionalBlurFade>
                     )}
-                    {data.person_title && (
+                    {(data.person_linkedin_url ||
+                      getCleanValue(data.person_linkedin_url)) && (
                       <ConditionalBlurFade
                         enabled={data.enable_animations}
                         delay={0.35}
                       >
-                        <div className="c__heading-wrapper mb-[0]">
-                          <Heading
-                            tag={`span`}
-                            className={`u__small mb-0 u__f-400`}
-                          >
-                            {data.person_title}
-                          </Heading>
-                        </div>
-                      </ConditionalBlurFade>
-                    )}
-                    {getCleanValue(data.person_linkedin_url) && (
-                      <ConditionalBlurFade
-                        enabled={data.enable_animations}
-                        delay={0.4}
-                      >
-                        <div className="mt-[0.5rem]">
-                          <a
-                            href={getCleanValue(data.person_linkedin_url)}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="b__testimonial__variant03__linkedin-link"
-                            aria-label={`View ${getCleanValue(data.person_name) || "person"}'s LinkedIn profile`}
-                          >
-                            <FaLinkedin size={24} color="#0470ae" />
-                          </a>
-                        </div>
+                        {data.person_title && (
+                          <div className="c__heading-wrapper mb-[0]">
+                            <Heading
+                              tag={`span`}
+                              className={`u__small mb-0 u__f-400`}
+                            >
+                              {data.person_title}
+                            </Heading>
+                          </div>
+                        )}
+                        {getCleanValue(data.person_linkedin_url) && (
+                          <div className="mt-[0.5rem]">
+                            <a
+                              href={getCleanValue(data.person_linkedin_url)}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="b__testimonial__variant03__linkedin-link"
+                              aria-label={`View ${getCleanValue(data.person_name) || "person"}'s LinkedIn profile`}
+                            >
+                              <FaLinkedin size={24} color="#0470ae" />
+                            </a>
+                          </div>
+                        )}
                       </ConditionalBlurFade>
                     )}
                   </div>
