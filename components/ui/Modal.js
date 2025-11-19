@@ -68,7 +68,7 @@ const Modal = ({ children, modalId, siteSettings, scopedCss }) => {
     <>
       <Dialog className="c__modal" open={isOpen} onOpenChange={setIsOpen}>
         <StyledDialogContent
-          className="sm:max-w-[90vw] lg:max-w-[800px] max-h-[90vh] overflow-y-auto z-[99999999]"
+          className="sm:max-w-[90vw] lg:max-w-[800px] max-h-[90vh] overflow-y-auto z-[999999999999]"
           $scopedCss={scopedCss?.code || null}
         >
           <DialogTitle className="sr-only">Modal</DialogTitle>
